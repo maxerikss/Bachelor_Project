@@ -1,0 +1,43 @@
+\documentclass[12pt,titlepage]{article}
+
+\input{format/preamble}
+
+%%%
+\def\nameoflab{Name of Lab}
+\def\coursecode{Course code}
+
+\def\authorOne{Max Eriksson}
+\def\authorOneMail{maxerikss@gmail.com}
+\def\headerName{M. Eriksson}
+
+\def\supervisor{Super Visor}
+\def\supervisorMail{supervisor@mail.com}
+
+\begin{document}
+\include{format/titlepage}
+%\pagestyle{empty}
+\input{format/header}
+
+\tableofcontents
+
+\clearpage
+\setcounter{page}{1}
+
+\pagestyle{fancy}
+\doublespacing
+
+\input{paper/introduction}
+\input{paper/method}
+\input{paper/result}
+\input{paper/discussion}
+
+\clearpage
+\addcontentsline{toc}{section}{References}
+\begin{singlespace}
+\bibliographystyle{ieeetr}
+\bibliography{references.bib}
+\end{singlespace}
+
+%\include{paper/appendix}
+
+\end{document}
