@@ -3,8 +3,9 @@
   - [Quantum Computation and Quantum Information, Nielsen \& Chuang](#quantum-computation-and-quantum-information-nielsen--chuang)
   - [Quantum Measurement, Jordan \& Siddiqi](#quantum-measurement-jordan--siddiqi)
   - [Quantum Optics, Meystre](#quantum-optics-meystre)
-- [Articles](#articles)
+- [Theses](#theses)
   - [Continuous Measurements of Small Systems, Annby-Andersson](#continuous-measurements-of-small-systems-annby-andersson)
+- [Articles](#articles)
   - [A Straightforward Introduction to Continuous Quantum Measurements, Jacobs \& Steck](#a-straightforward-introduction-to-continuous-quantum-measurements-jacobs--steck)
 
 ___
@@ -28,8 +29,7 @@ ___
 * [ ] Section 5.2: Master Equation
 * [ ] Section 6.3: Continuous Measurements
 
-### Articles
-
+### Theses
 #### Continuous Measurements of Small Systems, Annby-Andersson
 * [x] Chapter 1: Introduction
 * [x] Chapter 2: Stochastic Processes and Parameter Estimation
@@ -37,6 +37,7 @@ ___
 * [x] Chapter 4: Continuous Measurements and Feedback Control
 * [ ] Paper II: Quantum Fokker-Planck Master Equation for Continuous Feedback Control
 
+### Articles
 #### A Straightforward Introduction to Continuous Quantum Measurements, Jacobs & Steck
 * [ ] Section 1: Introduction
 * [ ] Section 2: Describing an observer's state of knowledge of a quantum system
