@@ -23,7 +23,7 @@ ___
 * [ ] Chapter 10: Feedback Control
 
 #### Quantum Optics, Meystre
-* [ ] Section 2.1: Quantum Harmonic Oscillator
+* [x] Section 2.1: Quantum Harmonic Oscillator
 * [ ] Section 2.3: States of the Field
 * [ ] Section 2.5: Quasiprobability Distributions
 * [ ] Section 5.2: Master Equation
