@@ -24,15 +24,15 @@
 \usepackage{setspace}
 \usepackage{graphicx}
 \usepackage{subcaption}
-\usepackage[separate-uncertainty=true]{siunitx} %Use this for writing SI units
-\sisetup{
-  range-phrase=--,
-  detect-all,
-  output-decimal-marker={.},
-  range-units=single,
-  per-mode=reciprocal,
-  separate-uncertainty=false
-}
+%\usepackage[separate-uncertainty=true]{siunitx} %Use this for writing SI units
+%\sisetup{
+%  range-phrase=--,
+%  detect-all,
+%  output-decimal-marker={.},
+%  range-units=single,
+%  per-mode=reciprocal,
+%  separate-uncertainty=false
+%}
 \usepackage{physics} %A lot of useful short commands for writing math/physics
 \usepackage{url}
 \usepackage{verbatim}
@@ -76,3 +76,14 @@
 
 % using inkscapefiles
 \graphicspath{{figures/}}
+
+
+%% Macros
+\renewcommand{\a}{\hat{a}} % a
+\newcommand{\ad}{\hat{a}^{\dagger}} % a dagger
+\newcommand{\dt}{\partial_t} % partial t
+\newcommand{\dmatrix}{\hat{\rho}} % density matrix
+\newcommand{\hamiltonian}{\hat{H}} % Hamiltonian
+\newcommand{\nbar}{\bar{n}} % n bar
+\newcommand{\xop}{\hat{x}} % x operator
+\newcommand{\pop}{\hat{p}} % p operator

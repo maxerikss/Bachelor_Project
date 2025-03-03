@@ -24,7 +24,7 @@ ___
 
 #### Quantum Optics, Meystre
 * [x] Section 2.1: Quantum Harmonic Oscillator
-* [ ] Section 2.3: States of the Field
+* [x] Section 2.3: States of the Field
 * [ ] Section 2.5: Quasiprobability Distributions
 * [ ] Section 5.2: Master Equation
 * [ ] Section 6.3: Continuous Measurements

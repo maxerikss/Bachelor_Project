@@ -1,0 +1,69 @@
+\section{EOM Calculation}
+Consider a quantum harmonic oscillator described by the Hamiltonian
+\begin{equation}
+    \hat{H} = \hbar \omega ( \ad \a + 1/2 ).
+\end{equation}
+Consider also that the quantum harmonic oscillator is subject to a temperature bath and is continuously measured. The system then evolves according to the master equation
+\begin{equation}
+    \dt \dmatrix = -\frac{i}{\hbar} [\hamiltonian, \dmatrix] + \gamma (\nbar + 1 ) \mathcal{D}[\a] \dmatrix + \gamma \nbar \mathcal{D}[\ad] \dmatrix + \lambda \mathcal{D}[\hat{A}] \dmatrix \label{eq:master}
+\end{equation}
+where $\gamma$ is the damping rate, $\nbar$ is the thermal occupancy defined as 
+\begin{equation}
+    \nbar = \frac{1}{e^{\hbar \omega / k_B T} - 1},
+\end{equation}
+$\lambda$ is the measurement rate, $\hat{A}$ is the measurement operator, and $\mathcal{D}[\hat{O}]$ is the Lindblad super operator defined as
+\begin{equation}
+    \mathcal{D}[\hat{O}] \dmatrix = \hat{O} \dmatrix \hat{O}^\dagger - \frac{1}{2} \{ \hat{O}^\dagger \hat{O}, \dmatrix \}.
+\end{equation}
+Then we also have the quadrature operators defined as 
+\begin{equation}
+    \hat{x} = \sqrt{\frac{\hbar}{2 m \omega}} (\a + \ad), \quad \hat{p} = i \sqrt{\frac{m \omega \hbar}{2}} (\a - \ad).
+\end{equation}
+
+We want to find the equations of motion when measuring the position quadrature
+\begin{align}
+    \dt\expval{\xop^2} &= \tr(\xop^2 \dt \dmatrix)\label{eq:x2} \\
+    \dt\expval{\pop^2} &= \tr(\pop^2 \dt \dmatrix)\label{eq:p2}\\
+    \dt\expval{\acomm{\xop}{\pop}} &= \tr(\acomm{\xop}{\pop} \dt \dmatrix). \label{eq:xp}
+\end{align}
+We start by defining the Liouvillian super operator
+\begin{equation}
+    \mathcal{L}\dmatrix = -\frac{i}{\hbar} [\hamiltonian, \dmatrix] + \gamma (\nbar + 1 ) \mathcal{D}[\a] \dmatrix + \gamma \nbar \mathcal{D}[\ad] \dmatrix
+\end{equation}
+which turns the master equation into
+\begin{equation}
+    \dt \dmatrix = \mathcal{L}\dmatrix + \lambda \mathcal{D}[\hat{x}] \dmatrix.
+\end{equation}
+We can then write Eq. \eqref{eq:x2} as 
+\begin{equation}
+    \dt\expval{\xop^2} = \tr(\xop^2 \mathcal{L}\dmatrix) + \tr(\xop^2 \lambda \mathcal{D}[\hat{x}] \dmatrix)
+\end{equation}
+and then rewriting the left term using the creation and annihilation operators we get
+\begin{align}
+    \tr(\xop^2 \mathcal{L}\dmatrix) &= \frac{\hbar}{2m \omega} \tr((\a^2 + (\ad)^2 + \a\ad + \ad\a) \mathcal{L}\dmatrix )\\ 
+    &= \frac{\hbar}{2 m \omega} \left[ \tr(\a^2 \mathcal{L}\dmatrix) + \tr((\ad)^2 \mathcal{L}\dmatrix) + \tr(\a\ad \mathcal{L}\dmatrix) + \tr(\ad\a \mathcal{L}\dmatrix)\right]
+\end{align}
+Solving these separately
+\begin{align}
+    \tr(\a^2 \mathcal{L} \dmatrix) &= -\frac{i}{\hbar}\tr(\a^2\comm{\hamiltonian}{\dmatrix}) + \gamma(\nbar + 1)\tr(\a^2 \mathcal{D}[\a]\dmatrix) + \gamma \nbar \tr(\a^2 \mathcal{D}[\ad]\dmatrix)\\
+    &= -i\omega \tr(\a^2 \ad\a \dmatrix) + i \omega \tr(\a^2\dmatrix \ad\a)\\ 
+    &+ \gamma(\nbar + 1) \tr(\a^3 \dmatrix \ad)- \frac{\gamma(\nbar + 1)}{2} \tr(\a^2\ad\a \dmatrix) - \frac{\gamma(\nbar + 1)}{2} \tr(\a^2 \dmatrix \ad\a)\\
+    &+ \gamma \nbar \tr(\a^2\ad \dmatrix \a) - \frac{\gamma \nbar}{2} \tr(\a^3 \ad \dmatrix) - \frac{\gamma \nbar}{2} \tr(\a^2 \dmatrix \a\ad)\\
+\end{align}
+Using cyclic permutations of the trace and combining terms we get
+\begin{align}
+    \tr(\a^2 \mathcal{L} \dmatrix) &=  i\omega \tr(\comm{\ad\a}{\a^2}\dmatrix) + \frac{\gamma (\nbar + 1)}{2} \tr(\comm{\ad\a}{\a^2}\dmatrix) + \frac{\gamma \nbar}{2}\tr(\comm{\a^2}{\a\ad}\dmatrix)
+\end{align}
+The commutators are
+\begin{align}
+    \comm{\ad\a}{\a^2} &= \comm{\ad}{\a^2}\a = \a\comm{\ad}{\a}\a + \comm{\ad}{\a}\a^2 = -2 \a^2 \\
+    \comm{\a^2}{\a\ad} &= \a\comm{\a^2}{\ad} = \a^2 \comm{\a}{\ad}+ \a\comm{\a}{\ad}\a = 2\a^2
+\end{align}
+Thus
+\begin{align}
+    \tr(\a^2 \mathcal{L} \dmatrix) &=  -2i\omega \tr(\a^2 \dmatrix) - \gamma(\nbar + 1) \tr(\a^2 \dmatrix) + \gamma \nbar \tr(\a^2 \dmatrix) = -(\gamma + 2i\omega) \tr(\a^2 \dmatrix)
+\end{align}
+By taking the hermition conjugate of the above we get
+\begin{equation}
+    \tr((\ad)^2 \mathcal{L} \dmatrix) = (\gamma - 2i\omega) \tr((\ad)^2 \dmatrix)
+\end{equation}
