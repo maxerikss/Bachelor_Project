@@ -48,7 +48,7 @@ Solving these separately
     \tr(\a^2 \mathcal{L} \dmatrix) &= -\frac{i}{\hbar}\tr(\a^2\comm{\hamiltonian}{\dmatrix}) + \gamma(\nbar + 1)\tr(\a^2 \mathcal{D}[\a]\dmatrix) + \gamma \nbar \tr(\a^2 \mathcal{D}[\ad]\dmatrix)\\
     &= -i\omega \tr(\a^2 \ad\a \dmatrix) + i \omega \tr(\a^2\dmatrix \ad\a)\\ 
     &+ \gamma(\nbar + 1) \tr(\a^3 \dmatrix \ad)- \frac{\gamma(\nbar + 1)}{2} \tr(\a^2\ad\a \dmatrix) - \frac{\gamma(\nbar + 1)}{2} \tr(\a^2 \dmatrix \ad\a)\\
-    &+ \gamma \nbar \tr(\a^2\ad \dmatrix \a) - \frac{\gamma \nbar}{2} \tr(\a^3 \ad \dmatrix) - \frac{\gamma \nbar}{2} \tr(\a^2 \dmatrix \a\ad)\\
+    &+ \gamma \nbar \tr(\a^2\ad \dmatrix \a) - \frac{\gamma \nbar}{2} \tr(\a^3 \ad \dmatrix) - \frac{\gamma \nbar}{2} \tr(\a^2 \dmatrix \a\ad)
 \end{align}
 Using cyclic permutations of the trace and combining terms we get
 \begin{align}
@@ -65,5 +65,30 @@ Thus
 \end{align}
 By taking the hermition conjugate of the above we get
 \begin{equation}
-    \tr((\ad)^2 \mathcal{L} \dmatrix) = (\gamma - 2i\omega) \tr((\ad)^2 \dmatrix)
+    \tr((\ad)^2 \mathcal{L} \dmatrix) = (\gamma - 2i\omega) \tr((\ad)^2 \dmatrix).
+\end{equation}
+
+Now we do the same for $\tr(\ad\a\mathcal{L}\dmatrix)$, so
+\begin{align}
+    \tr(\ad\a\mathcal{L}\dmatrix) &= -\frac{i}{\hbar}\tr(\ad\a\comm{\hamiltonian}{\dmatrix}) + \gamma(\nbar + 1)\tr(\ad\a\mathcal{D}[\a]\dmatrix) + \gamma \nbar \tr(\ad\a\mathcal{D}[\ad]\dmatrix)\\
+    &= -i\omega \tr(\ad\a\ad\a\dmatrix) + i\omega \tr(\ad\a\dmatrix\ad\a)\\
+    &+ \gamma(\nbar + 1)\tr(\ad\a^2\dmatrix\ad) - \frac{\gamma(\nbar + 1)}{2}\tr(\ad\a\ad\a\dmatrix) - \frac{\gamma(\nbar + 1)}{2}\tr(\ad\a\dmatrix\ad\a)\\
+    &+ \gamma\nbar\tr(\ad\a\ad\dmatrix\a) - \frac{\gamma\nbar}{2}\tr(\ad\a^2\ad\dmatrix) - \frac{\gamma\nbar}{2}\tr(\ad\a\dmatrix\a\ad)
+\end{align}
+using cyclic permutations of the trace and combining terms we get
+\begin{align}
+    \tr(\ad\a\mathcal{L}\dmatrix) &= i\omega\tr(\comm{\ad\a}{\ad\a}\dmatrix) + \gamma(\nbar + 1) \tr((\ad)^2\a^2 \dmatrix) -\gamma (\nbar + 1)\tr(\ad\a\ad\a\dmatrix)\\
+    &+ \gamma\nbar\tr(\a\ad\a\ad\dmatrix) - \frac{\gamma \nbar}{2} \tr(\ad\a^2\ad\dmatrix) - \frac{\gamma \nbar}{2} \tr(\a (\ad)^2 \a \dmatrix)
+\end{align}
+Commuting to simplify we get
+\begin{align}
+    \tr(\ad\a\mathcal{L}\dmatrix) &= - \gamma(\nbar + 1) \tr(\ad\a\dmatrix) - \gamma \nbar \tr(\comm{\a\ad}{\ad\a} \dmatrix) + \gamma \nbar \tr(\a\ad\dmatrix)
+\end{align}
+The commutator is equal to 0, and thus we get
+\begin{equation}
+    \tr(\ad\a\mathcal{L}\dmatrix) = - \gamma(\nbar + 1) \tr(\ad\a\dmatrix) +\gamma \nbar + \gamma\nbar \tr(\ad\a\dmatrix) = -\gamma \tr(\ad\a\dmatrix) + \gamma\nbar
+\end{equation}
+Similarly we can find that
+\begin{equation}
+    \tr(\a\ad\mathcal{L}\dmatrix) = -\gamma \tr(\a\ad\dmatrix) + \gamma(\nbar + 1).
 \end{equation}
