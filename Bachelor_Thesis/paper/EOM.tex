@@ -96,5 +96,14 @@ Similarly we can find that
 Then since $\xop^2$ commutes with $\xop$ (the measurement operator) we can write Eq. \eqref{eq:x2b} the equation of motion
 \begin{align}
     \dt\expval{\xop^2} &= \tr(\xop^2\liouvillian\dmatrix) \\
-    &= \frac{\hbar}{2 m \omega} \left( -(\gamma + 2 i \omega)\expval{\a^2} -(\gamma - 2 i \omega)\expval{(\ad)^2} - \gamma\expval{\ad\a} + \gamma\nbar - \gamma\expval{\a\ad} + \gamma(\nbar+1) \right)
+    &= \frac{\hbar}{2 m \omega} \left( -(\gamma + 2 i \omega)\expval{\a^2} -(\gamma - 2 i \omega)\expval{(\ad)^2} - \gamma\expval{\ad\a} + \gamma\nbar - \gamma\expval{\a\ad} + \gamma(\nbar+1) \right)\\
+    &= -\gamma \frac{\hbar}{2 m \omega} \left( \expval{\a^2} + \expval{(\ad)^2} + \expval{\ad\a} + \expval{\a\ad} \right) + \frac{i\hbar}{m}\left( \expval{(\ad)^2} - \expval{\a^2} \right) + \frac{\gamma \hbar}{m\omega}(\nbar + 1/2)
 \end{align}
+Since we have
+\begin{equation}
+    \acomm{\xop}{\pop} = i\hbar ((\ad)^2 - \a^2)
+\end{equation}
+We can write the equation of motion as
+\begin{equation}
+    \dt\expval{\xop^2} = - \gamma \expval{\xop^2} - \frac{1}{m}\expval{\acomm{\xop}{\pop}} + \frac{\gamma \hbar}{m\omega}(\nbar + 1/2)
+\end{equation}
