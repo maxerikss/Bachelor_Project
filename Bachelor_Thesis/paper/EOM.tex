@@ -34,7 +34,8 @@ which turns the master equation into
 \begin{equation}
     \dt \dmatrix = \mathcal{L}\dmatrix + \lambda \mathcal{D}[\hat{x}] \dmatrix.
 \end{equation}
-We can then write Eq. \eqref{eq:x2} as 
+\subsection{Solving for $\dt\expval{\xop^2}$}
+We can write Eq. \eqref{eq:x2} as 
 \begin{equation}
     \dt\expval{\xop^2} = \tr(\xop^2 \mathcal{L}\dmatrix) + \tr(\xop^2 \lambda \mathcal{D}[\hat{x}] \dmatrix)\label{eq:x2b}
 \end{equation}
@@ -107,3 +108,45 @@ We can write the equation of motion as
 \begin{equation}
     \dt\expval{\xop^2} = - \gamma \expval{\xop^2} + \frac{1}{m}\expval{\acomm{\xop}{\pop}} + \frac{\gamma \hbar}{m\omega}(\nbar + 1/2)
 \end{equation}
+
+\subsection{Solving for $\dt\expval{\pop^2}$}
+Writing Eq. \eqref{eq:p2} as 
+\begin{equation}
+    \dt\expval{\pop^2} = \tr(\pop^2 \mathcal{L}\dmatrix) + \tr(\pop^2 \lambda \mathcal{D}[\hat{x}] \dmatrix)\label{eq:p2b}
+\end{equation}
+Rewriting the left terms using $\a,\ad$ we get
+\begin{align}
+    \tr(\pop^2\liouvillian\dmatrix) &= -\frac{m\omega \hbar}{2} \tr((\a^2 + (\ad)^2 - \ad\a - \a\ad)\liouvillian\dmatrix)\\
+    &= -\frac{m\omega \hbar}{2} \left( \tr(\a^2\liouvillian\dmatrix) + \tr((\ad)^2\liouvillian\dmatrix) - \tr(\ad\a\liouvillian\dmatrix) - \tr(\a\ad\liouvillian\dmatrix) \right)
+\end{align}
+We have solved for these before, so we can write 
+\begin{align}
+    \tr(\pop^2\liouvillian\dmatrix) &= -\frac{m\omega \hbar}{2} \left( -(\gamma + 2i\omega) \expval{\a^2} -(\gamma - 2i\omega) \expval{(\ad)^2} +\gamma \expval{\ad\a} - \gamma\nbar +\gamma \expval{\a\ad} - \gamma(\nbar + 1)  \right)\\
+    &= -\gamma \expval{\pop^2} + m i\omega^2 \hbar \left( \expval{\a^2} - \expval{(\ad)^2} \right) + \gamma m \omega\hbar (\nbar + 1/2)\\
+    &= -\gamma \expval{\pop^2} - m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2)
+\end{align}
+
+Solving the measurement term
+\begin{align}
+    \tr(\pop^2 \lambda \super{\xop} \dmatrix) &= \lambda \left( \tr(\pop^2 \xop \dmatrix \xop) - \frac{1}{2}\tr(\pop^2 \xop^2 \dmatrix) - \frac{1}{2} \tr(\pop^2 \dmatrix \xop^2) \right)\\
+    &= \lambda \left( \tr(\xop \pop^2 \xop \dmatrix) - \frac{1}{2} \tr(\pop^2 \xop^2 \dmatrix) - \frac{1}{2} \tr(\xop^2 \pop^2 \dmatrix) \right)
+\end{align}
+Commuting the operators
+\begin{align}
+    \xop \pop^2 \xop &= \frac{1}{2}(\pop\xop + i\hbar)\pop\xop + \frac{1}{2}\xop\pop(\xop\pop -i\hbar) = \frac{1}{2}\pop\xop\pop\xop + \frac{1}{2} \xop\pop\xop\pop + \frac{i\hbar}{2} \comm{\pop}{\xop}\\
+    &=\frac{1}{2}\pop\xop\pop\xop + \frac{1}{2} \xop\pop\xop\pop +\frac{\hbar^2}{2}\\
+    \pop^2 \xop^2 &= \pop (\xop\pop -i\hbar)\xop = \pop\xop\pop\xop - i\hbar \pop\xop\\
+    \xop^2 \pop^2 &= \xop(\pop\xop + i\hbar)\pop = \xop\pop\xop\pop + i\hbar \xop\pop
+\end{align}
+This gives 
+\begin{align}
+    \tr(\pop^2 \lambda \super{\xop} \dmatrix) &= \lambda \left(  \frac{1}{2}\tr(\pop\xop\pop\xop \dmatrix) + \frac{1}{2} \tr(\xop\pop\xop\pop\dmatrix) + \frac{\hbar^2}{2} -\frac{1}{2}\tr(\pop\xop\pop\xop \dmatrix) - \frac{1}{2} \tr(\xop\pop\xop\pop\dmatrix) + \frac{i\hbar}{2}\tr(\comm{\pop}{\xop}) \right)\\
+    &= \frac{\lambda \hbar^2}{2} + \frac{\lambda i \hbar}{2} \tr(\comm{\pop}{\xop}) = \lambda \hbar^2
+\end{align}
+
+The final equation of motion then becomes
+\begin{equation}
+    \dt\expval{\pop^2} = -\gamma \expval{\pop^2} - m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2) + \lambda \hbar^2
+\end{equation}
+
+\subsection{Solving for $\dt\expval{\acomm{\xop}{\pop}}$}
