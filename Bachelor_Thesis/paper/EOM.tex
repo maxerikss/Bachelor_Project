@@ -150,3 +150,37 @@ The final equation of motion then becomes
 \end{equation}
 
 \subsection{Solving for $\dt\expval{\acomm{\xop}{\pop}}$}
+Writing Eq. \eqref{eq:xp} as
+\begin{equation}
+    \dt\expval{\acomm{\xop}{\pop}} = \tr(\acomm{\xop}{\pop} \liouvillian \dmatrix) + \tr(\acomm{\xop}{\pop} \lambda \super{\xop} \dmatrix)
+\end{equation}
+Rewriting the left term as 
+\begin{equation}
+    \tr(\acomm{\xop}{\pop}\liouvillian \dmatrix) = i\hbar \tr((\a^2 - (\ad)^2)\liouvillian \dmatrix) = i\hbar \tr(\a^2 \liouvillian \dmatrix) - i\hbar \tr((\ad)^2 \liouvillian \dmatrix)
+\end{equation}
+We have calculated these terms before, so we can write
+\begin{align}
+    \tr(\acomm{\xop}{\pop}\liouvillian \dmatrix) &= -i\hbar \left(  (\gamma + 2i\omega) \expval{\a^2} - (\gamma - 2 i \omega) \expval{(\ad)^2} \right)\\
+    &= -\gamma  i\hbar \left( \expval{\a^2} - \expval{(\ad)^2} \right) + 2\hbar\omega \left(\expval{\a^2} + \expval{(\ad)^2} \right)
+\end{align}
+We also have that
+\begin{equation}
+    \a^2 +(\ad)^2 = \frac{m\omega}{\hbar} \xop^2 - \frac{1}{m\omega \hbar} \pop^2
+\end{equation}
+Thus we get
+\begin{equation}
+    \tr(\acomm{\xop}{\pop}\liouvillian \dmatrix) =  -\gamma \expval{\acomm{\xop}{\pop}} + 2 m \omega^2 \expval{\xop^2} - \frac{2}{m} \expval{\pop^2}
+\end{equation}
+Solving for the measurement term
+\begin{align}
+    \lambda \tr(\acomm{\xop}{\pop}\super{\xop} \dmatrix) &= \frac{\lambda}{2} \left( \tr(\comm{\xop^2}{\pop\xop}\dmatrix) + \tr(\comm{\xop\pop}{\xop^2}) \right)
+\end{align}
+Solving the commutators shows that this will become zero.
+
+\subsection{Results}
+The final equations of motion are
+\begin{align}
+    \dt\expval{\xop^2} &= - \gamma \expval{\xop^2} + \frac{1}{m}\expval{\acomm{\xop}{\pop}} + \frac{\gamma \hbar}{m\omega}(\nbar + 1/2)\\
+    \dt\expval{\pop^2} &= -\gamma \expval{\pop^2} - m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2) + \lambda \hbar^2\\
+    \dt\expval{\acomm{\xop}{\pop}} &= -\gamma \expval{\acomm{\xop}{\pop}} + 2 m \omega^2 \expval{\xop^2} - \frac{2}{m} \expval{\pop^2}
+\end{align}
