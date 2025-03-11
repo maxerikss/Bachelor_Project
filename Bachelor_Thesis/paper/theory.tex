@@ -1,6 +1,17 @@
 \section{Theoretical Framework}
+\subsection{Quantum Harmonic Oscillator}
+The quantum harmonic oscillator (QHO) is a quantum mechanical system useful for many applications. This stems from the fact that many systems can be approximated as harmonic close to their equilibrium position, and since the QHO is a simple system, possible to solve analytically it is a good starting approximation. The system has the Hamiltonian
+\begin{equation}
+    \hamiltonian = \frac{\pop^2}{2m} + \frac{1}{2}m\omega^2\xop^2 = \hbar\omega\left(\ad\a + \frac{1}{2}\right),
+\end{equation}
+where $\pop$ and $\xop$ are the momentum and position operators, $m$ is the mass of the particle, and $\omega$ is the angular frequency of the oscillator. The operators $\ad$ and $\a$ are the creation and annihilation operators, which are defined as
+\begin{equation}
+    \a = \sqrt{\frac{m\omega}{2\hbar}} \left(\xop + \frac{i}{m\omega} \pop\right) \quad \text{and} \quad \ad = \sqrt{\frac{m\omega}{2\hbar}} \left(\xop - \frac{i}{m\omega} \pop\right).
+\end{equation}
+It is also reasonable to mention the number operator $\hat{n} = \ad\a$ which has the number states, or Fock states, $\ket{n}$ as its eigenstates.
+
 \subsection{Open Quantum Systems}
-\subsection{Lindblad Master Equation}
+\subsubsection{Master Equation}
 \subsection{Continuous Measurements}
 \subsection{Feedback Control}
 \subsection{Wigner Function}
