@@ -40,5 +40,16 @@ where $T$ is the temperature of the bath and $k_\mathrm{B}$ is the Boltzmann con
 
 
 \subsection{Continuous Measurements}
+Measurement is a process which introduces decoherence in the system, and it is therefore interesting to look at its effects \cite{Jordan:2024}. The simplest view on measurements takes the form of von Neumann measurements. This type of measurement is described by a set of measurement operators which projects the system onto the eigenstates of the observable \cite{Annby-Andersson:2024}. This essentially means that all quantum information in the system is lost and full decoherence has happened. By generalizing the measurement theory one can derive what is called positive operator-valued measurement (POVM) \cite{Annby-Andersson:2024}.
+
+Since the POVM is not necessarily a projective von Neumann measurement all coherence need not be lost after the measurement. Thus, this opens up for the possibility of performing time continuous weak measurement \cite{Annby-Andersson:2024}. To describe this type of POVM we first consider a Gaussian measurement operator
+\begin{equation}
+    \hat{K} = \left(\frac{2 \bar{\lambda}}{\pi}\right)^{1/4} e^{-\bar{\lambda}(z - \hat{A})^2},
+\end{equation}
+where $\bar{\lambda}$ represents the strength of the measurement, $z$ is a continuous outcome of the measurement, and $\hat{A}$ is the measured observable \cite{Annby-Andersson:2024}. Then by discretizing the time interval to segments of $\dd t$ and defining $\bar{\lambda} = \lambda \dd t$ we approach a situation where in the limit $\dd t \to 0$ all measurements will be weak, and the coherence of the system is minimally affected \cite{Annby-Andersson:2024}. Considering the stochastic nature of the process and averaging the possible trajectories one can derive the master equation \cite{Annby-Andersson:2024} in Lindblad form to be 
+\begin{equation}
+    \dt\dmatrix = \liouvillian\dmatrix + \lambda \super{\hat{A}} \dmatrix.
+\end{equation}
+
 \subsection{Feedback Control}
 \subsection{Wigner Function}
