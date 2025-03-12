@@ -40,7 +40,7 @@ for g in gamma:
 ax.set_xlabel(r"$\lambda / \omega$")
 ax.set_ylabel(r"$\langle \tilde{x}^2 \rangle$")
 ax.legend()
-plt.savefig("../Bachelor_Thesis/figures/x2_vs_lambda.pdf")
+plt.savefig("../Bachelor_Thesis/figures/x2_vs_lambda.pdf", bbox_inches="tight")
 
 #%%
 # Plotting x^2 vs Q with varying lambda
@@ -58,7 +58,7 @@ for l in lamda:
 ax.set_xlabel(r"$Q$")
 ax.set_ylabel(r"$\langle \tilde{x}^2 \rangle$")
 ax.legend()
-plt.savefig("../Bachelor_Thesis/figures/x2_vs_Q.pdf")
+plt.savefig("../Bachelor_Thesis/figures/x2_vs_Q.pdf", bbox_inches="tight")
 #%%
 # Plotting p^2 against lambda with varying Q factor
 omega = 1
@@ -74,7 +74,7 @@ for g in gamma:
 ax.set_xlabel(r"$\lambda / \omega$")
 ax.set_ylabel(r"$\langle \tilde{p}^2 \rangle$")
 ax.legend()
-plt.savefig("../Bachelor_Thesis/figures/p2_vs_lambda.pdf")
+plt.savefig("../Bachelor_Thesis/figures/p2_vs_lambda.pdf", bbox_inches="tight")
 #%%
 # Plotting p^2 against Q with varying lambda
 omega = 1
@@ -90,7 +90,7 @@ for l in lamda:
 ax.set_xlabel(r"$Q$")
 ax.set_ylabel(r"$\langle \tilde{p}^2 \rangle$")
 ax.legend()
-plt.savefig("../Bachelor_Thesis/figures/p2_vs_Q.pdf")
+plt.savefig("../Bachelor_Thesis/figures/p2_vs_Q.pdf", bbox_inches="tight")
 #%%
 # Plotting E against lambda with varying Q factor
 omega = 1
@@ -106,7 +106,7 @@ for g in gamma:
 ax.set_xlabel(r"$\lambda / \omega$")
 ax.set_ylabel(r"$\langle \tilde{E} \rangle$")
 ax.legend()
-plt.savefig("../Bachelor_Thesis/figures/E_vs_lambda.pdf")
+plt.savefig("../Bachelor_Thesis/figures/E_vs_lambda.pdf", bbox_inches="tight")
 #%%
 # Plotting E against Q with varying lambda
 omega = 1
@@ -117,9 +117,9 @@ kbT = 10
 fig, ax = plt.subplots(1,1)
 
 for l in lamda:
-    ax.plot(omega/gamma, p2(omega, l, gamma, kbT), label = fr"$\lambda = {l:.2f}$")
+    ax.plot(omega/gamma, E(omega, l, gamma, kbT), label = fr"$\lambda = {l:.2f}$")
 
 ax.set_xlabel(r"$Q$")
 ax.set_ylabel(r"$\langle \tilde{E} \rangle$")
 ax.legend()
-plt.savefig("../Bachelor_Thesis/figures/E_vs_Q.pdf")
+plt.savefig("../Bachelor_Thesis/figures/E_vs_Q.pdf", bbox_inches="tight")
