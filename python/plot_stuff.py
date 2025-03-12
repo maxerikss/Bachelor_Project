@@ -106,6 +106,8 @@ for g in gamma:
 ax.set_xlabel(r"$\lambda / \omega$")
 ax.set_ylabel(r"$\langle \tilde{E} \rangle$")
 ax.legend()
+plt.title(r"$E = \frac{\hbar \omega}{2} \left( \langle\tilde{p}^2 \rangle + \langle\tilde{x}^2\rangle \right)$ with $k_\mathrm{B}T = 10$",
+          pad=10)
 plt.savefig("../Bachelor_Thesis/figures/E_vs_lambda.pdf", bbox_inches="tight")
 #%%
 # Plotting E against Q with varying lambda
@@ -122,4 +124,6 @@ for l in lamda:
 ax.set_xlabel(r"$Q$")
 ax.set_ylabel(r"$\langle \tilde{E} \rangle$")
 ax.legend()
+plt.title(r"$E = \frac{\hbar \omega}{2} \left( \langle\tilde{p}^2 \rangle + \langle\tilde{x}^2\rangle \right)$ with $k_\mathrm{B}T = 10$",
+          pad=10)
 plt.savefig("../Bachelor_Thesis/figures/E_vs_Q.pdf", bbox_inches="tight")
