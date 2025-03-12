@@ -2,7 +2,7 @@
 \subsection{Quantum Harmonic Oscillator}
 The quantum harmonic oscillator (QHO) is a quantum mechanical system useful for many applications. This stems from the fact that many systems can be approximated as harmonic close to their equilibrium position, and since the QHO is a simple system, which is possible to solve analytically it is a good starting approximation. The system has the Hamiltonian
 \begin{equation}
-    \hamiltonian = \frac{\pop^2}{2m} + \frac{1}{2}m\omega^2\xop^2 = \hbar\omega\left(\ad\a + \frac{1}{2}\right),
+    \hamiltonian = \frac{\pop^2}{2m} + \frac{1}{2}m\omega^2\xop^2 = \hbar\omega\left(\ad\a + \frac{1}{2}\right), \label{eq:hamiltonian}
 \end{equation}
 where $\pop$ and $\xop$ are the momentum and position operators, $m$ is the mass of the particle, and $\omega$ is the angular frequency of the oscillator. The operators $\ad$ and $\a$ are the creation and annihilation operators, which are defined as
 \begin{equation}
@@ -17,7 +17,7 @@ The thermal coupling will lead to dissipation of quantum information from the sy
 
 The combination of the system and environment can be considered a closed system, though more complicated than the main system itself. Then by performing a partial trace over the environment a description of the system alone arises at the cost of losing information about the correlation between the two parts \cite{Annby-Andersson:2024}. This introduces an uncertainty in the state, and it is therefore necessary to treat the resulting system to be in a mixed state. If the coupling is also weak the system, after the environment has been traced over, will follow a Markovian master equation \cite{Annby-Andersson:2024}.
 
-\subsubsection{Master Equation}
+\subsubsection{Master Equation}\label{sec:mastereq}
 The evolution of an open quantum system can be described by a master equation, which is a differential equation and generalization of the Schrödinger equation to involve open quantum systems instead of pure states \cite{Annby-Andersson:2024}. By introducing the super operator
 \begin{equation}
     \super{\hat{L}_k}\dmatrix = \hat{L}_k\dmatrix\hat{L}_k^{\dagger} - \frac{1}{2} \acomm{\hat{L}_k^\dagger \hat{L}_k}{\dmatrix},
@@ -48,7 +48,7 @@ Since the POVM is not necessarily a projective von Neumann measurement all coher
 \end{equation}
 where $\bar{\lambda}$ represents the strength of the measurement, $z$ is a continuous outcome of the measurement, and $\hat{A}$ is the measured observable \cite{Annby-Andersson:2024}. Then by discretizing the time interval to segments of $\dd t$ and defining $\bar{\lambda} = \lambda \dd t$ we approach a situation where in the limit $\dd t \to 0$ all measurements will be weak, and the coherence of the system is minimally affected \cite{Annby-Andersson:2024}. Considering the stochastic nature of the process and averaging the possible trajectories one can derive the master equation \cite{Annby-Andersson:2024} in Lindblad form to be 
 \begin{equation}
-    \dt\dmatrix = \liouvillian\dmatrix + \lambda \super{\hat{A}} \dmatrix.
+    \dt\dmatrix = \liouvillian\dmatrix + \lambda \super{\hat{A}} \dmatrix. \label{eq:masterMeas}
 \end{equation}
 
 \subsection{Feedback Control}
