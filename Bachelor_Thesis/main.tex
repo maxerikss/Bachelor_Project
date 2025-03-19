@@ -8,11 +8,16 @@
 
 \begin{document}
 \include{format/titlepage}
-%\pagestyle{empty}
 \input{format/header}
 
+\pagestyle{plain}
+\pagenumbering{roman}
+\printglossary[type=\acronymtype]
+\newpage
 \input{paper/acknowledgement.tex}
+\newpage
 \input{paper/abstract.tex}
+\newpage
 \input{paper/popscience.tex}
 \newpage
 
@@ -22,6 +27,7 @@
 \setcounter{page}{1}
 
 \pagestyle{fancy}
+\pagenumbering{arabic}
 \doublespacing
 
 \input{paper/introduction}
