@@ -17,26 +17,21 @@ for more detailed calculations see App. \ref{app:eom}. Performing a change of va
 \end{equation}
 we can solve for the steady state. By introducing the quality factor $Q = \omega / \gamma$ we obtain the steady state solutions
 \begin{align}
-    \expval{\tilde{x}^2} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \frac{2 Q^3}{4Q^2 - 1},\\
-    \expval{\tilde{p}^2} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \left( Q - \frac{2Q^3}{4Q^2 - 1} \right),\\
-    E &= \expval{\tilde{H}} = \frac{\hbar \omega}{2} \left( \expval{\tilde{p}^2} + \expval{\tilde{x}^2} \right).
+    \expval{\tilde{x}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \frac{2 Q^3}{4Q^2 - 1},\\
+    \expval{\tilde{p}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \left( Q - \frac{2Q^3}{4Q^2 - 1} \right),\\
+    E_\mathrm{ss} &= \expval{\tilde{H}}_\mathrm{ss} = \frac{\hbar \omega}{2} \left( \expval{\tilde{p}^2} + \expval{\tilde{x}^2} \right).\label{eq:energy}
 \end{align}
-Plotting the energy of the system 
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[t]{0.48\textwidth}
         \includegraphics[width=\textwidth]{figures/E_vs_lambda}
-        \caption{The energy plotted against $\lambda / \omega$ with varying $Q$.}
-        \label{fig:E_vs_lambda}
     \end{subfigure}
     \hfill
     \begin{subfigure}[t]{0.48\textwidth}
         \includegraphics[width=\textwidth]{figures/E_vs_Q}
-        \caption{The energy plotted against $Q$ with varying $\lambda$.}
-        \label{fig:E_vs_Q}
     \end{subfigure}
-    \caption{The energy plotted against $\lambda / \omega$ and $Q$ with the parameters $k_\mathrm{B}T = 10$ and $\omega = 1$. This gives $\nbar + 1/2 \approx 10 $}.
+    \caption{Both figures show the plot in Eq. \eqref{eq:energy} with the parameters $k_\mathrm{B}T = 10$ and $\omega = \hbar = 1$. \textbf{Figure a} is plotted against $\lambda / \omega$ and with three different values for $Q$. All three lines are linear, and the slope increases for increasing $Q$. \textbf{Figure b} is plotted against $Q$ and three different values of $\lambda$. All three lines are linear, and the slope increases for increasing $\lambda$.}
     \label{fig:E_plots}
 \end{figure}
-Looking at Fig. \ref{fig:E_plots} one can see that a stronger measurement correlates to the system steady state increasing in energy. It is also noteworthy that the same applies for the quality factor. Thus, by continuously measuring the system we add energy into it, which make the steady state higher in energy than what the thermal effects from the bath would otherwise place it. 
+Looking at Fig. \ref{fig:E_plots} one can see that a stronger measurement correlates to the system steady state increasing in energy, as does it for an increasing quality factor. Thus, by continuously measuring the system we add energy into it, which make the steady state higher in energy than what the thermal effects from the bath would otherwise place it. 

@@ -8,14 +8,24 @@ where $\pop$ and $\xop$ are the momentum and position operators, $m$ is the mass
 \begin{equation}
     \a = \sqrt{\frac{m\omega}{2\hbar}} \left(\xop + \frac{i}{m\omega} \pop\right) \quad \text{and} \quad \ad = \sqrt{\frac{m\omega}{2\hbar}} \left(\xop - \frac{i}{m\omega} \pop\right).
 \end{equation}
-These operators can be used to define the number operator $\hat{n} = \ad\a$ which has the number states, or Fock states, $\ket{n}$ as its eigenstates.
+These operators can be used to define the number operator $\hat{n} = \ad\a$ which has the number states, or Fock states, $\ket{n}$ as its eigenstates. 
 
 \subsection{Open Quantum Systems}
+Before introducing what open quantum systems we will shortly introduce the language of density matrices. A density matrix describes an ensemble of states defined as 
+\begin{equation}
+    \dmatrix = \sum_i p_i \ket{\psi_i} \bra{\psi_i},
+\end{equation}
+where there is probability $p_i$ for the system to be prepared in the state $\ket{\psi_i}$ \cite{Nielsen:2010}. Two conditions imposed on a density matrix is that it I) has unit trace, and II) is positive semi-definite \cite{Nielsen:2010}. These conditions ensure that the probabilities are $0 \leq p_i \leq 1$ and $\sum_i p_i = 1$ and that the density matrix is hermitian. With this we can reformulate the postulates of quantum mechanics using density matrices \cite{Nielsen:2010}.
+
 With an open quantum system we mean a quantum system which in some ways interact with an environment. This interaction could be described as a thermal coupling between the main system and some temperature bath. This will cause the system to be in a thermal equilibrium with the environment if left alone, and therefore it will be dependent on the temperature. Unless the temperature of the bath is zero, the system will be in a mixed state, described by a density matrix $\dmatrix$. Notably, if the temperature is zero, the system is purely dissipative since the coupling is thermal. \cite{Annby-Andersson:2024}
 
 The thermal coupling to the environment will lead to dissipation of quantum information from the system to the environment. During this process, the system loses coherence. That is, the quantum mechanical properties of the system are lost and a classical description of the state becomes more appropriate. The coherence of the system is manifested in the off-diagonal elements of the density matrix. If the off-diagonal elements are zero, either by dissipation to the environment or by other means of decoherence, the system will exist in a classical probabilistic state, and any superposition of states will be lost. \cite{Annby-Andersson:2024}
 
-The combination of the system and environment can be considered a closed system, though more complicated than the main system itself. Then, by performing a partial trace over the environment, a description of the system alone arises at the cost of losing information about the correlation between the two parts \cite{Annby-Andersson:2024}. This introduces an uncertainty in the state, and it is therefore necessary to treat the resulting system to be in a mixed state. If the coupling is also weak, the system, after the environment has been traced over, will follow a Markovian master equation \cite{Annby-Andersson:2024}.
+The combination of the system and environment can be considered a closed system, though more complicated than the main system itself. Then, by performing a partial trace over the environment, a description of the system alone arises at the cost of losing information about the correlation between the two parts \cite{Annby-Andersson:2024}. This introduces an uncertainty in the state, and it is therefore necessary to treat the resulting system to be in a mixed state. To describe the evolution of this system with a master equation two approximations about the coupling need to be performed. Firstly, we need to consider the Born approximation, which says that the coupling between the system and environment is such that only negligible excitations appear in the environment \cite{Breuer:2007}. The other approximation is the Markov approximation saying that the excitations that do appear in the environment will decay much faster than the timescale that the system varies on, and that the system's time evolution is only affected by the current state of the system and not previous states \cite{Breuer:2007}. Together these approximations allow us to write the total density matrix as 
+\begin{equation}
+    \rho_\mathrm{SE} = \rho_\mathrm{S} \otimes \rho_\mathrm{E},
+\end{equation}
+and derive a Markovian master equation.
 
 \subsubsection{Master Equation}\label{sec:mastereq}
 The evolution of an open quantum system can be described by a master equation, which is a differential equation and generalization of the Schrödinger equation to involve open quantum systems instead of pure states \cite{Annby-Andersson:2024}. By introducing the super operator
