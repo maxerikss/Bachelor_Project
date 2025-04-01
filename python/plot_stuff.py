@@ -2,8 +2,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+plt.rc('font',**{'family':'serif','serif':['Computer Modern'], 'size':'16'})
 plt.rcParams['text.usetex'] = True
-plt.rcParams['font.size'] = 16
+#plt.rcParams['font.size'] = 16
 
 #%%
 
@@ -106,8 +107,8 @@ for g in gamma:
     ax.plot(lamda/omega, E(omega, lamda, g, kbT), label = fr"$Q = {omega/g:.2f}$")
 
 ax.set_xlabel(r"$\lambda / \omega$")
-ax.set_ylabel(r"$\langle \tilde{E} \rangle$")
-ax.text(0.5, 14, "a", fontsize=20)
+ax.set_ylabel(r"$\langle \tilde{E} \rangle / \hbar\omega$")
+ax.text(0, 11, r"\textbf{a}", fontsize=20, fontfamily="serif")
 ax.legend()
 plt.savefig("../Bachelor_Thesis/figures/E_vs_lambda.pdf", bbox_inches="tight")
 #%%
@@ -124,8 +125,8 @@ for l in lamda:
     ax.plot(omega/gamma, E(omega, l, gamma, kbT), label = fr"$\lambda = {l:.2f}$")
 
 ax.set_xlabel(r"$Q$")
-ax.set_ylabel(r"$\langle \tilde{E} \rangle$")
-ax.text(0.5, 14, "b", fontsize=20)
+ax.set_ylabel(r"$\langle \tilde{E} \rangle / \hbar\omega$")
+ax.text(0.5, 14, r"\textbf{b}", fontsize=20)
 ax.legend()
 plt.savefig("../Bachelor_Thesis/figures/E_vs_Q.pdf", bbox_inches="tight")
 

@@ -1,16 +1,21 @@
 \section{Theoretical Framework}
-\subsection{Quantum Harmonic Oscillator}
-The \gls{qho} is a quantum mechanical system useful for many applications. This stems from the fact that many systems can be approximated as harmonic, that is quadratic, close to their equilibrium position, and since the QHO is a simple system, which is possible to solve analytically it is a good starting approximation. Let us start by assuming that a particle with mass $m$ is confined in a harmonic potential, then the system has the Hamiltonian
+\subsection{Quantum Harmonic Oscillator} \label{sec:qho}
+The \gls{qho} is a quantum mechanical system useful for many applications. This stems from the fact that many systems can be approximated as harmonic, that is quadratic, close to their equilibrium position, and since the QHO is a simple system, which is possible to solve analytically it is a good starting approximation. Let us start by assuming that a bosonic particle with mass $m$ is confined in a harmonic potential, then the system has the Hamiltonian
 \begin{equation}
     \hamiltonian = \frac{\pop^2}{2m} + \frac{1}{2}m\omega^2\xop^2 = \hbar\omega\left(\ad\a + \frac{1}{2}\right), \label{eq:hamiltonian}
 \end{equation}
-where $\pop$ and $\xop$ are the momentum and position operators, $m$ is the mass of the particle, and $\omega$ is the angular frequency of the oscillator. The operators $\ad$ and $\a$ are the creation and annihilation operators, which are defined as
+where $\pop$ and $\xop$ are the momentum and position operators, $m$ is the mass of the particle, and $\omega$ is the angular frequency of the oscillator. The operators $\ad$ and $\a$ are the creation and annihilation operators, collectively referred to as the ladder operators, which are defined as
 \begin{equation}
     \a = \sqrt{\frac{m\omega}{2\hbar}} \left(\xop + \frac{i}{m\omega} \pop\right) \quad \text{and} \quad \ad = \sqrt{\frac{m\omega}{2\hbar}} \left(\xop - \frac{i}{m\omega} \pop\right).
 \end{equation}
-These operators can be used to define the number operator $\hat{n} = \ad\a$ which has the number states, or Fock states, $\ket{n}$ as its eigenstates. 
+These operators can be used to define the number operator $\hat{n} = \ad\a$ which has the number states, or Fock states, $\ket{n}$ as its eigenstates with eigenvalue $n$ \cite{Meystre:2021}. The ladder operators have a useful the commutation relation $\comm{\a}{\ad} = \mathbb{1}$. The Fock states are also eigenstates to the ladder operators with properties
+\begin{align}
+    \a \ket{n} = \sqrt{n} \ket{n-1},\\
+    \ad \ket{n} = \sqrt{n+1} \ket{n+1},
+\end{align}
+which means that they change the excitation level of the QHO \cite{Meystre:2021}.
 
-\subsection{Open Quantum Systems}
+\subsection{Open Quantum Systems} \label{sec:open}
 Before introducing what open quantum systems we will shortly introduce the language of density matrices. A density matrix describes an ensemble of states defined as 
 \begin{equation}
     \dmatrix = \sum_i p_i \ket{\psi_i} \bra{\psi_i},
@@ -42,11 +47,11 @@ where $\hamiltonian$ is the Hamiltonian of the system, and $\gamma_k$ are the de
 \end{equation}
 This compactness will be useful when considering other types of perturbing effects on the system such as measurements and feedback \cite{Annby-Andersson:2024}.
 
-For the special case considered in this thesis where the system is a QHO, the Lindblad operators can be chosen as $\hat{L}_1 = \a$ and $\hat{L}_2 = \ad$ with coefficients $\gamma_1 = \gamma(\nbar + 1)$ and $\gamma_2 = \gamma \nbar$, where $\gamma$ is a decay rate and $\nbar$ is the thermal occupation number which can be written as 
+In the case considered in this thesis with a QHO coupled to a thermal reservoir we can imagine that we have two types of decay. One decay of particles into the system and one decay of particles out of the system \cite{Meystre:2021}. As mentioned in Sec. \ref{sec:qho} the ladder operators can be used to excite or deexcite a system. It is also reasonable to assume that the decay, or the amount of particles flowing between the systems and the environment, is proportional to the thermal excitation $\nbar$ defined by
 \begin{equation}
     \nbar = \frac{1}{e^{\hbar\omega/ k_\mathrm{B}T} - 1},
 \end{equation}
-where $T$ is the temperature of the bath and $k_\mathrm{B}$ is the Boltzmann constant \cite{Meystre:2021}. We can also note that $\hat{L}_1$ and $\gamma_1$ refer to the spontaneous emission from the system to the environment while $\hat{L}_2$ refer to spontaneous absorption from the environment to the system \cite{Meystre:2021}. Notably, for $T=0$, the thermal occupation is $\nbar = 0$ and the system will only exhibit emission and will decay.
+where $T$ is the temperature of the bath and $k_\mathrm{B}$ is the Boltzmann constant \cite{Meystre:2021}. If one goes through the mathematical proof one can show that the Lindblad operators can be chosen as $\hat{L}_1 = \a$ and $\hat{L}_2 = \ad$ with coefficients $\gamma_1 = \gamma(\nbar + 1)$ and $\gamma_2 = \gamma \nbar$, wher $\gamma$ is a decay rate. We can also note that $\hat{L}_1$ and $\gamma_1$ refer to the spontaneous emission from the system to the environment while $\hat{L}_2$ refer to spontaneous absorption from the environment to the system, consistent with what we know about ladded operators from Sec. \ref{sec:qho} \cite{Meystre:2021}. Notably, for $T=0$, the thermal occupation is $\nbar = 0$ and the system will only exhibit emission and will decay.
 
 
 \subsection{Continuous Measurements}

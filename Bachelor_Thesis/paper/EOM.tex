@@ -5,7 +5,7 @@ Consider a quantum harmonic oscillator described by the Hamiltonian
 \end{equation}
 Consider also that the quantum harmonic oscillator is subject to a temperature bath and is continuously measured. The system then evolves according to the master equation
 \begin{equation}
-    \dt \dmatrix = -\frac{i}{\hbar} [\hamiltonian, \dmatrix] + \gamma (\nbar + 1 ) \mathcal{D}[\a] \dmatrix + \gamma \nbar \mathcal{D}[\ad] \dmatrix + \lambda \mathcal{D}[\hat{A}] \dmatrix \label{eq:master}
+    \dt \dmatrix = -\frac{i}{\hbar} [\hamiltonian, \dmatrix] + \gamma (\nbar + 1 ) \mathcal{D}[\a] \dmatrix + \gamma \nbar \mathcal{D}[\ad] \dmatrix + \lambda \mathcal{D}[\hat{A}] \dmatrix \label{eq:app_master}
 \end{equation}
 where $\gamma$ is the damping rate, $\nbar$ is the thermal occupancy defined as 
 \begin{equation}
@@ -22,9 +22,9 @@ Then we also have the quadrature operators defined as
 
 We want to find the equations of motion when measuring the position quadrature
 \begin{align}
-    \dt\expval{\xop^2} &= \tr(\xop^2 \dt \dmatrix)\label{eq:x2} \\
-    \dt\expval{\pop^2} &= \tr(\pop^2 \dt \dmatrix)\label{eq:p2}\\
-    \dt\expval{\acomm{\xop}{\pop}} &= \tr(\acomm{\xop}{\pop} \dt \dmatrix). \label{eq:xp}
+    \dt\expval{\xop^2} &= \tr(\xop^2 \dt \dmatrix)\label{eq:app_x2} \\
+    \dt\expval{\pop^2} &= \tr(\pop^2 \dt \dmatrix)\label{eq:app_p2}\\
+    \dt\expval{\acomm{\xop}{\pop}} &= \tr(\acomm{\xop}{\pop} \dt \dmatrix). \label{eq:app_xp}
 \end{align}
 We start by defining the Liouvillian super operator
 \begin{equation}
@@ -35,9 +35,9 @@ which turns the master equation into
     \dt \dmatrix = \mathcal{L}\dmatrix + \lambda \mathcal{D}[\hat{x}] \dmatrix.
 \end{equation}
 \subsection{Solving for $\dt\expval{\xop^2}$}
-We can write Eq. \eqref{eq:x2} as 
+We can write Eq. \eqref{eq:app_x2} as 
 \begin{equation}
-    \dt\expval{\xop^2} = \tr(\xop^2 \mathcal{L}\dmatrix) + \tr(\xop^2 \lambda \mathcal{D}[\hat{x}] \dmatrix)\label{eq:x2b}
+    \dt\expval{\xop^2} = \tr(\xop^2 \mathcal{L}\dmatrix) + \tr(\xop^2 \lambda \mathcal{D}[\hat{x}] \dmatrix)\label{eq:app_x2b}
 \end{equation}
 and then rewriting the left term using the creation and annihilation operators we get
 \begin{align}
@@ -94,7 +94,7 @@ Similarly we can find that
 \begin{equation}
     \tr(\a\ad\mathcal{L}\dmatrix) = -\gamma \tr(\a\ad\dmatrix) + \gamma(\nbar + 1) = -\gamma \expval{\a\ad} + \gamma(\nbar + 1).
 \end{equation}
-Then since $\xop^2$ commutes with $\xop$ (the measurement operator) we can write Eq. \eqref{eq:x2b} the equation of motion
+Then since $\xop^2$ commutes with $\xop$ (the measurement operator) we can write Eq. \eqref{eq:app_x2b} the equation of motion
 \begin{align}
     \dt\expval{\xop^2} &= \tr(\xop^2\liouvillian\dmatrix) \\
     &= \frac{\hbar}{2 m \omega} \left( -(\gamma + 2 i \omega)\expval{\a^2} -(\gamma - 2 i \omega)\expval{(\ad)^2} - \gamma\expval{\ad\a} + \gamma\nbar - \gamma\expval{\a\ad} + \gamma(\nbar+1) \right)\\
@@ -110,9 +110,9 @@ We can write the equation of motion as
 \end{equation}
 
 \subsection{Solving for $\dt\expval{\pop^2}$}
-Writing Eq. \eqref{eq:p2} as 
+Writing Eq. \eqref{eq:app_p2} as 
 \begin{equation}
-    \dt\expval{\pop^2} = \tr(\pop^2 \mathcal{L}\dmatrix) + \tr(\pop^2 \lambda \mathcal{D}[\hat{x}] \dmatrix)\label{eq:p2b}
+    \dt\expval{\pop^2} = \tr(\pop^2 \mathcal{L}\dmatrix) + \tr(\pop^2 \lambda \mathcal{D}[\hat{x}] \dmatrix)\label{eq:app_p2b}
 \end{equation}
 Rewriting the left terms using $\a,\ad$ we get
 \begin{align}
@@ -150,7 +150,7 @@ The final equation of motion then becomes
 \end{equation}
 
 \subsection{Solving for $\dt\expval{\acomm{\xop}{\pop}}$}
-Writing Eq. \eqref{eq:xp} as
+Writing Eq. \eqref{eq:app_xp} as
 \begin{equation}
     \dt\expval{\acomm{\xop}{\pop}} = \tr(\acomm{\xop}{\pop} \liouvillian \dmatrix) + \tr(\acomm{\xop}{\pop} \lambda \super{\xop} \dmatrix)
 \end{equation}

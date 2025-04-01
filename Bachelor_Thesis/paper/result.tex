@@ -5,7 +5,8 @@ Consider a QHO described by the Hamiltonian in Eq. \eqref{eq:hamiltonian} which 
     \dt\expval{\pop^2} &= \tr(\pop^2 \dt \dmatrix)\label{eq:p2},\\
     \dt\expval{\acomm{\xop}{\pop}} &= \tr(\acomm{\xop}{\pop} \dt \dmatrix). \label{eq:xp}
 \end{align}
-Solving these equations yields the following EOM
+The choice of looking at the second momenta has to do with their relation to the variance and thus the fluctuations of the system. These fluctuations are then related to the energy contained in the oscillator. When looking at feedback control and interesting application is to minimize the energy in the oscillator and, which is thus also an argument for looking at the second momenta.
+Solving Eqs. \eqref{eq:x2} to \eqref{eq:xp} yields the following EOM
 \begin{align}
     \dt\expval{\xop^2} &= - \gamma \expval{\xop^2} + \frac{1}{m}\expval{\acomm{\xop}{\pop}} + \frac{\gamma \hbar}{m\omega}(\nbar + 1/2),\\
     \dt\expval{\pop^2} &= -\gamma \expval{\pop^2} - m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2) + \lambda \hbar^2,\\
@@ -18,9 +19,13 @@ for more detailed calculations see App. \ref{app:eom}. Performing a change of va
 we can solve for the steady state. By introducing the quality factor $Q = \omega / \gamma$ we obtain the steady state solutions
 \begin{align}
     \expval{\tilde{x}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \frac{2 Q^3}{4Q^2 - 1},\\
-    \expval{\tilde{p}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \left( Q - \frac{2Q^3}{4Q^2 - 1} \right),\\
-    E_\mathrm{ss} &= \expval{\tilde{H}}_\mathrm{ss} = \frac{\hbar \omega}{2} \left( \expval{\tilde{p}^2} + \expval{\tilde{x}^2} \right).\label{eq:energy}
+    \expval{\tilde{p}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \left( Q - \frac{2Q^3}{4Q^2 - 1} \right),
 \end{align}
+One interesting aspects of the equations is that both equations have identical terms capturing the thermal aspect of the fluctuations. Another interesting thing is that without measurement the equations are only thermal, which is to be expected, however, we get a denominator which diverges for $Q=1/2$ for both terms. One explanation for this could be that the assumptions and approximations made in the end of Sec. \ref{sec:open} about the strength of the coupling makes the master equation invalid for $Q$ of this size. Interestingly, when calculating the energy of the steady state the diverging terms cancel each other, and we get
+\begin{equation}
+    E_\mathrm{ss} = \expval{\tilde{H}}_\mathrm{ss} = \frac{\hbar \omega}{2} \left( \expval{\tilde{p}^2} + \expval{\tilde{x}^2} \right) = \hbar\omega (\nbar + 1/2)+ \frac{\lambda \hbar^2}{2 m\omega} Q
+    \label{eq:energy}
+\end{equation}
 
 \begin{figure}[ht]
     \centering
@@ -34,4 +39,4 @@ we can solve for the steady state. By introducing the quality factor $Q = \omega
     \caption{Both figures show the plot in Eq. \eqref{eq:energy} with the parameters $k_\mathrm{B}T = 10$ and $\omega = \hbar = 1$. \textbf{Figure a} is plotted against $\lambda / \omega$ and with three different values for $Q$. All three lines are linear, and the slope increases for increasing $Q$. \textbf{Figure b} is plotted against $Q$ and three different values of $\lambda$. All three lines are linear, and the slope increases for increasing $\lambda$.}
     \label{fig:E_plots}
 \end{figure}
-Looking at Fig. \ref{fig:E_plots} one can see that a stronger measurement correlates to the system steady state increasing in energy, as does it for an increasing quality factor. Thus, by continuously measuring the system we add energy into it, which make the steady state higher in energy than what the thermal effects from the bath would otherwise place it. 
+Looking at Fig. \ref{fig:E_plots} one can see that a stronger measurement correlates to the system steady state increasing in energy, as does it for an increasing quality factor. Both also affect the system linearly. Thus, by continuously measuring the system we add energy into it, which make the steady state higher in energy than what the thermal effects from the bath would otherwise place it. That is, if we do not perform any measurement the system would be stable at around $\nbar + 1/2$ which for the parameters used here would give $\expval{\tilde{E}} \approx 10\hbar\omega$
