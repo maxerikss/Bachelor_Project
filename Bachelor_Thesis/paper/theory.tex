@@ -61,9 +61,9 @@ Since the POVM is not necessarily a projective von Neumann measurement all coher
 \begin{equation}
     \hat{K}(z) = \left(\frac{2 \bar{\lambda}}{\pi}\right)^{1/4} e^{-\bar{\lambda}(z - \hat{A})^2},
 \end{equation}
-where $\bar{\lambda}$ represents the strength of the measurement, $z$ is a continuous outcome of the measurement, and $\hat{A}$ is the measured observable \cite{Annby-Andersson:2024}. We note that the outcome of such a measurement is described by
+where $\bar{\lambda}$ represents the strength of the measurement, $z$ is a continuous outcome of the measurement, and $\hat{A}$ is the measured observable \cite{Annby-Andersson:2024}. We note that the average outcome of such a measurement is described by
 \begin{equation}
-    \expval{\hat{A}} = \frac{\hat{K}(z) \dmatrix \hat{K}^\dagger(z)}{p(z)},
+    \expval{\hat{A}} =  \int \dd z \frac{\hat{K}(z) \dmatrix \hat{K}^\dagger(z)}{p(z)},
 \end{equation}
 where the probability is defined as $p(z) = \tr( \hat{K}^\dagger(z) \hat{K}(z) \dmatrix )$ \cite{Annby-Andersson:2024}.
 
