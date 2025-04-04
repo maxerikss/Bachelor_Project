@@ -59,9 +59,15 @@ Measurement is a process which introduces decoherence in the system, and it is t
 
 Since the POVM is not necessarily a projective von Neumann measurement all coherence need not be lost after the measurement. Thus, this opens up for the possibility of performing time continuous weak measurement \cite{Annby-Andersson:2024}. To describe this type of POVM we first consider a Gaussian measurement operator
 \begin{equation}
-    \hat{K} = \left(\frac{2 \bar{\lambda}}{\pi}\right)^{1/4} e^{-\bar{\lambda}(z - \hat{A})^2},
+    \hat{K}(z) = \left(\frac{2 \bar{\lambda}}{\pi}\right)^{1/4} e^{-\bar{\lambda}(z - \hat{A})^2},
 \end{equation}
-where $\bar{\lambda}$ represents the strength of the measurement, $z$ is a continuous outcome of the measurement, and $\hat{A}$ is the measured observable \cite{Annby-Andersson:2024}. Then by discretizing the time interval to segments of $\dd t$ and defining $\bar{\lambda} = \lambda \dd t$ we approach a situation where in the limit $\dd t \to 0$ all measurements will be weak, and the coherence of the system is minimally affected \cite{Annby-Andersson:2024}. Considering the stochastic nature of the process and averaging the possible trajectories one can derive the master equation \cite{Annby-Andersson:2024} in Lindblad form to be 
+where $\bar{\lambda}$ represents the strength of the measurement, $z$ is a continuous outcome of the measurement, and $\hat{A}$ is the measured observable \cite{Annby-Andersson:2024}. We note that the outcome of such a measurement is described by
+\begin{equation}
+    \expval{\hat{A}} = \frac{\hat{K}(z) \dmatrix \hat{K}^\dagger(z)}{p(z)},
+\end{equation}
+where the probability is defined as $p(z) = \tr( \hat{K}^\dagger(z) \hat{K}(z) \dmatrix )$ \cite{Annby-Andersson:2024}.
+
+Then by discretizing the time interval to segments of $\dd t$ and defining $\bar{\lambda} = \lambda \dd t$ we approach a situation where in the limit $\dd t \to 0$ all measurements will be weak, and the coherence of the system is minimally affected \cite{Annby-Andersson:2024}. Considering the stochastic nature of the process and averaging the possible trajectories one can derive the master equation \cite{Annby-Andersson:2024} in Lindblad form to be 
 \begin{equation}
     \dt\dmatrix = \liouvillian\dmatrix + \lambda \super{\hat{A}} \dmatrix. \label{eq:masterMeas}
 \end{equation}
