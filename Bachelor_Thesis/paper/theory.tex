@@ -67,4 +67,22 @@ where $\bar{\lambda}$ represents the strength of the measurement, $z$ is a conti
 \end{equation}
 
 \subsection{Feedback Control}
+Until this point we have only considered measurements where we omit the information about the measurement outcome. That is, we interact with the system and look at how it evolves due to this interaction on average, instead of looking at the specific outcome of any given measurement \cite{Annby-Andersson:2024}. However, now we want to consider feedback control of the system, and thus we will need to include the information about the measurement outcome \cite{Annby-Andersson:2024}. Specifically, for a measurement outcome $z$ we will consider a linear feedback modification of $\liouvillian$ such that 
+\begin{equation}
+    \liouvillian \to \liouvillian + z \feedback,
+\end{equation}  
+where $\feedback$ is a superoperator describing the feedback on the system \cite{Annby-Andersson:2024} which takes the form
+\begin{equation}
+    \feedback\dmatrix = - \frac{i}{\hbar} \comm{\hamiltonian_\mathrm{d}}{\dmatrix},
+\end{equation}
+where $\hamiltonian_\mathrm{d}$ is the Hamiltonian of the driving force on the system. We will consider a driving Hamiltonian which is linear on the form
+\begin{equation}
+    \hamiltonian_\mathrm{d} = f^* \a + f \ad,
+\end{equation}
+where $f$ is the feedback amplitude \cite{Wiseman:2009}. Starting from the same place as one derives Eq. \eqref{eq:masterMeas} we can derive a master equation including feedback \cite{Annby-Andersson:2024} to be
+\begin{equation}
+    \dt\dmatrix = \liouvillian\dmatrix + \lambda \super{\hat{A}} \dmatrix + \frac{1}{2} \feedback \acomm{\hat{A}}{\dmatrix} + \frac{1}{8\lambda} \feedback^2 \dmatrix,
+\end{equation}
+where the square on $\feedback$ means $ \feedback^2 \dmatrix = \feedback ( \feedback \dmatrix)$.
+
 \subsection{Wigner Function}
