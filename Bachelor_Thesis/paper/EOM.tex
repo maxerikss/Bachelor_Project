@@ -102,11 +102,11 @@ Then since $\xop^2$ commutes with $\xop$ (the measurement operator) we can write
 \end{align}
 Since we have
 \begin{equation}
-    \acomm{\xop}{\pop} = i\hbar ((\ad)^2 - \a^2)
+    \acomm{\xop}{\pop} = i\hbar ( \a^2 - (\ad)^2 )
 \end{equation}
 We can write the equation of motion as
 \begin{equation}
-    \dt\expval{\xop^2} = - \gamma \expval{\xop^2} + \frac{1}{m}\expval{\acomm{\xop}{\pop}} + \frac{\gamma \hbar}{m\omega}(\nbar + 1/2)
+    \dt\expval{\xop^2} = - \gamma \expval{\xop^2} - \frac{1}{m}\expval{\acomm{\xop}{\pop}} + \frac{\gamma \hbar}{m\omega}(\nbar + 1/2)
 \end{equation}
 
 \subsection{Solving for $\dt\expval{\pop^2}$}
@@ -123,7 +123,7 @@ We have solved for these before, so we can write
 \begin{align}
     \tr(\pop^2\liouvillian\dmatrix) &= -\frac{m\omega \hbar}{2} \left( -(\gamma + 2i\omega) \expval{\a^2} -(\gamma - 2i\omega) \expval{(\ad)^2} +\gamma \expval{\ad\a} - \gamma\nbar +\gamma \expval{\a\ad} - \gamma(\nbar + 1)  \right)\\
     &= -\gamma \expval{\pop^2} + m i\omega^2 \hbar \left( \expval{\a^2} - \expval{(\ad)^2} \right) + \gamma m \omega\hbar (\nbar + 1/2)\\
-    &= -\gamma \expval{\pop^2} - m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2)
+    &= -\gamma \expval{\pop^2} + m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2)
 \end{align}
 
 Solving the measurement term
@@ -146,7 +146,7 @@ This gives
 
 The final equation of motion then becomes
 \begin{equation}
-    \dt\expval{\pop^2} = -\gamma \expval{\pop^2} - m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2) + \lambda \hbar^2
+    \dt\expval{\pop^2} = -\gamma \expval{\pop^2} + m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2) + \lambda \hbar^2
 \end{equation}
 
 \subsection{Solving for $\dt\expval{\acomm{\xop}{\pop}}$}
@@ -180,7 +180,7 @@ Solving the commutators shows that this will become zero.
 \subsection{Results}
 The final equations of motion are
 \begin{align}
-    \dt\expval{\xop^2} &= - \gamma \expval{\xop^2} + \frac{1}{m}\expval{\acomm{\xop}{\pop}} + \frac{\gamma \hbar}{m\omega}(\nbar + 1/2)\\
-    \dt\expval{\pop^2} &= -\gamma \expval{\pop^2} - m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2) + \lambda \hbar^2\\
+    \dt\expval{\xop^2} &= - \gamma \expval{\xop^2} - \frac{1}{m}\expval{\acomm{\xop}{\pop}} + \frac{\gamma \hbar}{m\omega}(\nbar + 1/2)\\
+    \dt\expval{\pop^2} &= -\gamma \expval{\pop^2} + m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2) + \lambda \hbar^2\\
     \dt\expval{\acomm{\xop}{\pop}} &= -\gamma \expval{\acomm{\xop}{\pop}} + 2 m \omega^2 \expval{\xop^2} - \frac{2}{m} \expval{\pop^2}
 \end{align}

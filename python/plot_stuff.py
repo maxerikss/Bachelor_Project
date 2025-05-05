@@ -35,13 +35,14 @@ lamda = np.linspace(0, 2, 200)
 kbT = 10
 
 fig, ax = plt.subplots(1,1)
+fig.set_size_inches(6,4)
 
 for g in gamma:
     ax.plot(lamda/omega, x2(omega, lamda, g, kbT), label = fr"$Q = {omega/g:.2f}$")
 
 ax.set_xlabel(r"$\lambda / \omega$")
 ax.set_ylabel(r"$\langle \tilde{x}^2 \rangle$")
-ax.text(0, 11, r"\textbf{a}", fontsize=20)
+ax.text(0, 11, r"\textbf{c}", fontsize=20)
 ax.legend()
 plt.savefig("../Bachelor_Thesis/figures/x2_vs_lambda.pdf", bbox_inches="tight")
 
@@ -54,13 +55,14 @@ gamma = np.linspace(0.2, 1.5, 200)
 kbT = 10
 
 fig, ax = plt.subplots(1,1)
+fig.set_size_inches(6,4)
 
 for l in lamda:
     ax.plot(omega/gamma, x2(omega, l, gamma, kbT), label = fr"$\lambda = {l:.2f}$")
 
 ax.set_xlabel(r"$Q$")
 ax.set_ylabel(r"$\langle \tilde{x}^2 \rangle$")
-ax.text(0.7, 12, r"\textbf{b}", fontsize=20)
+ax.text(0.7, 12, r"\textbf{d}", fontsize=20)
 ax.legend()
 plt.savefig("../Bachelor_Thesis/figures/x2_vs_Q.pdf", bbox_inches="tight")
 #%%
@@ -71,13 +73,14 @@ lamda = np.linspace(0, 2, 200)
 kbT = 10
 
 fig, ax = plt.subplots(1,1)
+fig.set_size_inches(6,4)
 
 for g in gamma:
     ax.plot(lamda/omega, p2(omega, lamda, g, kbT), label = fr"$Q = {omega/g:.2f}$")
 
 ax.set_xlabel(r"$\lambda / \omega$")
 ax.set_ylabel(r"$\langle \tilde{p}^2 \rangle$")
-ax.text(0, 10.8, r"\textbf{a}", fontsize=20)
+ax.text(0, 10.8, r"\textbf{e}", fontsize=20)
 ax.legend()
 plt.savefig("../Bachelor_Thesis/figures/p2_vs_lambda.pdf", bbox_inches="tight")
 #%%
@@ -88,13 +91,14 @@ gamma = np.linspace(0.1, 1.8, 200)
 kbT = 10
 
 fig, ax = plt.subplots(1,1)
+fig.set_size_inches(6,4)
 
 for l in lamda:
     ax.plot(omega/gamma, p2(omega, l, gamma, kbT), label = fr"$\lambda = {l:.2f}$")
 
 ax.set_xlabel(r"$Q$")
 ax.set_ylabel(r"$\langle \tilde{p}^2 \rangle$")
-ax.text(0.5, 13, r"\textbf{b}", fontsize=20)
+ax.text(0.5, 13, r"\textbf{f}", fontsize=20)
 ax.legend()
 plt.savefig("../Bachelor_Thesis/figures/p2_vs_Q.pdf", bbox_inches="tight")
 #%%

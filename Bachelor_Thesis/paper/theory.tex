@@ -61,9 +61,9 @@ Since the POVM is not necessarily a projective von Neumann measurement all coher
 \begin{equation}
     \hat{K}(z) = \left(\frac{2 \bar{\lambda}}{\pi}\right)^{1/4} e^{-\bar{\lambda}(z - \hat{A})^2},
 \end{equation}
-where $\bar{\lambda}$ represents the strength of the measurement, $z$ is a continuous outcome of the measurement, and $\hat{A}$ is the measured observable \cite{Annby-Andersson:2024}. We note that the average outcome of such a measurement is described by
+where $\bar{\lambda}$ represents the strength of the measurement, $z$ is a continuous outcome of the measurement, and $\hat{A}$ is the measured observable \cite{Annby-Andersson:2024}. We note that the post measurement state of such a measurement is described by
 \begin{equation}
-    \expval{\hat{A}} =  \int \dd z \frac{\hat{K}(z) \dmatrix \hat{K}^\dagger(z)}{p(z)},
+    \dmatrix_\mathrm{post} =  \frac{\hat{K}(z) \dmatrix \hat{K}^\dagger(z)}{p(z)},
 \end{equation}
 where the probability is defined as $p(z) = \tr( \hat{K}^\dagger(z) \hat{K}(z) \dmatrix )$ \cite{Annby-Andersson:2024}.
 
@@ -79,15 +79,15 @@ Until this point we have only considered measurements where we omit the informat
 \end{equation}  
 where $\feedback$ is a superoperator describing the feedback on the system \cite{Annby-Andersson:2024} which takes the form
 \begin{equation}
-    \feedback\dmatrix = - \frac{i}{\hbar} \comm{\hamiltonian_\mathrm{d}}{\dmatrix},
+    \feedback\dmatrix = - \frac{i}{\hbar} \comm{\hamiltonian_\mathrm{c}}{\dmatrix},
 \end{equation}
-where $\hamiltonian_\mathrm{d}$ is the Hamiltonian of the driving force on the system. We will consider a driving Hamiltonian which is linear on the form
+where $\hamiltonian_\mathrm{c}$ is the control Hamiltonian of the system. We will consider a control Hamiltonian which is linear on the form
 \begin{equation}
-    \hamiltonian_\mathrm{d} = f^* \a + f \ad,
+    \hamiltonian_\mathrm{c} = f^* \a + f \ad,
 \end{equation}
 where $f$ is the feedback amplitude \cite{Wiseman:2009}. Starting from the same place as one derives Eq. \eqref{eq:masterMeas} we can derive a master equation including feedback \cite{Annby-Andersson:2024} to be
 \begin{equation}
-    \dt\dmatrix = \liouvillian\dmatrix + \lambda \super{\hat{A}} \dmatrix + \frac{1}{2} \feedback \acomm{\hat{A}}{\dmatrix} + \frac{1}{8\lambda} \feedback^2 \dmatrix,
+    \dt\dmatrix = \liouvillian\dmatrix + \lambda \super{\hat{A}} \dmatrix + \frac{1}{2} \feedback \acomm{\hat{A}}{\dmatrix} + \frac{1}{8\lambda} \feedback^2 \dmatrix, \label{eq:masterFeed}
 \end{equation}
 where the square on $\feedback$ means $ \feedback^2 \dmatrix = \feedback ( \feedback \dmatrix)$.
 
