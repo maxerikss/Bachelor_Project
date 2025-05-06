@@ -47,16 +47,58 @@ Solving these equations we find
 \end{align}
 Then when solving for the steady state we find 
 \begin{equation}
-    \expval{\xop} = \expval{\pop} = 0.
+    \expval{\xop} = \expval{\pop} = 0. \label{eq:xp0}
 \end{equation}
-This result also confirms the intuition that for a harmonic oscillator, the system is stable around the origin. It also shows that the variance of the system is only dependent on the first momenta, since
+This result also confirms the intuition that for a harmonic oscillator, the system has a steady state around the origin. To check for stability we can rewrite the equation as an eigenvalue problem and solve for the eigenvalues. That is, for the matrix
+\begin{equation}
+    \mathcal{M} = \begin{pmatrix}
+        -\gamma/2 & -1/m \\
+        m\omega^2 & -\gamma/2
+    \end{pmatrix}
+\end{equation}
+the eigenvalues are 
+\begin{align}
+    \lambda_1 &= -\frac{\gamma}{2} - i\omega,\\
+    \lambda_2 &= -\frac{\gamma}{2} + i\omega.
+\end{align}
+Since the real part of the eigenvalues are negative the system is stable.
+
+Eq. \eqref{eq:xp0} also shows that the variance of the system is only dependent on the first momenta, since
 \begin{equation}
     \sigma^2_{\hat{A}} = \expval{\hat{A}^2} - \expval{\hat{A}}^2
 \end{equation}
 for an operator $\hat{A}$. It is also an easy calculation then to show that for temperature $T=0$ and without measurement we have equality in the Heisenberg uncertainty relation, justifying the accuracy of the results, and the approximations made in the derivation of the master equation.
 
 \subsection{Feedback}
-We now consider a feedback mechanism on the oscillator described by Eq. \eqref{eq:masterFeed} which is a linear feedback scheme. Solving for the same EOM as before we obtain
+We now consider a feedback mechanism on the oscillator described by Eq. \eqref{eq:masterFeed} which is a linear feedback scheme. Solving for the first momenta's EOM we find 
+\begin{align}
+    \dt\expval{\xop} &= - \left(\frac{\gamma}{2} + \frac{2 \im{f}}{\sqrt{2 m \omega \hbar}} \right)\expval{\xop} - \frac{1}{m} \expval{\pop},\\
+    \dt\expval{\pop} &= -\frac{\gamma}{2}\expval{\pop} + \left(\re{f} \sqrt{\frac{2 m \omega}{\hbar}} + m \omega^2 \right) \expval{\xop}.
+\end{align}
+Choosing $f$ such that
+\begin{equation}
+    \re{f} = - \sqrt{\frac{m \omega^3 \hbar}{2}} \quad \text{and} \quad \im{f} = -\frac{\gamma\sqrt{m\omega\hbar}}{2\sqrt{2}} \label{eq:reFimF_toZero}
+\end{equation}
+The system of equations reduces to
+\begin{align}
+    \dt\expval{\xop} &= - \frac{1}{m} \expval{\pop},\\
+    \dt\expval{\pop} &= -\frac{\gamma}{2} \expval{\pop},
+\end{align}
+which has a steady state solution for $\expval{\pop} = 0$ and any $\expval{\xop}$. To check for stability we can again rewrite the equations as an eigenvalue problem with matrix
+\begin{equation}
+    \mathcal{M} = 
+    \begin{pmatrix}
+        - \left(\frac{\gamma}{2} + \frac{2 \im{f}}{\sqrt{2 m \omega \hbar}} \right) & - \frac{1}{m} \\
+        -\frac{\gamma}{2} & \re{f} \sqrt{\frac{2 m \omega}{\hbar}} + m \omega^2
+    \end{pmatrix},
+\end{equation}
+which has eigenvalues
+\begin{equation}
+    \lambda_\pm = \frac{\pm \sqrt{2} \sqrt{ -m^2 \left( 2 \sqrt{2} \re{f} \omega \hbar \sqrt{\frac{m\omega}{\hbar}} + 2 m \omega^3 \hbar - \im{f}^2 \right) } -\sqrt{2} m \im{f} - \gamma m \sqrt{m \omega \hbar} }{ 2 m \sqrt{ m \omega \hbar}}.
+\end{equation}
+Inserting the values of $\re{f}$ and $\im{f}$ from Eq. \eqref{eq:reFimF_toZero} we find the eigenvalues to be $\lambda_\pm = \pm \gamma$.
+
+Solving for the EOM for the second momenta we obtain
 \begin{align}
     \dt \expval{x^2} &= -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) \expval{x^2} - \frac{1}{m} \expval{\acomm{x}{p}} + \frac{\gamma \hbar}{m \omega} (\nbar + 1/2) - \frac{1}{4\lambda m \omega \hbar} \re{f}^2,\\
     \dt \expval{p^2} &=  -\gamma \expval{p^2} + \left( m\omega^2 - \re{f} \sqrt{\frac{2m \omega}{\hbar}} \right)\expval{\acomm{x}{p}} + \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 + \frac{m \omega}{4 \lambda \hbar}\re{f}^2 ,\\
