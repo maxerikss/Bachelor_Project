@@ -1,4 +1,6 @@
 \section{Result}
+This section will look at the results in the form of calculated equations of motion and steady state solutions. Both with and without feedback. The first subsection will deal with a QHO which is measured continuously and without feedback, while the second subsection will add feedback into the scheme.
+\subsection{Measurement Without Feedback}
 Consider a QHO described by the Hamiltonian in Eq. \eqref{eq:hamiltonian} which is coupled to a thermal bath with temperature $T$. If the oscillator's position quadrature is also continuously measured the evolution of the system can be described by the master equation in Eq. \eqref{eq:masterMeas} using the Lindblad operators mentioned in Sec. \ref{sec:mastereq}. We want to solve for \gls{eom} when measuring for the position quadrature
 \begin{align}
     \dt\expval{\xop^2} &= \tr(\xop^2 \dt \dmatrix)\label{eq:x2}, \\
@@ -21,7 +23,7 @@ we can solve for the steady state. By introducing the quality factor $Q = \omega
     \expval{\tilde{x}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \frac{2 Q^3}{4Q^2 + 1}, \label{eq:x2ss}\\
     \expval{\tilde{p}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \left( Q - \frac{2Q^3}{4Q^2 + 1} \right) \label{eq:p2ss},\\
 \end{align}
-One interesting aspects of the equations is that both equations have identical terms capturing the thermal aspect of the fluctuations. Another interesting thing is that without measurement the equations are only thermal, which is to be expected, however, we get a denominator which diverges for $Q=1/2$ for both terms. One explanation for this could be that the assumptions and approximations made in the end of Sec. \ref{sec:open} about the strength of the coupling makes the master equation invalid for $Q$ of this size. Interestingly, when calculating the energy of the steady state the diverging terms cancel each other, and we get
+One interesting aspects of the equations is that both equations have identical terms capturing the thermal aspect of the fluctuations. Another interesting thing is that without measurement the equations are only thermal, which is to be expected. Interestingly, when calculating the energy of the steady state the complicated fraction disappears and we are left with a purely linear term in the quality factor.
 \begin{equation}
     E_\mathrm{ss} = \expval{\tilde{H}}_\mathrm{ss} = \frac{\hbar \omega}{2} \left( \expval{\tilde{p}^2} + \expval{\tilde{x}^2} \right) = \hbar\omega (\nbar + 1/2)+ \frac{\lambda \hbar^2}{2 m\omega} Q
     \label{eq:ess}
@@ -31,6 +33,29 @@ One interesting aspects of the equations is that both equations have identical t
 
 Looking at panels \textbf{a} and \textbf{b} in Fig. \ref{fig:steady_state} one can see that a stronger measurement correlates to the system steady state increasing in energy, as does it for an increasing quality factor. Both also affect the system linearly. Thus, by continuously measuring the system we add energy into it, which make the steady state higher in energy than what the thermal effects from the bath would otherwise place it. That is, if we do not perform any measurement the system would be stable at around $\nbar + 1/2$ which for the parameters used here would give $\expval{\tilde{E}} \approx 10\hbar\omega$
 
+In panels \textbf{d} and \textbf{f} we can see that there is some non-linear behaviour near $Q = 0$. However, due to the approximations made in Sec. \ref{sec:open} we cannot trust the results in the region of a low quality factor. Due to this regime having a relatively high coupling to the environment, and thus the excitations in the environment might not decay fast enough and therefore affect the oscillator. Panels \textbf{c} and \textbf{e} show the linear dependence on $\lambda$ for the second momenta.
+
+Using the same master equation as above we can also solve for the first momenta
+\begin{align}
+    \dt\expval{\xop} &= \tr(\xop \dt \dmatrix),\\
+    \dt\expval{\pop} &= \tr(\pop \dt \dmatrix).
+\end{align}
+Solving these equations we find 
+\begin{align}
+    \dt\expval{\xop} &= -\frac{\gamma}{2} \expval{\xop} - \frac{1}{m} \expval{\pop},\\
+    \dt\expval{\pop} &= -\frac{\gamma}{2} \expval{\pop} + m\omega^2 \expval{x}.
+\end{align}
+Then when solving for the steady state we find 
+\begin{equation}
+    \expval{\xop} = \expval{\pop} = 0.
+\end{equation}
+This result also confirms the intuition that for a harmonic oscillator, the system is stable around the origin. It also shows that the variance of the system is only dependent on the first momenta, since
+\begin{equation}
+    \sigma^2_{\hat{A}} = \expval{\hat{A}^2} - \expval{\hat{A}}^2
+\end{equation}
+for an operator $\hat{A}$. It is also an easy calculation then to show that for temperature $T=0$ and without measurement we have equality in the Heisenberg uncertainty relation, justifying the accuracy of the results, and the approximations made in the derivation of the master equation.
+
+\subsection{Feedback}
 We now consider a feedback mechanism on the oscillator described by Eq. \eqref{eq:masterFeed} which is a linear feedback scheme. Solving for the same EOM as before we obtain
 \begin{align}
     \dt \expval{x^2} &= -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) \expval{x^2} - \frac{1}{m} \expval{\acomm{x}{p}} + \frac{\gamma \hbar}{m \omega} (\nbar + 1/2) - \frac{1}{4\lambda m \omega \hbar} \re{f}^2,\\
@@ -43,17 +68,17 @@ Performing the same change of variables as earlier with addition of
 \end{equation}
 we can solve for the steady state. First we define
 \begin{equation}
-    D = 8m\lambda ( -\gamma ( -2\im{f} + \gamma ) (4\im{f} + \gamma)+ 8\im{f}\re{f} \omega - 4 (2\im{f} + \gamma)\omega^2 )\hbar
+    D = 8m\lambda ( -\gamma ( -2\im{\tilde{f}} + \gamma ) (4\im{\tilde{f}} + \gamma)+ 8\im{\tilde{f}}\im{\tilde{f}} \omega - 4 (2\im{\tilde{f}} + \gamma)\omega^2 )\hbar
 \end{equation}
 then we can write the solutions as
 \begin{multline}
-    \expval{\tilde{x}^2} = \frac{1}{D} (\re{\tilde{f}} \omega (-2 \im{\tilde{f}} \gamma ( \re{\tilde{f}} - 2m \omega ) + \re{\tilde{f}} (\gamma^2 - 2 \re{\tilde{f}} \omega) ) \\ -8m (\nbar + 1/2)\gamma \omega(-2\im{\tilde{f}}\gamma + \gamma^2) - 2(\re{\tilde{f}}- 2\omega)\omega )\hbar
+    \expval{\tilde{x}^2} = \frac{1}{D} (\re{\tilde{f}} \omega (-2 \im{\tilde{f}} \gamma ( \re{\tilde{f}} - 2m \omega ) + \re{\tilde{f}} (\gamma^2 - 2 \re{\tilde{f}} \omega) ) \\ -8m (\nbar + 1/2)\gamma \lambda(-2\im{\tilde{f}}\gamma + \gamma^2 - 2(\re{\tilde{f}}- 2\omega)\omega )\hbar
 \end{multline}
 \begin{multline}
     \expval{\tilde{p}^2} = \frac{1}{D} (\re{\tilde{f}} \omega ( -2 \re{\tilde{f}}^3 + \re{\tilde{f}} ( \im{\tilde{f}}(2 + 4m) - \gamma )(4 \im{\tilde{f}} + \gamma) \\- 2( \re{\tilde{f}}^2 + 2 \im{\tilde{f}} m (4 \im{\tilde{f}} + \gamma) ) \omega ) \\- 8m(\nbar + 1/2) \gamma \lambda ( -8 \im{\tilde{f}}^2 + 2 \im{\tilde{f}} \gamma + \gamma^2 - 2 (\re{\tilde{f}} - 2 \omega)(\re{\tilde{f}} + \omega) ) \hbar
     ) 
 \end{multline}
 \begin{multline}
-    \expval{\acomm{\tilde{x}}{\tilde{p}}} = \frac{1}{D} (\re{\tilde{f}} \omega ( -8 \im{\tilde{f}}^2 m \gamma + \re{\tilde{f}} \gamma (\re{\tilde{f}} + 2 \omega) \\+ \im{\tilde{f}} (-2 m \gamma^2 + 4 \re{\tilde{f}} \omega) ) - 8 m (\nbar + 1/2) \gamma \lambda (\re{\tilde{f}} \gamma - 4 \im{\tilde{f}} \omega) \hbar
+    \expval{\acomm{\tilde{x}}{\tilde{p}}} = \frac{1}{2D} (\re{\tilde{f}} \omega ( -8 \im{\tilde{f}}^2 m \gamma + \re{\tilde{f}} \gamma (\re{\tilde{f}} + 2 \omega) \\+ \im{\tilde{f}} (-2 m \gamma^2 + 4 \re{\tilde{f}} \omega) ) - 8 m (\nbar + 1/2) \gamma \lambda (\re{\tilde{f}} \gamma - 4 \im{\tilde{f}} \omega) \hbar
     )
 \end{multline}
