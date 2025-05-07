@@ -1,70 +1,102 @@
 import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
 import numpy as np
 
 # Use LaTeX and serif font
 plt.rc('font', **{'family': 'serif', 'serif': ['Computer Modern'], 'size': 12})
+plt.rc('text.latex', preamble=r'\usepackage{amssymb,amsmath,amsfonts,amsthm}')
 plt.rcParams['text.usetex'] = True
 
-# Vectorized x2
-def x2(omega, lamda, gamma, kbT, imf, ref):
-    nbar = 1 / (np.exp(omega / kbT) - 1)
-    D = 8 * lamda * (
-        -gamma * (-2 * imf + gamma) * (4 * imf + gamma)
-        + 8 * imf * ref * omega
-        - 4 * (2 * imf + gamma) * omega**2
-    )
-    top = ref * omega * (
-        -2 * imf * gamma * (ref - 2 * omega)
-        + ref * (gamma**2 - 2 * ref * omega)
-    )
-    bottom = -8 * (nbar + 0.5) * gamma * omega * (-2 * imf * gamma + gamma**2)
-    correction = -2 * (ref - 2 * omega) * omega
-    return (top + bottom + correction) / D
+# Defining functions
 
-# Vectorized p2
-def p2(omega, lamda, gamma, kbT, imf, ref):
-    nbar = 1 / (np.exp(omega / kbT) - 1)
-    D = 8 * lamda * (
-        -gamma * (-2 * imf + gamma) * (4 * imf + gamma)
-        + 8 * imf * ref * omega
-        - 4 * (2 * imf + gamma) * omega**2
-    )
-    top = ref * omega * (
-        -2 * ref**3
-        + ref * (imf * (2 + 4) - gamma) * (4 * imf + gamma)
-        - 2 * (ref**2 + 2 * imf * (4 * imf + gamma)) * omega
-    )
-    bottom = -8 * (nbar + 0.5) * gamma * lamda * (
-        -8 * imf**2 + 2 * imf * gamma + gamma**2
-        - 2 * (ref - 2 * omega) * (ref + omega)
-    )
-    return (top + bottom) / D
+def x2(n, L, Q, reG, imG):
+    term1 = -16*L**2 * Q**3
+    term2 = 4*L*(1 + 2*n)*(-1 + Q*(imG +2*Q*(-2 + reG)))
+    term3 = Q**2 * reG * (reG + 2*Q*reG*(-1 + Q - Q*reG) - imG*(2 + Q*reG))
+    nominator = term1 + term2 + term3
+    denominator = 8*L*(-1 + Q*(-4*Q + imG*(-1 + 2*Q*(imG + 2*Q*(-1 + reG)))))
+    return nominator/denominator
 
-# Energy
-def E(omega, lamda, gamma, kbT, imf, ref):
-    return 0.5 * omega * (x2(omega, lamda, gamma, kbT, imf, ref) + p2(omega, lamda, gamma, kbT, imf, ref))
+def p2(n, L, Q, reG, imG):
+    term1 = 8*L**2 *Q *(-1 + Q*(-imG + 2*imG**2 * Q -2*Q*(1+reG)))
+    term2 = 4*L*(1 + 2*n)*(-1 + Q*(-imG + 2*imG**2 *Q +2*Q*(-2+reG)*(1+reG)))
+    term3 = -Q*reG*(reG + Q*(2*imG**2 * Q*(-2 + reG) + imG*(-2 + 3*reG) + 2*Q*reG*(1 + reG + Q*(-1 + reG**2))))
+    nominator = term1 + term2 + term3
+    denominator = 8*L*(-1 + Q*(-4*Q + imG*(-1 + 2*Q*(imG + 2*Q*(-1 + reG)))))
+    return nominator/denominator
 
-# Constants
-omega = 1
+def E(n, L, Q, reG, imG):
+    return 0.5 * (x2(n, L, Q, reG, imG) + p2(n, L, Q, reG, imG))
+
+## defiining constants
 kbT = 10
-gamma = 0.1
-lamda = 1
+n = 1 / (np.exp(1 / kbT) - 1)
+L = 2
+Q = 10
 
-# Grid of values
-imf = np.linspace(-0.1, 0.1, 250)
-ref = np.linspace(-0.5, 0.5, 250)
-X, Y = np.meshgrid(ref, imf)
+### Defining colormap
+colors = ['red', 'blue']
+cmap = mcolors.ListedColormap(colors)
+bounds = [-np.inf, 0, np.inf]
+norm = mcolors.BoundaryNorm(bounds, cmap.N)
 
-# Compute energy on grid
-Z = E(omega, lamda, gamma, kbT, Y, X)
+## Plotting
+fig, axes = plt.subplots(1, 2, layout='compressed')
+fig.set_size_inches(7.27, 4.5)
 
-# Plotting
-fig, ax = plt.subplots()
-plot = ax.contourf(X, Y, Z, levels=50, cmap='viridis')
-cbar = fig.colorbar(plot, ax=ax)
-cbar.set_label(r'$E(\tilde{f})$')
-ax.set_xlabel(r'$\mathrm{Re}(\tilde{f})$')
-ax.set_ylabel(r'$\mathrm{Im}(\tilde{f})$')
-ax.set_title(r'Contour Plot of Energy $E$')
-plt.tight_layout()
+## Unzoomed numbers
+reG = np.linspace(-1, 3, 300)
+imG = np.linspace(-2, 2, 300)
+X, Y = np.meshgrid(reG, imG)
+Z = E(n, L, Q, X, Y)
+
+XOld, YOld = np.meshgrid(np.linspace(0, 0, 300), np.linspace(0, 0, 300))
+ZOld = E(n, L, Q, XOld, YOld)
+
+ZDiff = Z/ZOld
+
+## Zoomed numbers
+reGZoom = np.linspace(-1, 1, 300)
+imGZoom = np.linspace(0, 1.5, 300)
+XZoom, YZoom = np.meshgrid(reGZoom, imGZoom)
+ZZoom = E(n, L, Q, XZoom, YZoom)
+ZDiffZoom = ZZoom/ZOld
+
+levels = np.linspace(-1, 1, 17)
+contourPlotDiff = axes[0].contourf(X, Y, ZDiff, levels=levels, cmap='seismic')
+contourPlotDiffZoom = axes[1].contourf(XZoom, YZoom, ZDiffZoom, levels=levels, cmap='seismic')
+
+cBar = fig.colorbar(contourPlotDiff, ax=axes, orientation='horizontal')
+
+
+## Setting labels
+axes[0].set_xlabel(r"$\mathfrak{R} \{ f \}$")
+axes[0].set_ylabel(r"$\mathfrak{I} \{ f \}$")
+cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} / \langle \tilde{E} \rangle$")
+
 plt.show()
+
+
+
+
+
+## Comparing with the old Equation
+def x2old(omega, lamda, gamma, kbT):
+    nbar = 1 / (np.exp(omega / kbT) - 1)
+    Q = omega / gamma
+    temp_term = nbar + 1/2
+    measurement_term = lamda * 2  * Q**3 /( omega**2 * (4 * Q**2 + 1))
+    return temp_term + measurement_term
+
+def p2old(omega, lamda, gamma, kbT):
+    nbar = 1 / (np.exp(omega / kbT) - 1)
+    Q = omega / gamma
+    temp_term = nbar + 1/2
+    measurement_term = lamda /(omega**2) * (Q - 2 * Q**3 / (4 * Q**2 + 1))
+    return temp_term + measurement_term
+
+def Eold(omega, lamda, gamma, kbT):
+    return omega/2 * (p2old(omega, lamda, gamma, kbT) + x2old(omega, lamda, gamma, kbT))
+
+#print(Eold(1, 2, 0.1, 10))
+#print(E(n, L, Q, 0, 0))
