@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 import numpy as np
 
+
 # Use LaTeX and serif font
 plt.rc('font', **{'family': 'serif', 'serif': ['Computer Modern'], 'size': 12})
 plt.rc('text.latex', preamble=r'\usepackage{amssymb,amsmath,amsfonts,amsthm}')
@@ -53,28 +54,40 @@ Z = E(n, L, Q, X, Y)
 XOld, YOld = np.meshgrid(np.linspace(0, 0, 300), np.linspace(0, 0, 300))
 ZOld = E(n, L, Q, XOld, YOld)
 
-ZDiff = Z/ZOld
+ZRatio = Z/ZOld
 
 ## Zoomed numbers
 reGZoom = np.linspace(-1, 1, 300)
 imGZoom = np.linspace(0, 1.5, 300)
 XZoom, YZoom = np.meshgrid(reGZoom, imGZoom)
 ZZoom = E(n, L, Q, XZoom, YZoom)
-ZDiffZoom = ZZoom/ZOld
+ZRatioZoom = ZZoom/ZOld
 
-levels = np.linspace(-1, 1, 17)
-contourPlotDiff = axes[0].contourf(X, Y, ZDiff, levels=levels, cmap='seismic')
-contourPlotDiffZoom = axes[1].contourf(XZoom, YZoom, ZDiffZoom, levels=levels, cmap='seismic')
+N = 2
+levels = np.linspace(-N, N, 301)
+contourPlotRatio = axes[0].contourf(X, Y, ZRatio, levels=levels, cmap='seismic', extend='both')
+contourPlotRatioZoom = axes[1].contourf(XZoom, YZoom, ZRatioZoom, levels=levels, cmap='seismic', extend='both')
 
-cBar = fig.colorbar(contourPlotDiff, ax=axes, orientation='horizontal')
+cBar = fig.colorbar(contourPlotRatio, ax=axes, orientation='horizontal')
 
 
 ## Setting labels
-axes[0].set_xlabel(r"$\mathfrak{R} \{ f \}$")
-axes[0].set_ylabel(r"$\mathfrak{I} \{ f \}$")
-cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} / \langle \tilde{E} \rangle$")
+axes[0].set_xlabel(r"$\mathfrak{R} \{ \tilde{f} \}$")
+axes[0].set_ylabel(r"$\mathfrak{I} \{ \tilde{f} \}$")
+axes[1].set_xlabel(r"$\mathfrak{R} \{ \tilde{f} \}$")
+axes[1].set_ylabel(r"$\mathfrak{I} \{ \tilde{f} \}$")
 
-plt.show()
+cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} / \langle \tilde{E} \rangle$")
+cBar.set_ticks(np.linspace(-N, N, 9))
+
+axes[0].text(-0.6, 1.3, r"\textbf{a}", fontsize=20)
+axes[1].text(-0.75, 1.2, r"\textbf{b}", fontsize=20)
+
+## Showing / Saving
+#plt.show()
+contourPlotRatio.set_edgecolor('face')
+contourPlotRatioZoom.set_edgecolor('face')
+#plt.savefig("../Bachelor_Thesis/figures/energyFeedbackRatio.pdf", dpi=300)
 
 
 

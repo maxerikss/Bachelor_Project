@@ -44,13 +44,13 @@ parabola = parabolaRef(imf)
 N = 3
 levels = np.linspace(-N, N, 301)
 
-cNeg = axes[0].contourf(X, Y, ZNeg, levels=levels, cmap='seismic')
-#cNeg = axes[0].contourf(X, Y, ZNeg, levels=3, cmap=cmap, norm=norm)
+cNeg = axes[0].contourf(X, Y, ZNeg, levels=levels, cmap='seismic', extend='both')
+
 axes[0].plot(parabola, ref, color='black')
 axes[1].plot(parabola, ref, color='black')
 #axes[0].scatter(-1/np.sqrt(2), -gamma/(np.sqrt(8)), color='black', marker='o' )
 
-cPos = axes[1].contourf(X, Y, ZPos, levels=levels, cmap='seismic')
+cPos = axes[1].contourf(X, Y, ZPos, levels=levels, cmap='seismic', extend='both')
 
 cBar = fig.colorbar(cNeg, ax=axes, orientation='horizontal')
 
@@ -61,11 +61,15 @@ axes[0].set_ylabel(r"$\mathfrak{I} \{ f \}$")
 axes[1].set_xlabel(r"$\mathfrak{R} \{ f \}$")
 axes[1].set_ylabel(r"$\mathfrak{I} \{ f \}$")
 
-cBar.set_label(r"$\mathfrak{R} \{\lambda_\pm \}$")
+cBar.set_label(r"$\mathfrak{R} \{\varepsilon_\pm \}$")
 cBar.set_ticks(np.linspace(-N, N, 9))
 
 axes[0].text(1.5, -1.5, r"\textbf{a}", fontsize=20)
 axes[1].text(1.5, -1.5, r"\textbf{b}", fontsize=20)
 
 
-plt.savefig("../Bachelor_Thesis/figures/eigenvalueFirstMomenta.pdf")
+## Showing / Saving
+#plt.show()
+cNeg.set_edgecolor('face')
+cPos.set_edgecolor('face')
+plt.savefig("../Bachelor_Thesis/figures/eigenvalueFirstMomenta.pdf", dpi=300)

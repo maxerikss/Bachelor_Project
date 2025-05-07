@@ -94,33 +94,56 @@ which has a steady state solution for $\expval{\pop} = 0$ and any $\expval{\xop}
 \end{equation}
 which has eigenvalues
 \begin{equation}
-    \lambda_\pm = \frac{\pm \sqrt{2} \sqrt{ -m^2 \left( 2 \sqrt{2} \re{f} \omega \hbar \sqrt{\frac{m\omega}{\hbar}} + 2 m \omega^3 \hbar - \im{f}^2 \right) } -\sqrt{2} m \im{f} - \gamma m \sqrt{m \omega \hbar} }{ 2 m \sqrt{ m \omega \hbar}}.
+    \varepsilon\pm = \frac{\pm \sqrt{2} \sqrt{ -m^2 \left( 2 \sqrt{2} \re{f} \omega \hbar \sqrt{\frac{m\omega}{\hbar}} + 2 m \omega^3 \hbar - \im{f}^2 \right) } -\sqrt{2} m \im{f} - \gamma m \sqrt{m \omega \hbar} }{ 2 m \sqrt{ m \omega \hbar}}. \label{eq:eigenvalueFirstMomenta}
 \end{equation}
-Inserting the values of $\re{f}$ and $\im{f}$ from Eq. \eqref{eq:reFimF_toZero} we find the eigenvalues to be $\lambda_- = -\gamma /2$ and $\lambda_+ = 0$. It is interesting that this choice of $f$ removes all the oscillatory behaviour from the system, which can be seen by the eigenvalues being real.
+Inserting the values of $\re{f}$ and $\im{f}$ from Eq. \eqref{eq:reFimF_toZero} we find the eigenvalues to be $\varepsilon_- = -\gamma /2$ and $\varepsilon_+ = 0$. It is interesting that this choice of $f$ removes all the oscillatory behaviour from the system, which can be seen by the eigenvalues being real. Since one of the eigenvalues are zero the system is also reduced to a one dimensional problem, which is reasonable as the choice of $f$ is such that the system is unaffected by the position quadrature.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/eigenvalueFirstMomenta.pdf}
+    \caption{\small Eq. \eqref{eq:eigenvalueFirstMomenta} plotted as a contour plot against the real and imaginary part of $f$. The parameters used are $m = \omega = \hbar =1$ and $\gamma = 0.2$. Panel \textbf{a} shows $\re{\varepsilon_-}$ and panel \textbf{b} shows $\re{\varepsilon_+}$. The parabola that can be seen in both panels is the points where the first square root in Eq. \eqref{eq:eigenvalueFirstMomenta} is zero. Thus, points to the left of this parabola are real, while points to the right are complex, only the real part is plotted, however.}
+    \label{fig:eigenvalueFirstMomenta}
+\end{figure}
+
+Looking at Fig. \ref{fig:eigenvalueFirstMomenta} we can see that $\re{\varepsilon_-}$ is mostly negative while $\re{\varepsilon_+}$ is mostly positive for the parameters used in the region closest to the origin. The only part where both eigenvalues are negative is in top right region of the figures. That is, the region where $\im{f} > 0$ and $\re{f} \gtrapprox 1 / \sqrt{2}$. The reason for the approximate is that looking at panel \textbf{b} we can see that line where the eigenvalue is zero has a slant and is not vertical.
 
 Solving for the EOM for the second momenta we obtain
 \begin{align}
     \dt \expval{x^2} &= -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) \expval{x^2} - \frac{1}{m} \expval{\acomm{x}{p}} + \frac{\gamma \hbar}{m \omega} (\nbar + 1/2) - \frac{1}{4\lambda m \omega \hbar} \re{f}^2,\\
     \dt \expval{p^2} &=  -\gamma \expval{p^2} + \left( m\omega^2 - \re{f} \sqrt{\frac{2m \omega}{\hbar}} \right)\expval{\acomm{x}{p}} + \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 + \frac{m \omega}{4 \lambda \hbar}\re{f}^2 ,\\
-    \dt \expval{\acomm{x}{p}} &= \left(\frac{2}{\sqrt{2m \omega \hbar}}\im{f} - \gamma  \right)\expval{\acomm{x}{p}} + \left(2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} \right) \expval{x^2} - \frac{2}{m} \expval{p^2} - \frac{\re{f} \im{f}}{2 \lambda \hbar}.
+    \dt \expval{\acomm{x}{p}} &= \left(\frac{2\im{f}}{\sqrt{2m \omega \hbar}} - \gamma  \right)\expval{\acomm{x}{p}} + \left(2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} \right) \expval{x^2} - \frac{2}{m} \expval{p^2} - \frac{\re{f} \im{f}}{2 \lambda \hbar}.
 \end{align}
-Performing the same change of variables as earlier with addition of 
+We can solve for the steady state by first rewriting the system of equations to a matrix equation $\dt X = \mathcal{A} X + \mathcal{B}$ where
 \begin{equation}
-    \re{\tilde{f}} = \sqrt{\frac{2 m}{\hbar \omega}} \re{f} \quad \text{and} \quad \im{\tilde{f}} = \frac{1}{\sqrt{2 m \omega \hbar}} \im{f}, 
+    X =
+    \begin{pmatrix}
+        \expval{\xop^2}\\
+        \expval{\pop^2}\\
+        \expval{\acomm{\xop}{\pop}}    
+    \end{pmatrix}, \quad
+    \mathcal{A} = \begin{pmatrix}
+        -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) & 0 & -\frac{1}{m} \\
+        0 & -\gamma & m\omega^2 - \re{f} \sqrt{\frac{2m \omega}{\hbar}} \\
+        2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} & -\frac{2}{m} & \frac{2\im{f}}{\sqrt{2m \omega \hbar}} - \gamma
+    \end{pmatrix}
 \end{equation}
-we can solve for the steady state. First we define
+and
 \begin{equation}
-    D = 8m\lambda ( -\gamma ( -2\im{\tilde{f}} + \gamma ) (4\im{\tilde{f}} + \gamma)+ 8\im{\tilde{f}}\im{\tilde{f}} \omega - 4 (2\im{\tilde{f}} + \gamma)\omega^2 )\hbar
+    \mathcal{B} = 
+    \begin{pmatrix}
+        \frac{\gamma \hbar}{m \omega} (\nbar + 1/2) - \frac{\re{f}^2}{4\lambda m \omega \hbar}\\
+        \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 +\frac{m \omega \re{f}^2}{4 \lambda \hbar}\\
+        -\frac{\re{f} \im{f}}{2 \lambda \hbar}
+    \end{pmatrix}.
 \end{equation}
-then we can write the solutions as
-\begin{multline}
-    \expval{\tilde{x}^2} = \frac{1}{D} (\re{\tilde{f}} \omega (-2 \im{\tilde{f}} \gamma ( \re{\tilde{f}} - 2m \omega ) + \re{\tilde{f}} (\gamma^2 - 2 \re{\tilde{f}} \omega) ) \\ -8m (\nbar + 1/2)\gamma \lambda(-2\im{\tilde{f}}\gamma + \gamma^2 - 2(\re{\tilde{f}}- 2\omega)\omega )\hbar
-\end{multline}
-\begin{multline}
-    \expval{\tilde{p}^2} = \frac{1}{D} (\re{\tilde{f}} \omega ( -2 \re{\tilde{f}}^3 + \re{\tilde{f}} ( \im{\tilde{f}}(2 + 4m) - \gamma )(4 \im{\tilde{f}} + \gamma) \\- 2( \re{\tilde{f}}^2 + 2 \im{\tilde{f}} m (4 \im{\tilde{f}} + \gamma) ) \omega ) \\- 8m(\nbar + 1/2) \gamma \lambda ( -8 \im{\tilde{f}}^2 + 2 \im{\tilde{f}} \gamma + \gamma^2 - 2 (\re{\tilde{f}} - 2 \omega)(\re{\tilde{f}} + \omega) ) \hbar
-    ) 
-\end{multline}
-\begin{multline}
-    \expval{\acomm{\tilde{x}}{\tilde{p}}} = \frac{1}{2D} (\re{\tilde{f}} \omega ( -8 \im{\tilde{f}}^2 m \gamma + \re{\tilde{f}} \gamma (\re{\tilde{f}} + 2 \omega) \\+ \im{\tilde{f}} (-2 m \gamma^2 + 4 \re{\tilde{f}} \omega) ) - 8 m (\nbar + 1/2) \gamma \lambda (\re{\tilde{f}} \gamma - 4 \im{\tilde{f}} \omega) \hbar
-    )
-\end{multline}
+To then obtain the steady state solutions is then to solve $X_\text{ss} = - \mathcal{A}^{-1} \mathcal{B}$. To do this is we perform the same change of variables as before, in addition to
+\begin{equation}
+    \tilde{f} = \omega \sqrt{m \omega \hbar} f, \quad \Lambda = \frac{\lambda \hbar}{m \omega^2}
+\end{equation}
+The full analytical solutions are not shown here due to the length of the equations.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/energyFeedbackRatio.pdf}
+    \caption{\small The ratio between the energy with feedback and without plotted as a contour plot against $\re{\tilde{f}}$ and $\im{\tilde{f}}$. The parameters used are $k_\text{B}T = 10$, $Q = 10$, $\Lambda = 2$. Panel \textbf{a} shows a large variation of the parameters. There are divergences in the plot which almost follows a $\left(\re{\tilde{f}} - 1 \right)\im{\tilde{f}} = 1$ curve. Panel \textbf{b} is a zoomed in version of panel \textbf{a} and shows the behaviour of the system in a region where the ratio always is positive.}
+\end{figure}
