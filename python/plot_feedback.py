@@ -111,5 +111,5 @@ def p2old(omega, lamda, gamma, kbT):
 def Eold(omega, lamda, gamma, kbT):
     return omega/2 * (p2old(omega, lamda, gamma, kbT) + x2old(omega, lamda, gamma, kbT))
 
-#print(Eold(1, 2, 0.1, 10))
+print(Eold(1, 2, 0.1, 10))
 #print(E(n, L, Q, 0, 0))
