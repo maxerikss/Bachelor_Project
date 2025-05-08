@@ -121,9 +121,9 @@ cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} - \langle \tilde{E} 
 cBar.set_ticks(np.linspace(-N, N, 9))
 
 ## Showing / Saving
-plt.show()
 contourPlotZeroDiff.set_edgecolor('face')
 plt.savefig("../Bachelor_Thesis/figures/energyFeedbackDifference.pdf", dpi=300)
+plt.show()
 plt.close(fig)
 
 ## Comparing with the old Equation
