@@ -13,13 +13,13 @@ plt.rcParams['text.usetex'] = True
 ## Defining functions
 def generateA(Q, reG, imG):
     row1 = np.array([ -1 - 2*Q*imG, np.zeros_like(imG), -Q*np.ones_like(imG) ])
-    row2 = np.array([ np.zeros_like(imG), -np.ones_like(imG), Q*(1 - reG) ])
-    row3 = np.array([ 2*Q*(1 + reG), 2*Q*np.ones_like(imG), -1 + Q*imG ])
+    row2 = np.array([ np.zeros_like(imG), -np.ones_like(imG), Q*(1 + reG) ])
+    row3 = np.array([ 2*Q*(1 + reG), 2*Q*np.ones_like(imG), -1 - Q*imG ])
     A = np.array([row1, row2, row3])
     return A
 
 ## Defining constants / parameters
-resolution = 800
+resolution = 400
 Q = 10
 #reG = np.linspace(-0.25, 0.25, resolution)
 #imG = np.linspace(-0.25, 0.25, resolution)

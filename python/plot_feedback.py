@@ -44,7 +44,7 @@ norm = mcolors.BoundaryNorm(bounds, cmap.N)
 
 ## Unzoomed numbers
 resolution = 500
-reG = np.linspace(-1, 3, resolution)
+reG = np.linspace(-2, 2, resolution)
 imG = np.linspace(-2, 2, resolution)
 X, Y = np.meshgrid(reG, imG)
 Z = E(n, L, Q, X, Y)
@@ -95,7 +95,7 @@ axes[0].text(-0.6, 1.3, r"\textbf{a}", fontsize=20)
 axes[1].text(-0.75, 1.2, r"\textbf{b}", fontsize=20)
 
 ## Showing / Saving
-#plt.show()
+plt.show()
 contourPlotRatio.set_edgecolor('face')
 contourPlotRatioZoom.set_edgecolor('face')
 #plt.savefig("../Bachelor_Thesis/figures/energyFeedbackRatio.pdf", dpi=300)
@@ -123,7 +123,7 @@ cBar.set_ticks(np.linspace(-N, N, 9))
 ## Showing / Saving
 #plt.show()
 contourPlotZeroDiff.set_edgecolor('face')
-plt.savefig("../Bachelor_Thesis/figures/energyFeedbackDifference.pdf", dpi=300)
+#plt.savefig("../Bachelor_Thesis/figures/energyFeedbackDifference.pdf", dpi=300)
 plt.close(fig)
 
 ## Comparing with the old Equation

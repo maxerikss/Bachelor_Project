@@ -114,7 +114,7 @@ Another thing to note is that the eigenvalues are comples to the right of the bl
 Solving for the EOM for the second momenta we obtain
 \begin{align}
     \dt \expval{x^2} &= -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) \expval{x^2} - \frac{1}{m} \expval{\acomm{x}{p}} + \frac{\gamma \hbar}{m \omega} (\nbar + 1/2) - \frac{1}{4\lambda m \omega \hbar} \re{f}^2,\\
-    \dt \expval{p^2} &=  -\gamma \expval{p^2} + \left( m\omega^2 - \re{f} \sqrt{\frac{2m \omega}{\hbar}} \right)\expval{\acomm{x}{p}} + \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 + \frac{m \omega}{4 \lambda \hbar}\re{f}^2 ,\\
+    \dt \expval{p^2} &=  -\gamma \expval{p^2} + \left( m\omega^2 + \re{f} \sqrt{\frac{2m \omega}{\hbar}} \right)\expval{\acomm{x}{p}} + \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 + \frac{m \omega}{4 \lambda \hbar}\re{f}^2 ,\\
     \dt \expval{\acomm{x}{p}} &= \left(\frac{2\im{f}}{\sqrt{2m \omega \hbar}} - \gamma  \right)\expval{\acomm{x}{p}} + \left(2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} \right) \expval{x^2} - \frac{2}{m} \expval{p^2} - \frac{\re{f} \im{f}}{2 \lambda \hbar}.
 \end{align}
 We can solve for the steady state by first rewriting the system of equations to a matrix equation $\dt X = \mathcal{A} X + \mathcal{B}$ where
@@ -127,7 +127,7 @@ We can solve for the steady state by first rewriting the system of equations to 
     \end{pmatrix}, \quad
     \mathcal{A} = \begin{pmatrix}
         -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) & 0 & -\frac{1}{m} \\
-        0 & -\gamma & m\omega^2 - \re{f} \sqrt{\frac{2m \omega}{\hbar}} \\
+        0 & -\gamma & m\omega^2 + \re{f} \sqrt{\frac{2m \omega}{\hbar}} \\
         2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} & -\frac{2}{m} & \frac{2\im{f}}{\sqrt{2m \omega \hbar}} - \gamma \label{eq:matrixA}
     \end{pmatrix}
 \end{equation}
