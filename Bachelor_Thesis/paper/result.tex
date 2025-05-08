@@ -89,8 +89,8 @@ which has a steady state solution for $\expval{\pop} = 0$ and any $\expval{\xop}
     \mathcal{M} = 
     \begin{pmatrix}
         - \left(\frac{\gamma}{2} + \frac{2 \im{f}}{\sqrt{2 m \omega \hbar}} \right) & - \frac{1}{m} \\
-        -\frac{\gamma}{2} & \re{f} \sqrt{\frac{2 m \omega}{\hbar}} + m \omega^2
-    \end{pmatrix},
+         \re{f} \sqrt{\frac{2 m \omega}{\hbar}} + m \omega^2 & -\frac{\gamma}{2} &, 
+    \end{pmatrix} 
 \end{equation}
 which has eigenvalues
 \begin{equation}
@@ -105,7 +105,11 @@ Inserting the values of $\re{f}$ and $\im{f}$ from Eq. \eqref{eq:reFimF_toZero} 
     \label{fig:eigenvalueFirstMomenta}
 \end{figure}
 
-Looking at Fig. \ref{fig:eigenvalueFirstMomenta} we can see that $\re{\varepsilon_-}$ is mostly negative while $\re{\varepsilon_+}$ is mostly positive for the parameters used in the region closest to the origin. The only part where both eigenvalues are negative is in top right region of the figures. That is, the region where $\im{f} > 0$ and $\re{f} \gtrapprox 1 / \sqrt{2}$. The reason for the approximate is that looking at panel \textbf{b} we can see that line where the eigenvalue is zero has a slant and is not vertical.
+Looking at Fig. \ref{fig:eigenvalueFirstMomenta} we can see that $\re{\varepsilon_-}$ is mostly negative while $\re{\varepsilon_+}$ is mostly positive for the parameters used in the region closest to the origin. The only part where both eigenvalues are negative is in top right region of the figures. That is, the region where $\im{f} > 0$ and $\re{f} \gtrapprox -1 / \sqrt{2}$. The reason for the approximate is that looking at panel \textbf{b} we can see that line where the eigenvalue is zero has a slant and is not vertical.
+
+Since we can write the solutions as an exponential with the eigenvalues while the coefficients are chosen by the initial condition the value of the eignvalue will determine the behaviour of the system. The consequence of the eigenvalue being negative is that it will make the function decay with time and is thus considered stable. If both eigenvalues are negative the system will decay no matter what the initial conditions are since both terms in the solution will decay. Positive eigenvalues on the other hand will correspond to the system growing with time and will thus be unstable. When one of the eigenvalues is positive and the other is negative the stability of the system will be determined by the initial conditions. That is, the initial condition will determine which eigenvalue will dominate the solution.
+
+Another thing to note is that the eigenvalues are comples to the right of the black parabola in the figure, and thus the solution will have oscillatory motion in this region.
 
 Solving for the EOM for the second momenta we obtain
 \begin{align}
@@ -124,7 +128,7 @@ We can solve for the steady state by first rewriting the system of equations to 
     \mathcal{A} = \begin{pmatrix}
         -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) & 0 & -\frac{1}{m} \\
         0 & -\gamma & m\omega^2 - \re{f} \sqrt{\frac{2m \omega}{\hbar}} \\
-        2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} & -\frac{2}{m} & \frac{2\im{f}}{\sqrt{2m \omega \hbar}} - \gamma
+        2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} & -\frac{2}{m} & \frac{2\im{f}}{\sqrt{2m \omega \hbar}} - \gamma \label{eq:matrixA}
     \end{pmatrix}
 \end{equation}
 and
@@ -151,3 +155,21 @@ The full analytical solutions are not shown here due to the length of the equati
 In Fig. \ref{fig:energyFeedbackRatio} we can see the affect that the feedback has on the energy of the system. Looking at panel \textbf{b} we can see areas which are negative. Since the energy of the system without measurement is constant, as those parameters are frozen, it must be the feedback energy that becomes negative. In the way we have set up the model a negative energy is unreasonable, since a temperature of $T=0$ would correspond to $E =\hbar\omega( 1/2 + \Lambda Q/2)$, which without measurement would mean an energy of $E = \hbar\omega/2$. A possible explantation for the negative energy is that the specific feedback that give rise to this is affecting the system in such a way that at least one of our assumptions is no longer accurate. This could for example be that the system no longer have a physical steady state. Another reason might be that the Markovian approximation no longer holds.
 
 Another interesing aspect of Fig. \ref{fig:energyFeedbackRatio} is that when looking at panel \textbf{b} in conjunction with Eq. \eqref{eq:ess} is that it is possible to cool the system to a lower energy than the thermal energy. Using the same parameters in Eq. \eqref{eq:ess} as are used in the figure we find that the thermal energy is half of the total energy in the system without feedback, and looking at the figure we see that there exist a region which has a ratio of less than $0.5$.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/energyFeedbackDifference.pdf}
+    \caption{\small The difference between the energy of the system with feedback plotted and the energy without feedback plotteda against $\re{\tilde{f}}$ and $\im{\tilde{f}}$. The parameters used are $k_\text{B}T = 10$, $Q = 10$, $\Lambda = 2$. The plot is done in a small region around the origin, thus showing the effect a small feedback has on the system. }
+    \label{fig:energyFeedbackDifference}
+\end{figure}
+
+Using the parameters listed in Fig. \ref{fig:energyFeedbackDifference} the energy without feedback is $\expval{\tilde{E}} \approx 20$ with the thermal part accounting for around $10$ of that. Looking at Fig. \ref{fig:energyFeedbackDifference} it is possible to see that even with a relatively low amount of feedback the system will be cooled to some degree. However, depending on how the feedback is applied it can also make the energy in the system explode which can be seen for $\im{\tilde{f}} < 0$.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{figures/eigenvaluesSecondMomenta.pdf}
+    \caption{The eigenvalues of $\mathcal{A}$ in Eq. \eqref{eq:matrixA} plotted after doing the change of variables as a contour plot against $\re{\tilde{f}}$ and $\im{\tilde{f}}$ using the parameter $Q=10$. Panel \textbf{a}, \textbf{b}, and \textbf{c} show the real part of eigenvalue $\varepsilon_1$, $\varepsilon_2$, and $\varepsilon_3$, respectively.}
+    \label{fig:eigenvalueSecondMomenta}
+\end{figure}
+

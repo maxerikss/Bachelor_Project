@@ -107,7 +107,7 @@ plt.close(fig)
 fig, axes = plt.subplots(1, 1, layout='compressed')
 fig.set_size_inches(7.27, 4.5)
 
-N = 20
+N = 30
 levels = np.linspace(-N, N, 301)
 contourPlotZeroDiff = axes.contourf(XZero, YZero, ZZeroDiff, levels=levels, cmap='seismic', extend='both')
 
