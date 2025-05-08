@@ -115,7 +115,7 @@ Solving for the EOM for the second momenta we obtain
 \begin{align}
     \dt \expval{x^2} &= -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) \expval{x^2} - \frac{1}{m} \expval{\acomm{x}{p}} + \frac{\gamma \hbar}{m \omega} (\nbar + 1/2) - \frac{1}{4\lambda m \omega \hbar} \re{f}^2,\\
     \dt \expval{p^2} &=  -\gamma \expval{p^2} + \left( m\omega^2 + \re{f} \sqrt{\frac{2m \omega}{\hbar}} \right)\expval{\acomm{x}{p}} + \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 + \frac{m \omega}{4 \lambda \hbar}\re{f}^2 ,\\
-    \dt \expval{\acomm{x}{p}} &= \left(\frac{2\im{f}}{\sqrt{2m \omega \hbar}} - \gamma  \right)\expval{\acomm{x}{p}} + \left(2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} \right) \expval{x^2} - \frac{2}{m} \expval{p^2} - \frac{\re{f} \im{f}}{2 \lambda \hbar}.
+    \dt \expval{\acomm{x}{p}} &= \left(\gamma + \frac{2\im{f}}{\sqrt{2m \omega \hbar}}  \right)\expval{\acomm{x}{p}} + \left(2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} \right) \expval{x^2} - \frac{2}{m} \expval{p^2} - \frac{\re{f} \im{f}}{2 \lambda \hbar}.
 \end{align}
 We can solve for the steady state by first rewriting the system of equations to a matrix equation $\dt X = \mathcal{A} X + \mathcal{B}$ where
 \begin{equation}
@@ -128,7 +128,7 @@ We can solve for the steady state by first rewriting the system of equations to 
     \mathcal{A} = \begin{pmatrix}
         -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) & 0 & -\frac{1}{m} \\
         0 & -\gamma & m\omega^2 + \re{f} \sqrt{\frac{2m \omega}{\hbar}} \\
-        2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} & -\frac{2}{m} & \frac{2\im{f}}{\sqrt{2m \omega \hbar}} - \gamma \label{eq:matrixA}
+        2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} & -\frac{2}{m} & -\left(\gamma +\frac{2\im{f}}{\sqrt{2m \omega \hbar}}\right) \label{eq:matrixA}
     \end{pmatrix}
 \end{equation}
 and
@@ -149,7 +149,7 @@ The full analytical solutions are not shown here due to the length of the equati
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/energyFeedbackRatio.pdf}
-    \caption{\small The ratio between the energy with feedback and without plotted as a contour plot against $\re{\tilde{f}}$ and $\im{\tilde{f}}$. The parameters used are $k_\text{B}T = 10$, $Q = 10$, $\Lambda = 2$. Panel \textbf{a} shows a large variation of the parameters. There are divergences in the plot which almost follows a $\left(\re{\tilde{f}} - 1 \right)\im{\tilde{f}} = 1$ curve. Panel \textbf{b} is a zoomed in version of panel \textbf{a} and shows the behaviour of the system in a region where the ratio always is positive.}
+    \caption{\small The ratio between the energy with feedback and without plotted as a contour plot against $\re{\tilde{f}}$ and $\im{\tilde{f}}$. The parameters used are $k_\text{B}T = 10$, $Q = 10$, $\Lambda = 2$. Panel \textbf{a} shows a large variation of the parameters. There are divergences in the plot which almost follows a $\left(\re{\tilde{f}} + 1 \right)\im{\tilde{f}} = 1$ curve. Panel \textbf{b} is a zoomed in version of panel \textbf{a} and shows the behaviour of the system in a region where the ratio always is positive.}
     \label{fig:energyFeedbackRatio}
 \end{figure}
 In Fig. \ref{fig:energyFeedbackRatio} we can see the affect that the feedback has on the energy of the system. Looking at panel \textbf{b} we can see areas which are negative. Since the energy of the system without measurement is constant, as those parameters are frozen, it must be the feedback energy that becomes negative. In the way we have set up the model a negative energy is unreasonable, since a temperature of $T=0$ would correspond to $E =\hbar\omega( 1/2 + \Lambda Q/2)$, which without measurement would mean an energy of $E = \hbar\omega/2$. A possible explantation for the negative energy is that the specific feedback that give rise to this is affecting the system in such a way that at least one of our assumptions is no longer accurate. This could for example be that the system no longer have a physical steady state. Another reason might be that the Markovian approximation no longer holds.

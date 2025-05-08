@@ -11,19 +11,19 @@ plt.rcParams['text.usetex'] = True
 # Defining functions
 
 def x2(n, L, Q, reG, imG):
-    term1 = -16*L**2 * Q**3
-    term2 = 4*L*(1 + 2*n)*(-1 + Q*(imG +2*Q*(-2 + reG)))
-    term3 = Q**2 * reG * (reG + 2*Q*reG*(-1 + Q - Q*reG) - imG*(2 + Q*reG))
+    term1 = 16*L**2 * Q**3
+    term2 = 4*L*(1 + 2*n)*(1 + Q*(imG +2*Q*(2 + reG)))
+    term3 = -Q**2 * reG * (reG + 2*Q*reG*(-1 + Q + Q*reG) + imG*(-2 + Q*reG))
     nominator = term1 + term2 + term3
-    denominator = 8*L*(-1 + Q*(-4*Q + imG*(-1 + 2*Q*(imG + 2*Q*(-1 + reG)))))
+    denominator = 8*L*(1+imG*Q)*(1 + 2*Q*(imG + 2*Q*(1+reG)))
     return nominator/denominator
 
 def p2(n, L, Q, reG, imG):
-    term1 = 8*L**2 *Q *(-1 + Q*(-imG + 2*imG**2 * Q -2*Q*(1+reG)))
-    term2 = 4*L*(1 + 2*n)*(-1 + Q*(-imG + 2*imG**2 *Q +2*Q*(-2+reG)*(1+reG)))
-    term3 = -Q*reG*(reG + Q*(2*imG**2 * Q*(-2 + reG) + imG*(-2 + 3*reG) + 2*Q*reG*(1 + reG + Q*(-1 + reG**2))))
+    term1 = 8*L**2 *Q *(1 + Q*(3*imG + 2*imG**2 * Q + 2*Q*(1+reG)))
+    term2 = 4*L*(1 + 2*n)*(1 + Q*(3*imG + 2*imG**2 *Q +2*Q*(2+reG)*(1+reG)))
+    term3 = Q*reG *(imG*Q *(-2+reG) + reG -2*imG**2 * Q**2 *(2+reG) - 2*Q**2 * reG *(1 + reG)*(-1 + Q + Q*reG))
     nominator = term1 + term2 + term3
-    denominator = 8*L*(-1 + Q*(-4*Q + imG*(-1 + 2*Q*(imG + 2*Q*(-1 + reG)))))
+    denominator = 8*L*(1+imG*Q)*(1 + 2*Q*(imG + 2*Q*(1+reG)))
     return nominator/denominator
 
 def E(n, L, Q, reG, imG):
@@ -95,10 +95,10 @@ axes[0].text(-0.6, 1.3, r"\textbf{a}", fontsize=20)
 axes[1].text(-0.75, 1.2, r"\textbf{b}", fontsize=20)
 
 ## Showing / Saving
-plt.show()
+#plt.show()
 contourPlotRatio.set_edgecolor('face')
 contourPlotRatioZoom.set_edgecolor('face')
-#plt.savefig("../Bachelor_Thesis/figures/energyFeedbackRatio.pdf", dpi=300)
+plt.savefig("../Bachelor_Thesis/figures/energyFeedbackRatio.pdf", dpi=300)
 plt.close(fig)
 
 
@@ -121,9 +121,9 @@ cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} - \langle \tilde{E} 
 cBar.set_ticks(np.linspace(-N, N, 9))
 
 ## Showing / Saving
-#plt.show()
+plt.show()
 contourPlotZeroDiff.set_edgecolor('face')
-#plt.savefig("../Bachelor_Thesis/figures/energyFeedbackDifference.pdf", dpi=300)
+plt.savefig("../Bachelor_Thesis/figures/energyFeedbackDifference.pdf", dpi=300)
 plt.close(fig)
 
 ## Comparing with the old Equation
