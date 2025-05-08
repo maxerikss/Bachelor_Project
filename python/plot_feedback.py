@@ -41,29 +41,40 @@ cmap = mcolors.ListedColormap(colors)
 bounds = [-np.inf, 0, np.inf]
 norm = mcolors.BoundaryNorm(bounds, cmap.N)
 
-## Plotting
-fig, axes = plt.subplots(1, 2, layout='compressed')
-fig.set_size_inches(7.27, 4.5)
 
 ## Unzoomed numbers
-reG = np.linspace(-1, 3, 300)
-imG = np.linspace(-2, 2, 300)
+resolution = 500
+reG = np.linspace(-1, 3, resolution)
+imG = np.linspace(-2, 2, resolution)
 X, Y = np.meshgrid(reG, imG)
 Z = E(n, L, Q, X, Y)
 
-XOld, YOld = np.meshgrid(np.linspace(0, 0, 300), np.linspace(0, 0, 300))
+XOld, YOld = np.meshgrid(np.linspace(0, 0, resolution), np.linspace(0, 0, resolution))
 ZOld = E(n, L, Q, XOld, YOld)
 
 ZRatio = Z/ZOld
 
 ## Zoomed numbers
-reGZoom = np.linspace(-1, 1, 300)
-imGZoom = np.linspace(0, 1.5, 300)
+reGZoom = np.linspace(-1, 1, resolution)
+imGZoom = np.linspace(0, 1.5, resolution)
 XZoom, YZoom = np.meshgrid(reGZoom, imGZoom)
 ZZoom = E(n, L, Q, XZoom, YZoom)
 ZRatioZoom = ZZoom/ZOld
 
-N = 2
+
+## Near zero values
+reGZero = np.linspace(-0.1, 0.1, resolution)
+imGZero = np.linspace(-0.1, 0.2, resolution)
+XZero, YZero = np.meshgrid(reGZero, imGZero)
+ZZero = E(n, L, Q, XZero, YZero)
+
+ZZeroDiff = ZZero - ZOld
+
+## Plotting
+fig, axes = plt.subplots(1, 2, layout='compressed')
+fig.set_size_inches(7.27, 4.5)
+
+N = 1
 levels = np.linspace(-N, N, 301)
 contourPlotRatio = axes[0].contourf(X, Y, ZRatio, levels=levels, cmap='seismic', extend='both')
 contourPlotRatioZoom = axes[1].contourf(XZoom, YZoom, ZRatioZoom, levels=levels, cmap='seismic', extend='both')
@@ -88,10 +99,32 @@ axes[1].text(-0.75, 1.2, r"\textbf{b}", fontsize=20)
 contourPlotRatio.set_edgecolor('face')
 contourPlotRatioZoom.set_edgecolor('face')
 #plt.savefig("../Bachelor_Thesis/figures/energyFeedbackRatio.pdf", dpi=300)
+plt.close(fig)
 
 
+## Plotting the difference near zero
 
+fig, axes = plt.subplots(1, 1, layout='compressed')
+fig.set_size_inches(7.27, 4.5)
 
+N = 20
+levels = np.linspace(-N, N, 301)
+contourPlotZeroDiff = axes.contourf(XZero, YZero, ZZeroDiff, levels=levels, cmap='seismic', extend='both')
+
+cBar = fig.colorbar(contourPlotZeroDiff, ax=axes, orientation='horizontal')
+
+## Setting labels
+axes.set_xlabel(r"$\mathfrak{R} \{ \tilde{f} \}$")
+axes.set_ylabel(r"$\mathfrak{I} \{ \tilde{f} \}$")
+
+cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} - \langle \tilde{E} \rangle$")
+cBar.set_ticks(np.linspace(-N, N, 9))
+
+## Showing / Saving
+#plt.show()
+contourPlotZeroDiff.set_edgecolor('face')
+plt.savefig("../Bachelor_Thesis/figures/energyFeedbackDifference.pdf", dpi=300)
+plt.close(fig)
 
 ## Comparing with the old Equation
 def x2old(omega, lamda, gamma, kbT):
@@ -111,5 +144,5 @@ def p2old(omega, lamda, gamma, kbT):
 def Eold(omega, lamda, gamma, kbT):
     return omega/2 * (p2old(omega, lamda, gamma, kbT) + x2old(omega, lamda, gamma, kbT))
 
-print(Eold(1, 2, 0.1, 10))
+#print(Eold(1, 2, 0.1, 10))
 #print(E(n, L, Q, 0, 0))

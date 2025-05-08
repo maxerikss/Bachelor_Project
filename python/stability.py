@@ -23,12 +23,6 @@ def parabolaRef(imf):
 ## defiining constants
 gamma = 0.2
 
-### Defining colormap
-colors = ['red', 'blue']
-cmap = mcolors.ListedColormap(colors)
-bounds = [-np.inf, 0, np.inf]
-norm = mcolors.BoundaryNorm(bounds, cmap.N)
-
 ## Plotting
 
 fig, axes = plt.subplots(1, 2, layout='compressed')
