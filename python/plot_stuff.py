@@ -6,6 +6,7 @@ plt.rc('font',**{'family':'serif','serif':['Computer Modern'], 'size':'20'})
 plt.rcParams['text.usetex'] = True
 #plt.rcParams['font.size'] = 16
 
+print(np.linspace(-20, 0, 11))
 #%%
 
 def x2(omega, lamda, gamma, kbT):

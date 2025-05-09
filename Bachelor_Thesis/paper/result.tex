@@ -89,8 +89,8 @@ which has a steady state solution for $\expval{\pop} = 0$ and any $\expval{\xop}
     \mathcal{M} = 
     \begin{pmatrix}
         - \left(\frac{\gamma}{2} + \frac{2 \im{f}}{\sqrt{2 m \omega \hbar}} \right) & - \frac{1}{m} \\
-         \re{f} \sqrt{\frac{2 m \omega}{\hbar}} + m \omega^2 & -\frac{\gamma}{2} &, 
-    \end{pmatrix} 
+         \re{f} \sqrt{\frac{2 m \omega}{\hbar}} + m \omega^2 & -\frac{\gamma}{2} &,  
+    \end{pmatrix} \label{eq:matrixM}
 \end{equation}
 which has eigenvalues
 \begin{equation}
@@ -149,10 +149,10 @@ The full analytical solutions are not shown here due to the length of the equati
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/energyFeedbackRatio.pdf}
-    \caption{\small The ratio between the energy with feedback and without plotted as a contour plot against $\re{\tilde{f}}$ and $\im{\tilde{f}}$. The parameters used are $k_\text{B}T = 10$, $Q = 10$, $\Lambda = 2$. Panel \textbf{a} shows a large variation of the parameters. There are divergences in the plot which almost follows a $\left(\re{\tilde{f}} + 1 \right)\im{\tilde{f}} = 1$ curve. Panel \textbf{b} is a zoomed in version of panel \textbf{a} and shows the behaviour of the system in a region where the ratio always is positive.}
+    \caption{\small The ratio between the energy with feedback and without plotted as a contour plot against $\re{\tilde{f}}$ and $\im{\tilde{f}}$. The parameters used are $k_\text{B}T = 10$, $Q = 10$, $\Lambda = 2$. Panel \textbf{a} shows a large variation of the parameters. There are divergences in the plot which almost follows a $\left(\re{\tilde{f}} + 1 \right)\im{\tilde{f}} = 1$ curve. Panel \textbf{b} is a zoomed in version of panel \textbf{a} and shows the behaviour of the system in a region where the ratio always is positive. The contour lines in panel \textbf{b} are placed at the tick marks.}
     \label{fig:energyFeedbackRatio}
 \end{figure}
-In Fig. \ref{fig:energyFeedbackRatio} we can see the affect that the feedback has on the energy of the system. Looking at panel \textbf{b} we can see areas which are negative. Since the energy of the system without measurement is constant, as those parameters are frozen, it must be the feedback energy that becomes negative. In the way we have set up the model a negative energy is unreasonable, since a temperature of $T=0$ would correspond to $E =\hbar\omega( 1/2 + \Lambda Q/2)$, which without measurement would mean an energy of $E = \hbar\omega/2$. A possible explantation for the negative energy is that the specific feedback that give rise to this is affecting the system in such a way that at least one of our assumptions is no longer accurate. This could for example be that the system no longer have a physical steady state. Another reason might be that the Markovian approximation no longer holds.
+In Fig. \ref{fig:energyFeedbackRatio} we can see the affect that the feedback has on the energy of the system. Looking at panel \textbf{a} we can see areas which are negative. Since the energy of the system without measurement is constant, as those parameters are frozen, it must be the feedback energy that becomes negative. In the way we have set up the model a negative energy is unreasonable, since a temperature of $T=0$ would correspond to $E =\hbar\omega( 1/2 + \Lambda Q/2)$, which without measurement would mean an energy of $E = \hbar\omega/2$. A possible explantation for the negative energy is that the specific feedback that give rise to this is affecting the system in such a way that at least one of our assumptions is no longer accurate. This could for example be that the system no longer have a physical steady state. Another reason might be that the Markovian approximation no longer holds.
 
 Another interesing aspect of Fig. \ref{fig:energyFeedbackRatio} is that when looking at panel \textbf{b} in conjunction with Eq. \eqref{eq:ess} is that it is possible to cool the system to a lower energy than the thermal energy. Using the same parameters in Eq. \eqref{eq:ess} as are used in the figure we find that the thermal energy is half of the total energy in the system without feedback, and looking at the figure we see that there exist a region which has a ratio of less than $0.5$.
 
@@ -160,16 +160,28 @@ Another interesing aspect of Fig. \ref{fig:energyFeedbackRatio} is that when loo
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/energyFeedbackDifference.pdf}
-    \caption{\small The difference between the energy of the system with feedback plotted and the energy without feedback plotteda against $\re{\tilde{f}}$ and $\im{\tilde{f}}$. The parameters used are $k_\text{B}T = 10$, $Q = 10$, $\Lambda = 2$. The plot is done in a small region around the origin, thus showing the effect a small feedback has on the system. }
+    \caption{\small The difference between the energy of the system with feedback plotted and the energy without feedback plotteda against $\re{\tilde{f}}$ and $\im{\tilde{f}}$. The parameters used are $k_\text{B}T = 10$, $Q = 10$, $\Lambda = 2$. The plot is done in a small region around the origin, thus showing the effect a small feedback has on the system. The spacing between the contour lines is $2$ and the solid lines is at $0$.}
     \label{fig:energyFeedbackDifference}
 \end{figure}
 
 Using the parameters listed in Fig. \ref{fig:energyFeedbackDifference} the energy without feedback is $\expval{\tilde{E}} \approx 20$ with the thermal part accounting for around $10$ of that. Looking at Fig. \ref{fig:energyFeedbackDifference} it is possible to see that even with a relatively low amount of feedback the system will be cooled to some degree. However, depending on how the feedback is applied it can also make the energy in the system explode which can be seen for $\im{\tilde{f}} < 0$.
 
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{figures/eigenvaluesSecondMomenta.pdf}
-    \caption{The eigenvalues of $\mathcal{A}$ in Eq. \eqref{eq:matrixA} plotted after doing the change of variables as a contour plot against $\re{\tilde{f}}$ and $\im{\tilde{f}}$ using the parameter $Q=10$. Panel \textbf{a}, \textbf{b}, and \textbf{c} show the real part of eigenvalue $\varepsilon_1$, $\varepsilon_2$, and $\varepsilon_3$, respectively.}
-    \label{fig:eigenvalueSecondMomenta}
-\end{figure}
-
+The stability for the steady states of the system can be checked using the Lyapunov equation
+\begin{equation}
+    \mathcal{M} S + S \mathcal{M}^T  + \mathcal{C} = 0
+\end{equation}
+where 
+\begin{equation}
+    S = 
+    \begin{pmatrix}
+    \expval{\xop^2} & \expval{\acomm{\xop}{\pop}}/2\\
+    \expval{\acomm{\xop}{\pop}}/2 & \expval{\pop^2}    
+    \end{pmatrix},
+    \quad
+    \mathcal{C} =
+    \begin{pmatrix}
+        \frac{\gamma \hbar}{m \omega} (\nbar + 1/2) - \frac{\re{f}^2}{4\lambda m \omega \hbar} & -\frac{\re{f} \im{f}}{4 \lambda \hbar}\\
+        -\frac{\re{f} \im{f}}{4 \lambda \hbar} & \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 +\frac{m \omega \re{f}^2}{4 \lambda \hbar}\\
+    \end{pmatrix}
+\end{equation}
+and $\mathcal{M}$ is the same matrix as in Eq. \eqref{eq:matrixM}.

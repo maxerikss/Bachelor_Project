@@ -63,8 +63,8 @@ ZRatioZoom = ZZoom/ZOld
 
 
 ## Near zero values
-reGZero = np.linspace(-0.1, 0.1, resolution)
-imGZero = np.linspace(-0.1, 0.2, resolution)
+reGZero = np.linspace(-0.25, 0.25, resolution)
+imGZero = np.linspace(-0.05, 0.25, resolution)
 XZero, YZero = np.meshgrid(reGZero, imGZero)
 ZZero = E(n, L, Q, XZero, YZero)
 
@@ -77,7 +77,9 @@ fig.set_size_inches(7.27, 4.5)
 N = 1
 levels = np.linspace(-N, N, 301)
 contourPlotRatio = axes[0].contourf(X, Y, ZRatio, levels=levels, cmap='seismic', extend='both')
+#contourPlotRatioLines = axes[0].contour(X, Y, ZRatio, levels=np.linspace(-2, 2, 9), colors='black', linewidths=1)
 contourPlotRatioZoom = axes[1].contourf(XZoom, YZoom, ZRatioZoom, levels=levels, cmap='seismic', extend='both')
+contourPlotRatioZoomLines = axes[1].contour(XZoom, YZoom, ZRatioZoom, levels=np.linspace(-1, 1, 9), colors='black', linewidths=1)
 
 cBar = fig.colorbar(contourPlotRatio, ax=axes, orientation='horizontal')
 
@@ -99,7 +101,7 @@ axes[1].text(-0.75, 1.2, r"\textbf{b}", fontsize=20)
 contourPlotRatio.set_edgecolor('face')
 contourPlotRatioZoom.set_edgecolor('face')
 plt.savefig("../Bachelor_Thesis/figures/energyFeedbackRatio.pdf", dpi=300)
-plt.close(fig)
+#plt.close(fig)
 
 
 ## Plotting the difference near zero
@@ -110,6 +112,7 @@ fig.set_size_inches(7.27, 4.5)
 N = 30
 levels = np.linspace(-N, N, 301)
 contourPlotZeroDiff = axes.contourf(XZero, YZero, ZZeroDiff, levels=levels, cmap='seismic', extend='both')
+contourPlotZeroDiffLines = axes.contour(XZero, YZero, ZZeroDiff, levels=np.linspace(-20, 0, 11), colors='black', linewidths=1)
 
 cBar = fig.colorbar(contourPlotZeroDiff, ax=axes, orientation='horizontal')
 
