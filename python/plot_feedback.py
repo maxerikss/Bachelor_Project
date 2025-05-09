@@ -93,8 +93,8 @@ axes[1].set_ylabel(r"$\mathfrak{I} \{ \tilde{f} \}$")
 cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} / \langle \tilde{E} \rangle$")
 cBar.set_ticks(np.linspace(-N, N, 9))
 
-axes[0].text(-0.6, 1.3, r"\textbf{a}", fontsize=20)
-axes[1].text(-0.75, 1.2, r"\textbf{b}", fontsize=20)
+axes[0].text(0.85, 0.85, r"\textbf{a}", transform=axes[0].transAxes, fontsize=20)
+axes[1].text(0.85, 0.85, r"\textbf{b}", transform=axes[1].transAxes, fontsize=20)
 
 ## Showing / Saving
 #plt.show()

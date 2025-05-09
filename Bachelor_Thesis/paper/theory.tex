@@ -85,7 +85,7 @@ where $\hamiltonian_\mathrm{c}$ is the control Hamiltonian of the system. We wil
 \begin{equation}
     \hamiltonian_\mathrm{c} = f^* \a + f \ad,
 \end{equation}
-where $f$ is the feedback amplitude \cite{Wiseman:2009}. Thus, for $\im{f} = 0$ we have $\hat{H}_\text{c} \propto \hat{x}$ and for $\re{f} = 0$ we have $\hat{H}_\text{c} \propto \hat{p}$. Starting from the same place as one derives Eq. \eqref{eq:masterMeas} we can derive a master equation including feedback \cite{Annby-Andersson:2024} to be
+where $f$ is the feedback amplitude \cite{Wiseman:2009}. Thus, for $\im{f} = 0$ we have $\hat{H}_\text{c} \propto \hat{x}$ and for $\re{f} = 0$ we have $\hat{H}_\text{c} \propto \hat{p}$. If the physical realization of the feedback is for example a laser, then $\abs{f}$ represent the power while $\arg{f}$ represent the relative phase difference between the oscillator and the laser field. Starting from the same place as one derives Eq. \eqref{eq:masterMeas} we can derive a master equation including feedback \cite{Annby-Andersson:2024} to be
 \begin{equation}
     \dt\dmatrix = \liouvillian\dmatrix + \lambda \super{\hat{A}} \dmatrix + \frac{1}{2} \feedback \acomm{\hat{A}}{\dmatrix} + \frac{1}{8\lambda} \feedback^2 \dmatrix, \label{eq:masterFeed}
 \end{equation}
