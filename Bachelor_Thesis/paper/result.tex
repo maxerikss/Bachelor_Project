@@ -113,7 +113,8 @@ Another thing to note is that the eigenvalues are comples to the right of the bl
 
 Solving for the EOM for the second momenta we obtain
 \begin{align}
-    \dt \expval{x^2} &= -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) \expval{x^2} - \frac{1}{m} \expval{\acomm{x}{p}} + \frac{\gamma \hbar}{m \omega} (\nbar + 1/2) - \frac{1}{4\lambda m \omega \hbar} \re{f}^2,\\
+    \dt \expval{x^2} &= -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) \expval{x^2} - \frac{1}{m} \expval{\acomm{x}{p}} + \frac{\gamma \hbar}{m \omega} (\nbar + 1/2) \nonumber\\
+    &\qquad - \frac{1}{4\lambda m \omega \hbar} \re{f}^2,\\
     \dt \expval{p^2} &=  -\gamma \expval{p^2} + \left( m\omega^2 + \re{f} \sqrt{\frac{2m \omega}{\hbar}} \right)\expval{\acomm{x}{p}} + \gamma m \omega \hbar (\nbar + 1/2) \nonumber \\
     &\qquad+ \lambda \hbar^2 + \frac{m \omega}{4 \lambda \hbar}\re{f}^2 ,\\
     \dt \expval{\acomm{x}{p}} &= -\left(\gamma + \frac{2\im{f}}{\sqrt{2m \omega \hbar}}  \right)\expval{\acomm{x}{p}} + \left(2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} \right) \expval{x^2} - \frac{2}{m} \expval{p^2}\nonumber\\ 
@@ -173,17 +174,17 @@ The stability for the steady states of the system can be checked using the Lyapu
     \mathcal{M} S + S \mathcal{M}^T  + \mathcal{C} = 0
 \end{equation}
 where 
-\begin{equation}
-    S = 
+\begin{align}
+    S &= 
     \begin{pmatrix}
     \expval{\xop^2} & \expval{\acomm{\xop}{\pop}}/2\\
     \expval{\acomm{\xop}{\pop}}/2 & \expval{\pop^2}    
     \end{pmatrix},
-    \quad
-    \mathcal{C} =
+    \\
+    \mathcal{C} &=
     \begin{pmatrix}
         \frac{\gamma \hbar}{m \omega} (\nbar + 1/2) - \frac{\re{f}^2}{4\lambda m \omega \hbar} & -\frac{\re{f} \im{f}}{4 \lambda \hbar}\\
-        -\frac{\re{f} \im{f}}{4 \lambda \hbar} & \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 +\frac{m \omega \re{f}^2}{4 \lambda \hbar}\\
-    \end{pmatrix}
-\end{equation}
+        -\frac{\re{f} \im{f}}{4 \lambda \hbar} & \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 +\frac{m \omega \re{f}^2}{4 \lambda \hbar}
+    \end{pmatrix},
+\end{align}
 and $\mathcal{M}$ is the same matrix as in Eq. \eqref{eq:matrixM}. S has unique steady state solutions if the real part of the eigenvalues of $\mathcal{M}$ are negative \cite{Purkayastha:2022}. We can therefore refer back to Eq. \eqref{eq:eigenvalueFirstMomenta} and Fig. \ref{fig:eigenvalueFirstMomenta} to see the stability of the system. In conjunction with Fig. \ref{fig:energyFeedbackRatio} and \ref{fig:energyFeedbackDifference} we can see that the system is stable in the region where we cool the system. Thus, it is not only possible to cool the system but the system is also stable. We can therefore see that this type of feedback mechanism is a valid way to cool a QHO.

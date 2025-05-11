@@ -1,5 +1,9 @@
 \section{Discussion}
 
-\subsection{Cooling of an Harmonic Oscillator}
+\subsection{Cooling of a Quantum Harmonic Oscillator}
+Technologies relying on quantum phonemona such as quantum computers, generally have a need for a low temperature system \cite{Nielsen:2010}. It is therefore an interesting and active research topic to find ways to cool a quantum system. Currently there exist multiple types of cooling, and the work perfomed in this thesis is in the form of measurement and feedback based cooling, similar to \cite{De-Sousa:2025}.
+
+As briefely mentioned in Sec. \ref{sec:feedback}, the physical realisation of the feedback scheme could be a driving laser acting on the system. The successfullness of the cooling would then also depend on the possibilites to physically control the parameters. Especially the feedback strength and phase. It is especially apparent from the results in Fig. \ref{fig:energyFeedbackRatio} that the phase plays a large role in if the feedback is successful, which can be seen from quadran 2 and 4 having negative energy, which is not physical. The explanation for this is that the system most likely breaks down and for a steady state to exist given these parameters the temperature would have to be negative. Thus, the only physically relevant solutions is in quadrant 1 and 3. We can then also conclude that in general a functionate feedback scheme has a hamiltonian which is either proportional to $\xop - \pop$ or $-\xop + \pop$. It is possible to have a feedback hamiltonian proportional to $-\xop - \pop$ but this will not be as effective at cooling the system. In panel \textbf{b} in Fig. \ref{fig:energyFeedbackRatio} this area can be seen for $\re{\tilde{f}} < 0$. So even if it is possible to cool in this area, the same amplitude but smaller phase would yield a better result.
+
 
 \subsection{Stability with Feedback}
