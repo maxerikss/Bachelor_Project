@@ -33,7 +33,7 @@ def E(n, L, Q, reG, imG):
 kbT = 10
 n = 1 / (np.exp(1 / kbT) - 1)
 L = 2
-Q = 10
+Q = 100
 
 ### Defining colormap
 colors = ['red', 'blue']
@@ -46,13 +46,8 @@ norm = mcolors.BoundaryNorm(bounds, cmap.N)
 resolution = 500
 reG = np.linspace(-2, 2, resolution)
 imG = np.linspace(-2, 2, resolution)
-#amplitude = np.linspace(0, 2, resolution)
-#phase = np.linspace(0, np.pi, resolution)
-#reG = amplitude * np.cos(phase)
-#imG = amplitude * np.sin(phase)
 X, Y = np.meshgrid(reG, imG)
 Z = E(n, L, Q, X, Y)
-#X, Y = np.meshgrid(amplitude, phase)
 
 XOld, YOld = np.meshgrid(np.linspace(0, 0, resolution), np.linspace(0, 0, resolution))
 ZOld = E(n, L, Q, XOld, YOld)
