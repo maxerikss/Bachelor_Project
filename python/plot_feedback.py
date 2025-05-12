@@ -98,8 +98,8 @@ axes[1].text(0.85, 0.85, r"\textbf{b}", transform=axes[1].transAxes, fontsize=20
 
 ## Showing / Saving
 #plt.show()
-contourPlotRatio.set_edgecolor('face')
-contourPlotRatioZoom.set_edgecolor('face')
+contourPlotRatio.set_rasterized(True)
+contourPlotRatioZoom.set_rasterized(True)
 plt.savefig("../Bachelor_Thesis/figures/energyFeedbackRatio.pdf", dpi=300)
 #plt.close(fig)
 
@@ -124,9 +124,9 @@ cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} - \langle \tilde{E} 
 cBar.set_ticks(np.linspace(-N, N, 9))
 
 ## Showing / Saving
-contourPlotZeroDiff.set_edgecolor('face')
+contourPlotZeroDiff.set_rasterized(True)
 plt.savefig("../Bachelor_Thesis/figures/energyFeedbackDifference.pdf", dpi=300)
-plt.show()
+#plt.show()
 plt.close(fig)
 
 ## Comparing with the old Equation

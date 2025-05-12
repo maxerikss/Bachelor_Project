@@ -66,7 +66,9 @@ axes[1].text(1.5, -1.5, r"\textbf{b}", fontsize=20)
 
 
 ## Showing / Saving
-plt.show()
-cNeg.set_edgecolor('face')
-cPos.set_edgecolor('face')
-#plt.savefig("../Bachelor_Thesis/figures/eigenvalueFirstMomenta.pdf", dpi=300)
+#plt.show()
+#cNeg.set_edgecolor('face')
+#cPos.set_edgecolor('face')
+cNeg.set_rasterized(True)
+cPos.set_rasterized(True)
+plt.savefig("../Bachelor_Thesis/figures/eigenvalueFirstMomenta.pdf", dpi=300)
