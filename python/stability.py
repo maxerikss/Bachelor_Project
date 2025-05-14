@@ -44,7 +44,7 @@ cNeg = axes[0].contourf(X, Y, ZNeg, levels=levels, cmap='seismic', extend='both'
 
 axes[0].plot(parabola, ref, color='black')
 axes[1].plot(parabola, ref, color='black')
-axes[1].plot(slope, imf, color='black')
+#axes[1].plot(slope, imf, color='black')
 #axes[0].scatter(-1/np.sqrt(2), -gamma/(np.sqrt(8)), color='black', marker='o' )
 
 cPos = axes[1].contourf(X, Y, ZPos, levels=levels, cmap='seismic', extend='both')
