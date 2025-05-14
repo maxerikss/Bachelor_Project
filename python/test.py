@@ -32,8 +32,8 @@ def E(n, L, Q, reG, imG):
 ## defiining constants
 kbT = 10
 n = 1 / (np.exp(1 / kbT) - 1)
-L = 2
-Q = 10
+L = 20
+Q = 1000
 
 ### Defining colormap
 colors = ['red', 'blue']
@@ -77,11 +77,9 @@ fig.set_size_inches(7.27, 4.5)
 N = 1
 levels = np.linspace(-N, N, 301)
 contourPlotRatio = axes[0].contourf(X, Y, ZRatio, levels=levels, cmap='seismic', extend='both')
-contourPlotRatio.set_rasterized(True)
 #contourPlotRatioLines = axes[0].contour(X, Y, ZRatio, levels=np.linspace(-2, 2, 9), colors='black', linewidths=1)
 contourPlotRatioZoom = axes[1].contourf(XZoom, YZoom, ZRatioZoom, levels=levels, cmap='seismic', extend='both')
 contourPlotRatioZoomLines = axes[1].contour(XZoom, YZoom, ZRatioZoom, levels=np.linspace(-1, 1, 9), colors='black', linewidths=1)
-contourPlotRatioZoom.set_rasterized(True)
 
 cBar = fig.colorbar(contourPlotRatio, ax=axes, orientation='horizontal')
 
@@ -100,9 +98,9 @@ axes[1].text(0.85, 0.85, r"\textbf{b}", transform=axes[1].transAxes, fontsize=20
 
 ## Showing / Saving
 #plt.show()
-#contourPlotRatio.set_edgecolor('face')
-#contourPlotRatioZoom.set_edgecolor('face')
-plt.savefig("./test.pdf", dpi=300)
+contourPlotRatio.set_rasterized(True)
+contourPlotRatioZoom.set_rasterized(True)
+#plt.savefig("../Bachelor_Thesis/figures/energyFeedbackRatio.pdf", dpi=300)
 #plt.close(fig)
 
 
@@ -126,7 +124,7 @@ cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} - \langle \tilde{E} 
 cBar.set_ticks(np.linspace(-N, N, 9))
 
 ## Showing / Saving
-contourPlotZeroDiff.set_edgecolor('face')
+contourPlotZeroDiff.set_rasterized(True)
 #plt.savefig("../Bachelor_Thesis/figures/energyFeedbackDifference.pdf", dpi=300)
 plt.show()
 plt.close(fig)
