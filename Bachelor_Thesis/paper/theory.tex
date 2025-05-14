@@ -1,6 +1,6 @@
 \section{Theoretical Framework}
 \subsection{Quantum Harmonic Oscillator} \label{sec:qho}
-The \gls{qho} is a quantum mechanical system useful for many applications. This stems from the fact that many systems can be approximated as harmonic, that is quadratic, close to their equilibrium position, and since the QHO is a simple system, which is possible to solve analytically it is a good starting approximation. Let us start by assuming that a bosonic particle with mass $m$ is confined in a harmonic potential, then the system has the Hamiltonian
+The \gls{qho} is a quantum mechanical system useful for many applications. This stems from the fact that many systems can be approximated as harmonic, that is quadratic close to their equilibrium position, and since the QHO is a simple system, which is possible to solve analytically it is a good starting approximation. Let us start by assuming that a particle with mass $m$ is confined in a harmonic potential, then the system has the Hamiltonian
 \begin{equation}
     \hamiltonian = \frac{\pop^2}{2m} + \frac{1}{2}m\omega^2\xop^2 = \hbar\omega\left(\ad\a + \frac{1}{2}\right), \label{eq:hamiltonian}
 \end{equation}
@@ -8,7 +8,7 @@ where $\pop$ and $\xop$ are the momentum and position operators, $m$ is the mass
 \begin{equation}
     \a = \sqrt{\frac{m\omega}{2\hbar}} \left(\xop + \frac{i}{m\omega} \pop\right) \quad \text{and} \quad \ad = \sqrt{\frac{m\omega}{2\hbar}} \left(\xop - \frac{i}{m\omega} \pop\right).
 \end{equation}
-These operators can be used to define the number operator $\hat{n} = \ad\a$ which has the number states, or Fock states, $\ket{n}$ as its eigenstates with eigenvalue $n$ \cite{Meystre:2021}. The ladder operators have a useful the commutation relation $\comm{\a}{\ad} = \mathbb{1}$. The Fock states are also eigenstates to the ladder operators with properties
+These operators can be used to define the number operator $\hat{n} = \ad\a$ which has the number states, or Fock states, $\ket{n}$ as its eigenstates with eigenvalue $n$ \cite{Meystre:2021}. The ladder operators have a useful the commutation relation $\comm{\a}{\ad} = \mathbb{1}$, that follows from the canonical commutation relation $\comm{\xop}{\pop} = i\hbar$. The Fock states are also eigenstates to the ladder operators with properties
 \begin{align}
     \a \ket{n} = \sqrt{n} \ket{n-1},\\
     \ad \ket{n} = \sqrt{n+1} \ket{n+1},
@@ -16,48 +16,48 @@ These operators can be used to define the number operator $\hat{n} = \ad\a$ whic
 which means that they change the excitation level of the QHO \cite{Meystre:2021}.
 
 \subsection{Open Quantum Systems} \label{sec:open}
-Before introducing what open quantum systems we will shortly introduce the language of density matrices. A density matrix describes an ensemble of states defined as 
+Before introducing open quantum systems, we shortly introduce the language of density matrices. A density matrix describes an ensemble of states defined as 
 \begin{equation}
     \dmatrix = \sum_i p_i \ket{\psi_i} \bra{\psi_i},
 \end{equation}
-where there is probability $p_i$ for the system to be prepared in the state $\ket{\psi_i}$ \cite{Nielsen:2010}. Two conditions imposed on a density matrix is that it I) has unit trace, and II) is positive semi-definite \cite{Nielsen:2010}. These conditions ensure that the probabilities are $0 \leq p_i \leq 1$ and $\sum_i p_i = 1$ and that the density matrix is hermitian. With this we can reformulate the postulates of quantum mechanics using density matrices \cite{Nielsen:2010}.
+where there is probability $p_i$ for the system to be prepared in the state $\ket{\psi_i}$ \cite{Nielsen:2010}. Two conditions imposed on a density matrix is that it I) has unit trace, and II) is positive semi-definite \cite{Nielsen:2010}. These conditions ensure that the probabilities are $0 \leq p_i \leq 1$ and $\sum_i p_i = 1$ and that the density matrix is hermitian. With this definition of the density matrix object, we can reformulate the postulates of quantum mechanics allowing for open systems and mixed states \cite{Nielsen:2010}.
 
-With an open quantum system we mean a quantum system which in some ways interact with an environment. This interaction could be described as a thermal coupling between the main system and some temperature bath. This will cause the system to be in a thermal equilibrium with the environment if left alone, and therefore it will be dependent on the temperature. Unless the temperature of the bath is zero, the system will be in a mixed state, described by a density matrix $\dmatrix$. Notably, if the temperature is zero, the system is purely dissipative since the coupling is thermal. \cite{Annby-Andersson:2024}
+With an open quantum system we mean a quantum system which in some ways interacts with an environment. This interaction could be described as a thermal coupling between the main system and some temperature bath. This will cause the system to be in a thermal equilibrium with the environment if left alone, and therefore it will be dependent on the temperature. Unless the temperature of the bath is zero, the system will be in a mixed state, described by a density matrix $\dmatrix$. Notably, if the temperature is zero, the system is purely dissipative since the bath cannot excite the system, and thus energy can only be transferred from the system to the bath. \cite{Annby-Andersson:2024}
 
 The thermal coupling to the environment will lead to dissipation of quantum information from the system to the environment. During this process, the system loses coherence. That is, the quantum mechanical properties of the system are lost and a classical description of the state becomes more appropriate. The coherence of the system is manifested in the off-diagonal elements of the density matrix. If the off-diagonal elements are zero, either by dissipation to the environment or by other means of decoherence, the system will exist in a classical probabilistic state, and any superposition of states will be lost. \cite{Annby-Andersson:2024}
 
-The combination of the system and environment can be considered a closed system, though more complicated than the main system itself. Then, by performing a partial trace over the environment, a description of the system alone arises at the cost of losing information about the correlation between the two parts \cite{Annby-Andersson:2024}. This introduces an uncertainty in the state, and it is therefore necessary to treat the resulting system to be in a mixed state. To describe the evolution of this system with a master equation two approximations about the coupling need to be performed. Firstly, we need to consider the Born approximation, which says that the coupling between the system and environment is such that only negligible excitations appear in the environment \cite{Breuer:2007}. The other approximation is the Markov approximation saying that the excitations that do appear in the environment will decay much faster than the timescale that the system varies on, and that the system's time evolution is only affected by the current state of the system and not previous states \cite{Breuer:2007}. Together these approximations allow us to write the total density matrix as 
+The combination of the system and environment can be considered a closed system, though more complicated than the main system itself. Then, by performing a partial trace over the environment, a description of the system alone arises at the cost of losing information about the correlation between the two parts \cite{Annby-Andersson:2024}. This introduces an uncertainty in the state, and it is therefore necessary to treat the resulting system to be in a mixed state. To describe the evolution of this system with a master equation two approximations about the coupling need to be performed. First, we consider the Born approximation, which says that the coupling between the system and environment is weak enough that only negligible excitations appear in the environment \cite{Breuer:2007}. The other approximation is the Markov approximation saying that the excitations that do appear in the environment will decay much faster than the timescale that the system varies on, and that the system's time evolution is only affected by the current state of the system and not previous states \cite{Breuer:2007}. Together these approximations allow us to write the total density matrix as 
 \begin{equation}
     \rho_\mathrm{SE} = \rho_\mathrm{S} \otimes \rho_\mathrm{E},
 \end{equation}
-and derive a Markovian master equation.
+where $\otimes$ is the tensor product, and derive a Markovian master equation. For ease of notation we will drop the subscript S and always consider the system unless otherwise stated.
 
 \subsubsection{Master Equation}\label{sec:mastereq}
-The evolution of an open quantum system can be described by a master equation, which is a differential equation and generalization of the Schrödinger equation to involve open quantum systems instead of pure states \cite{Annby-Andersson:2024}. By introducing the super operator
+The evolution of an open quantum system can be described by a master equation, which is a differential equation and generalization of the Schrödinger equation to involve open quantum systems instead of pure states \cite{Annby-Andersson:2024}. By introducing the superoperator
 \begin{equation}
     \super{\hat{L}_k}\dmatrix = \hat{L}_k\dmatrix\hat{L}_k^{\dagger} - \frac{1}{2} \acomm{\hat{L}_k^\dagger \hat{L}_k}{\dmatrix},
 \end{equation} 
-where $\hat{L}_k$ are called Lindblad operators, the master equation on Lindblad form can be written as 
+where $\hat{L}_k$ are called Lindblad jump operators, the master equation on Lindblad form can be written as 
 \begin{equation}
     \dt\dmatrix = -\frac{i}{\hbar}\comm{\hamiltonian}{\dmatrix} + \sum_k \gamma_k\super{\hat{L}_k}\dmatrix,
 \end{equation}
-where $\hamiltonian$ is the Hamiltonian of the system, and $\gamma_k$ are the decay rates of the system, relating the decoherence to the environment depending on the coupling to the system \cite{Annby-Andersson:2024}. If $\gamma_k = 0$ for all $k$ the equation reduces to the von Neumann equation for a closed quantum system and the coupling to the bath is removed. The remaining term thus describes the unitary time evolution of the system and is the analogue of the Schrödinger equation for the density matrix formalism \cite{Annby-Andersson:2024}. At this stage one might also introduce the Liouvillian superoperator and write the master equation more compactly as
+where $\hamiltonian$ is the Hamiltonian of the system, and $\gamma_k$ are the decay rates of the system, relating the decoherence to the environment depending on the coupling to the system \cite{Annby-Andersson:2024}. If $\gamma_k = 0$ for all $k$, and the coupling to the bath is removed, the equation reduces to the von Neumann equation for a closed quantum system. The remaining term thus describes the unitary time evolution of the system and is the analogue of the Schrödinger equation for the density matrix formalism \cite{Annby-Andersson:2024}. At this stage, one might also introduce the Liouvillian superoperator $\liouvillian$, and write the master equation more compactly as
 \begin{equation}
     \dt\dmatrix = \liouvillian\dmatrix.
 \end{equation}
 This compactness will be useful when considering other types of perturbing effects on the system such as measurements and feedback \cite{Annby-Andersson:2024}.
 
-In the case considered in this thesis with a QHO coupled to a thermal reservoir we can imagine that we have two types of decay. One decay of particles into the system and one decay of particles out of the system \cite{Meystre:2021}. As mentioned in Sec. \ref{sec:qho} the ladder operators can be used to excite or deexcite a system. It is also reasonable to assume that the decay, or the amount of particles flowing between the systems and the environment, is proportional to the thermal excitation $\nbar$ defined by
+In the case considered in this thesis with a QHO coupled to a thermal reservoir we can imagine that we have two types of Lindblad jump operators, on of which tranfer particles into the system and one transfer particles out of the system \cite{Meystre:2021}. As mentioned in Sec. \ref{sec:qho} the ladder operators can be used to excite or deexcite a system. It is also reasonable to assume that the decay, or the amount of particles flowing between the systems and the environment, is proportional to the thermal occupation $\nbar$ defined by
 \begin{equation}
     \nbar = \frac{1}{e^{\hbar\omega/ k_\mathrm{B}T} - 1},
 \end{equation}
-where $T$ is the temperature of the bath and $k_\mathrm{B}$ is the Boltzmann constant \cite{Meystre:2021}. If one goes through the mathematical proof one can show that the Lindblad operators can be chosen as $\hat{L}_1 = \a$ and $\hat{L}_2 = \ad$ with coefficients $\gamma_1 = \gamma(\nbar + 1)$ and $\gamma_2 = \gamma \nbar$, wher $\gamma$ is a decay rate. We can also note that $\hat{L}_1$ and $\gamma_1$ refer to the spontaneous emission from the system to the environment while $\hat{L}_2$ refer to spontaneous absorption from the environment to the system, consistent with what we know about ladded operators from Sec. \ref{sec:qho} \cite{Meystre:2021}. Notably, for $T=0$, the thermal occupation is $\nbar = 0$ and the system will only exhibit emission and will decay.
+where $T$ is the temperature of the bath and $k_\mathrm{B}$ is the Boltzmann constant \cite{Meystre:2021}. One can show that for a QHO coupled to a thermal bath, the Lindblad jump operators can be chosen as $\hat{L}_1 = \a$ and $\hat{L}_2 = \ad$ with coefficients $\gamma_1 = \gamma(\nbar + 1)$ and $\gamma_2 = \gamma \nbar$, wher $\gamma$ is a decay rate. We can also note that $\hat{L}_1$ and $\gamma_1$ refer to the spontaneous emission from the system to the environment while $\hat{L}_2$ refer to spontaneous absorption from the environment to the system, consistent with what we know about ladded operators from Sec. \ref{sec:qho} \cite{Meystre:2021}. Notably, for $T=0$, the thermal occupation is $\nbar = 0$ and the system will only exhibit emission and will decay.
 
 
 \subsection{Continuous Measurements}
-Measurement is a process which introduces decoherence in the system, and it is therefore interesting to look at its effects \cite{Jordan:2024}. The simplest view on measurements takes the form of von Neumann measurements. This type of measurement is described by a set of measurement operators which projects the system onto the eigenstates of the observable \cite{Annby-Andersson:2024}. This essentially means that all quantum information in the system is lost and full decoherence has happened. By generalizing the measurement theory one can derive what is called \gls{povm} \cite{Annby-Andersson:2024}.
+Measurement is a process which allow us to know the state of the system and has the consequence of introduces decoherence, and it is therefore interesting to look at its effects \cite{Jordan:2024}. The simplest view on measurements takes the form of von Neumann measurements. This type of measurement is described by a set of measurement operators which projects the system onto the eigenstates of the observable \cite{Annby-Andersson:2024}. This essentially means that all quantum information in the system is lost and full decoherence has happened. By generalizing the measurement theory one can derive what is called \gls{povm} \cite{Annby-Andersson:2024}.
 
-Since the POVM is not necessarily a projective von Neumann measurement all coherence need not be lost after the measurement. Thus, this opens up for the possibility of performing time continuous weak measurement \cite{Annby-Andersson:2024}. To describe this type of POVM we first consider a Gaussian measurement operator
+Since the POVM is not necessarily a projective von Neumann measurement all coherence need not be lost after the measurement. Thus, this opens up for the possibility of performing time-continuous weak measurement \cite{Annby-Andersson:2024}. To describe this type of POVM, we first consider a Gaussian measurement operator
 \begin{equation}
     \hat{K}(z) = \left(\frac{2 \bar{\lambda}}{\pi}\right)^{1/4} e^{-\bar{\lambda}(z - \hat{A})^2},
 \end{equation}
@@ -65,7 +65,7 @@ where $\bar{\lambda}$ represents the strength of the measurement, $z$ is a conti
 \begin{equation}
     \dmatrix_\mathrm{post} =  \frac{\hat{K}(z) \dmatrix \hat{K}^\dagger(z)}{p(z)},
 \end{equation}
-where the probability is defined as $p(z) = \tr( \hat{K}^\dagger(z) \hat{K}(z) \dmatrix )$ \cite{Annby-Andersson:2024}.
+where the probability is defined as $p(z) = \tr( \hat{K}^\dagger(z) \hat{K}(z) \dmatrix )$ \cite{Annby-Andersson:2024}. In this thesis we will only consider the case where $\hat{A} = \xop$, that is we only measure the position quadrature.
 
 Then by discretizing the time interval to segments of $\dd t$ and defining $\bar{\lambda} = \lambda \dd t$ we approach a situation where in the limit $\dd t \to 0$ all measurements will be weak, and the coherence of the system is minimally affected \cite{Annby-Andersson:2024}. Considering the stochastic nature of the process and averaging the possible trajectories one can derive the master equation \cite{Annby-Andersson:2024} in Lindblad form to be 
 \begin{equation}
@@ -73,7 +73,7 @@ Then by discretizing the time interval to segments of $\dd t$ and defining $\bar
 \end{equation}
 
 \subsection{Feedback Control} \label{sec:feedback}
-Until this point we have only considered measurements where we omit the information about the measurement outcome. That is, we interact with the system and look at how it evolves due to this interaction on average, instead of looking at the specific outcome of any given measurement \cite{Annby-Andersson:2024}. However, now we want to consider feedback control of the system, and thus we will need to include the information about the measurement outcome \cite{Annby-Andersson:2024}. By feedback control we mean a process by which we manipulate the evolution of a system due to a measurement outcome \cite{Wiseman:2009}. Since we are dealing specifically with quantum systems, we can further talk about quantum feedback control, where quantum mechanical effects of the system play a role in the modelling of the feedback mechanisms effect on the system \cite{Wiseman:2009}. However, worth noting is that the physical realization of the feedback mechanism does not necessarily need to be entirely quantum mechanical, but at least part of the mechanism need to incorporate quantum mechanics. \cite{Wiseman:2009}. Specifically, for a measurement outcome $z$ we will consider a linear feedback modification of $\liouvillian$ such that 
+Until this point we have only considered measurements where we omit the information about the measurement outcome. That is, we interact with the system and look at how it evolves due to this interaction on average, instead of looking at the specific outcome of any given measurement \cite{Annby-Andersson:2024}. However, now we want to consider feedback control of the system, and thus we will need to include the information about the measurement outcome \cite{Annby-Andersson:2024}. By feedback control we mean a process by which we manipulate the evolution of a system using a measurement outcome \cite{Wiseman:2009}. Since we are dealing specifically with quantum systems, we can further talk about quantum feedback control, where quantum mechanical effects play a role in the modelling of the feedback mechanism's effect on the system \cite{Wiseman:2009}. However, it is worth noting that the physical realization of the feedback mechanism does not necessarily need to be entirely quantum mechanical, but at least part of the mechanism need to incorporate quantum mechanics in its description \cite{Wiseman:2009}. Specifically, for a measurement outcome $z$ we will consider a linear feedback modification of $\liouvillian$ such that 
 \begin{equation}
     \liouvillian \to \liouvillian + z \feedback,
 \end{equation}  
@@ -81,16 +81,16 @@ where $\feedback$ is a superoperator describing the feedback on the system \cite
 \begin{equation}
     \feedback\dmatrix = - \frac{i}{\hbar} \comm{\hamiltonian_\mathrm{c}}{\dmatrix},
 \end{equation}
-where $\hamiltonian_\mathrm{c}$ is the control Hamiltonian of the system. We will consider a control Hamiltonian which is linear on the form
+where $\hamiltonian_\mathrm{c}$ is the control Hamiltonian of the system. We will consider a control Hamiltonian which is linear and has the form
 \begin{equation}
     \hamiltonian_\mathrm{c} = f^* \a + f \ad,
 \end{equation}
-where $f$ is the feedback amplitude, which essentially changes the sytem hamiltonian to
+where $f$ is the feedback amplitude, which essentially changes the system Hamiltonian to
 \begin{equation}
     \hamiltonian_\text{tot} = \hamiltonian_\text{QHO} + \hamiltonian_\text{c} =\hbar\omega\left(\ad\a + \frac{1}{2}\right) + z(f^* \a + f \ad).
 \end{equation}
-Thus, for $\im{f} = 0$ we have $\hat{H}_\text{c} \propto \hat{x}$ and for $\re{f} = 0$ we have $\hat{H}_\text{c} \propto -\hat{p}$. If the physical realization of the feedback is for example a laser, then $\abs{f}$ represent the power while $\arg{f}$ represent the relative phase difference between the oscillator and the laser field. Starting from the same place as one derives Eq. \eqref{eq:masterMeas} we can derive a master equation including feedback \cite{Annby-Andersson:2024} to be
+Thus, for a real $f$, $\im{f} = 0$, we have $\hat{H}_\text{c} \propto \hat{x}$ and for an imaginary $f$, $\re{f} = 0$, we have $\hat{H}_\text{c} \propto -\hat{p}$. If the physical realization of the feedback is for example a laser, then $\abs{f}$ represent the power while $\arg{f}$ represent the relative phase difference between the oscillator's measured quadrature and the feedback field. Starting from the same place as one derives Eq. \eqref{eq:masterMeas} we can derive a master equation including feedback \cite{Annby-Andersson:2024} to be
 \begin{equation}
     \dt\dmatrix = \liouvillian\dmatrix + \lambda \super{\hat{A}} \dmatrix + \frac{1}{2} \feedback \acomm{\hat{A}}{\dmatrix} + \frac{1}{8\lambda} \feedback^2 \dmatrix, \label{eq:masterFeed}
 \end{equation}
-where the square on $\feedback$ means $ \feedback^2 \dmatrix = \feedback ( \feedback \dmatrix)$.
+where the square on $\feedback$ means $ \feedback^2 \dmatrix = \feedback ( \feedback \dmatrix)$. The first additional term introduces is the drive arising from the feedback on the system, while the second term is attributed to the noise and fluctuations of the feedback \cite{Annby-Andersson:2024}. We can see that as the measurement strength, $\lambda \to \infty$, the noise term vanishes. However, this would also make the measurement term diverge and leave us with a von Neumann measurement.
