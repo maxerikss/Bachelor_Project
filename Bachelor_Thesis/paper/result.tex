@@ -22,15 +22,19 @@ we can solve for the steady-state, by setting the time derivative to zero. Intro
     \expval{\tilde{x}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \frac{2 Q^3}{4Q^2 + 1}, \label{eq:x2ss}\\
     \expval{\tilde{p}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \left( Q - \frac{2Q^3}{4Q^2 + 1} \right) \label{eq:p2ss},
 \end{align}
-One interesting aspects of the steady-state solutions is that both equations have identical terms capturing the thermal aspect of the fluctuations. Without measurement, the steady-states are only thermal, which is to be expected. Interestingly, when calculating the energy of the steady state the complicated fraction above cancels, and we are left with a purely linear term in the quality factor.
+One interesting aspects of the steady-state solutions is that both equations have identical terms capturing the thermal aspect of the fluctuations. Without measurement, the steady-states are only thermal, which is to be expected. Interestingly, when calculating the energy of the steady-state the complicated fraction above cancels, and we are left with a purely linear term in the quality factor.
 \begin{equation}
-    E_\mathrm{ss} = \expval{\tilde{H}}_\mathrm{ss} = \frac{\hbar \omega}{2} \left( \expval{\tilde{p}^2} + \expval{\tilde{x}^2} \right) = \hbar\omega (\nbar + 1/2)+ \frac{\lambda \hbar^2}{2 m\omega} Q
+    E_\mathrm{ss} = \expval{\tilde{H}}_\mathrm{ss} = \frac{\hbar \omega}{2} \left( \expval{\tilde{p}^2}_\text{ss} + \expval{\tilde{x}^2}_\text{ss} \right) = \hbar\omega (\nbar + 1/2)+ \frac{\lambda \hbar^2}{2 m\omega} Q
     \label{eq:ess}
+\end{equation}
+To simplify plotting we might perform the change of variable
+\begin{equation}
+    \tilde{E} =\frac{E}{\hbar\omega}
 \end{equation}
 
 \input{figures/steady_state_plots.tex}
 
-Looking at panels \textbf{a} and \textbf{b} in Fig. \ref{fig:steady_state} one can see that a stronger measurement correlates to the system steady state increasing in energy, as does it for an increasing quality factor. Both also affect the system linearly. Thus, by continuously measuring the system we add energy into it, which make the steady state higher in energy than what the thermal effects from the bath would otherwise place it. That is, if we do not perform any measurement the system would be stable at around $\nbar + 1/2$ which for the parameters used here would give $\expval{\tilde{E}} \approx 10\hbar\omega$
+Looking at panels \textbf{a} and \textbf{b} in Fig. \ref{fig:steady_state} one can see that a stronger measurement correlates to the system steady-state increasing in energy, as does it for an increasing quality factor. Both also affect the system linearly. Thus, by continuously measuring the system we add energy into it, which make the steady-state higher in energy than what the thermal effects from the bath would otherwise place it. That is, if we do not perform any measurement the system would be stable at around $\nbar + 1/2$ which for the parameters used here would give $E_\text{ss} \approx 10\hbar\omega$.
 
 In panels \textbf{d} and \textbf{f} we can see that there is some non-linear behaviour near $Q = 0$. However, due to the approximations made in Sec. \ref{sec:open} we cannot trust the results in the region of a low quality factor. This is because this regime having a relatively high coupling to the environment, and thus the excitations in the environment might not decay fast enough and therefore affect the oscillator. Panels \textbf{c} and \textbf{e} show the linear dependence on $\lambda$ for the second moments.
 
@@ -48,9 +52,9 @@ Then when solving for the steady-state we find
 \begin{equation}
     \expval{\xop} = \expval{\pop} = 0. \label{eq:xp0}
 \end{equation}
-This result also confirms the intuition that for a harmonic oscillator, the system has a steady state around the origin. 
+This result also confirms the intuition that for a harmonic oscillator, the system has a steady-state around the origin. 
 
-It is also important to investigate the stability of the system. That is, if and when the system, in the long time limit, will end up in a steady state, and that the steady-state are stable to small perturbations. To check for stability we can rewrite the equation as an eigenvalue problem and solve for the eigenvalues. That is, for the matrix
+It is also important to investigate the stability of the system. That is, if and when the system, in the long time limit, will end up in a steady-state, and that the steady-state are stable to small perturbations. To check for stability we can rewrite the equation as an eigenvalue problem and solve for the eigenvalues. That is, for the matrix
 \begin{equation}
     \mathcal{M} = \begin{pmatrix}
         -\gamma/2 & -1/m \\
@@ -87,7 +91,7 @@ The system of equations reduces to
     \dt\expval{\xop} &= - \frac{1}{m} \expval{\pop},\\
     \dt\expval{\pop} &= -\frac{\gamma}{2} \expval{\pop},
 \end{align}
-which has a steady state solution for $\expval{\pop} = 0$ and any $\expval{\xop}$. To check for stability we can again rewrite the equations as an eigenvalue problem with matrix
+which has a steady-state solution for $\expval{\pop} = 0$ and any $\expval{\xop}$. To check for stability we can again rewrite the equations as an eigenvalue problem with matrix
 \begin{equation}
     \mathcal{M} = 
     \begin{pmatrix}
@@ -123,7 +127,7 @@ Solving for the EOM for the second moments we obtain
     \dt \expval{\acomm{x}{p}} &= -\left(\gamma + \frac{2\im{f}}{\sqrt{2m \omega \hbar}}  \right)\expval{\acomm{x}{p}} + \left(2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} \right) \expval{x^2} - \frac{2}{m} \expval{p^2}\nonumber\\ 
     &\qquad - \frac{\re{f} \im{f}}{2 \lambda \hbar}.\label{eq:xpFeedback}
 \end{align}
-We can solve for the steady state by first rewriting the system of equations to a matrix equation $\dt X = \mathcal{A} X + \mathcal{B}$ where
+We can solve for the steady-state by first rewriting the system of equations to a matrix equation $\dt X = \mathcal{A} X + \mathcal{B}$ where
 \begin{equation}
     X =
     \begin{pmatrix}
@@ -152,7 +156,7 @@ To obtain the steady-state solutions we solve $X_\text{ss} = - \mathcal{A}^{-1} 
 \begin{equation}
     \tilde{f} = \frac{f}{\omega \sqrt{m \omega \hbar}} , \quad \Lambda = \frac{\lambda \hbar}{m \omega^2}.
 \end{equation}
-The full analytical solutions are not shown here due to the length of the equations. It would also be possible to solve the matrix equation numerically after the change of variables. To get an understanding of the steady state solution we look at figures generated by the solution.
+The full analytical solutions are not shown here due to the length of the equations. It would also be possible to solve the matrix equation numerically after the change of variables. To get an understanding of the steady-state solution we look at figures generated by the solution.
 
 \begin{figure}[t]
     \centering
@@ -160,7 +164,7 @@ The full analytical solutions are not shown here due to the length of the equati
     \caption{\small The ratio between the energy with feedback and without plotted as a contour plot against $\re{\tilde{f}}$ and $\im{\tilde{f}}$. The parameters used are $k_\text{B}T = 10 \hbar\omega$, $Q = 10$, $\Lambda = 2$. Panel \textbf{a} shows a large variation of the parameters. There are divergences in the plot which almost follow a $\left(\re{\tilde{f}} + 1 \right)\im{\tilde{f}} = 1$ curve. Panel \textbf{b} is a zoomed in version of panel \textbf{a} and shows the behaviour of the system in a region where the ratio always is positive. The contour lines in panel \textbf{b} are placed at the values of the tick marks in the colourbar.}
     \label{fig:energyFeedbackRatio}
 \end{figure}
-In Fig. \ref{fig:energyFeedbackRatio} we can see the effect the feedback has on the energy of the system. Looking at panel \textbf{a} we can see areas which are negative. If the energy of the system without measurement is constant, it must be the feedback energy that becomes negative. In the way we have set up the model, a negative energy is unreasonable, since a temperature of $T=0$ would correspond to $E =\hbar\omega( 1/2 + \Lambda Q/2)$, which without measurement would mean an energy of $E = \hbar\omega/2$. A possible explantation for the negative energy is that the specific feedback that give rise to this is affecting the system in such a way that at least one of our assumptions is no longer accurate. This could, for example, be that the system no longer have a physical steady state. Another reason might be that the Markovian approximation no longer holds.
+In Fig. \ref{fig:energyFeedbackRatio} we can see the effect the feedback has on the energy of the system. Looking at panel \textbf{a} we can see areas which are negative. If the energy of the system without measurement is constant, it must be the feedback energy that becomes negative. In the way we have set up the model, a negative energy is unreasonable, since a temperature of $T=0$ would correspond to $E =\hbar\omega( 1/2 + \Lambda Q/2)$, which without measurement would mean an energy of $E = \hbar\omega/2$. A possible explantation for the negative energy is that the specific feedback that give rise to this is affecting the system in such a way that at least one of our assumptions is no longer accurate. This could, for example, be that the system no longer have a physical steady-state. Another reason might be that the Markovian approximation no longer holds.
 
 Another interesing aspect of Fig. \ref{fig:energyFeedbackRatio} is that when looking at panel \textbf{b} in conjunction with Eq. \eqref{eq:ess} is that it is possible to cool the system to a lower energy than the thermal energy. Using the same parameters in Eq. \eqref{eq:ess} as are used in the figure we find that the thermal energy is half of the total energy in the system without feedback, and looking at the figure we see that there exist a region which has a ratio of less than $0.5$.
 
@@ -175,7 +179,7 @@ If one tweaks the parameters used in Fig. \ref{fig:energyFeedbackRatio} the gene
 
 Using the parameters as in Fig. \ref{fig:energyFeedbackDifference} the energy without feedback is $\expval{\tilde{E}} \approx 20$ with the thermal part accounting for around $10$ of that. Looking at Fig. \ref{fig:energyFeedbackDifference} it is possible to see that even with a relatively low amount of feedback the system will be cooled to some degree. However, depending on how the feedback is applied it can also make the energy in the system diverge which can be seen for $\im{\tilde{f}} < 0$.
 
-The stability for the steady states of the system can be checked by rewriting Eqs. \eqref{eq:x2Feedback} to \eqref{eq:xpFeedback} and using the Lyapunov equation
+The stability for the steady-states of the system can be checked by rewriting Eqs. \eqref{eq:x2Feedback} to \eqref{eq:xpFeedback} and using the Lyapunov equation
 \begin{equation}
     \mathcal{M} \dt S + \dt S \mathcal{M}^T  + \mathcal{C} = 0
 \end{equation}
@@ -193,4 +197,4 @@ where
         -\frac{\re{f} \im{f}}{4 \lambda \hbar} & \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 +\frac{m \omega \re{f}^2}{4 \lambda \hbar}
     \end{pmatrix},
 \end{align}
-and $\mathcal{M}$ is the same matrix as in Eq. \eqref{eq:matrixM}. $S$ has unique steady state solutions if the real part of the eigenvalues of $\mathcal{M}$ are negative \cite{Purkayastha:2022}. We can therefore refer back to Eq. \eqref{eq:eigenvalueFirstMomenta} and Fig. \ref{fig:eigenvalueFirstMomenta} to see the stability of the system. In conjunction with Fig. \ref{fig:energyFeedbackRatio} and \ref{fig:energyFeedbackDifference} we can see that the system is stable in the region where we cool the system. Thus, it is not only possible to cool the system but the system is also stable. We can therefore see that this type of feedback mechanism is a valid way to cool a QHO.
+and $\mathcal{M}$ is the same matrix as in Eq. \eqref{eq:matrixM}. $S$ has unique steady-state solutions if the real part of the eigenvalues of $\mathcal{M}$ are negative \cite{Purkayastha:2022}. We can therefore refer back to Eq. \eqref{eq:eigenvalueFirstMomenta} and Fig. \ref{fig:eigenvalueFirstMomenta} to see the stability of the system. In conjunction with Fig. \ref{fig:energyFeedbackRatio} and \ref{fig:energyFeedbackDifference} we can see that the system is stable in the region where we cool the system. Thus, it is not only possible to cool the system but the system is also stable. We can therefore see that this type of feedback mechanism is a valid way to cool a QHO.

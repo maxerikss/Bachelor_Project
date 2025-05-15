@@ -90,7 +90,7 @@ axes[0].set_ylabel(r"$\mathfrak{I} \{ \tilde{f} \}$")
 axes[1].set_xlabel(r"$\mathfrak{R} \{ \tilde{f} \}$")
 axes[1].set_ylabel(r"$\mathfrak{I} \{ \tilde{f} \}$")
 
-cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} / \langle \tilde{E} \rangle$")
+cBar.set_label(r"$\tilde{E}_\text{feedback} / \tilde{E} $")
 cBar.set_ticks(np.linspace(-N, N, 9))
 
 axes[0].text(0.85, 0.85, r"\textbf{a}", transform=axes[0].transAxes, fontsize=20)
@@ -120,7 +120,7 @@ cBar = fig.colorbar(contourPlotZeroDiff, ax=axes, orientation='horizontal')
 axes.set_xlabel(r"$\mathfrak{R} \{ \tilde{f} \}$")
 axes.set_ylabel(r"$\mathfrak{I} \{ \tilde{f} \}$")
 
-cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} - \langle \tilde{E} \rangle$")
+cBar.set_label(r"$\tilde{E}_\text{feedback} - \tilde{E}$")
 cBar.set_ticks(np.linspace(-N, N, 9))
 
 ## Showing / Saving

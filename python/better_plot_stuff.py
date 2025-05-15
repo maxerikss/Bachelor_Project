@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 plt.rc('font',**{'family':'serif','serif':['Computer Modern'], 'size':'12'})
+plt.rc('text.latex', preamble=r'\usepackage{amssymb,amsmath,amsfonts,amsthm}')
 plt.rcParams['text.usetex'] = True
 
 ## defining funcitons
@@ -52,23 +53,25 @@ for l in lamda:
 axes[2,0].set_xlabel(r"$\lambda / \omega$")
 axes[2,1].set_xlabel(r"Q")
 
-axes[0,0].set_ylabel(r"$\langle \tilde{E} \rangle$")
-axes[1,0].set_ylabel(r"$\langle \tilde{x}^2 \rangle$")
-axes[2,0].set_ylabel(r"$\langle \tilde{p}^2 \rangle$")
+axes[0,0].set_ylabel(r"$ \tilde{E}_\text{ss} $")
+axes[1,0].set_ylabel(r"$\langle \tilde{x}^2 \rangle_\text{ss}$")
+axes[2,0].set_ylabel(r"$\langle \tilde{p}^2 \rangle_\text{ss}$")
 
 ## legend
 for ax in axes.flatten():
     ax.legend()
 
 ## adding text on panels
-axes[0,0].text(0, 11, r"\textbf{a}", fontsize=20)
-axes[0,1].text(0, 14, r"\textbf{b}", fontsize=20)
+xTestPos = 0.05
+yTextPos = 0.52
+axes[0,0].text(xTestPos, yTextPos, r"\textbf{a}", transform=axes[0,0].transAxes, fontsize=20)
+axes[0,1].text(xTestPos, yTextPos, r"\textbf{b}", transform=axes[0,1].transAxes, fontsize=20)
 
-axes[1,0].text(0, 11, r"\textbf{c}", fontsize=20)
-axes[1,1].text(0, 14, r"\textbf{d}", fontsize=20)
+axes[1,0].text(xTestPos, yTextPos, r"\textbf{c}", transform=axes[1,0].transAxes, fontsize=20)
+axes[1,1].text(xTestPos, yTextPos, r"\textbf{d}", transform=axes[1,1].transAxes, fontsize=20)
 
-axes[2,0].text(0, 11, r"\textbf{e}", fontsize=20)
-axes[2,1].text(0, 14, r"\textbf{f}", fontsize=20)
+axes[2,0].text(xTestPos, yTextPos, r"\textbf{e}", transform=axes[2,0].transAxes, fontsize=20)
+axes[2,1].text(xTestPos, yTextPos, r"\textbf{f}", transform=axes[2,1].transAxes, fontsize=20)
 
 
 plt.savefig("../Bachelor_Thesis/figures/measurement_result.pdf", bbox_inches="tight")
