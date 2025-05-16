@@ -32,8 +32,8 @@ def E(n, L, Q, reG, imG):
 ## defiining constants
 kbT = 10
 n = 1 / (np.exp(1 / kbT) - 1)
-L = 20
-Q = 1000
+L = 2
+Q = 10
 
 ### Defining colormap
 colors = ['red', 'blue']
@@ -44,8 +44,8 @@ norm = mcolors.BoundaryNorm(bounds, cmap.N)
 
 ## Unzoomed numbers
 resolution = 500
-reG = np.linspace(-2, 2, resolution)
-imG = np.linspace(-2, 2, resolution)
+reG = np.linspace(-4, 4, resolution)
+imG = np.linspace(-4, 4, resolution)
 X, Y = np.meshgrid(reG, imG)
 Z = E(n, L, Q, X, Y)
 
@@ -90,14 +90,14 @@ axes[0].set_ylabel(r"$\mathfrak{I} \{ \tilde{f} \}$")
 axes[1].set_xlabel(r"$\mathfrak{R} \{ \tilde{f} \}$")
 axes[1].set_ylabel(r"$\mathfrak{I} \{ \tilde{f} \}$")
 
-cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} / \langle \tilde{E} \rangle$")
+cBar.set_label(r"$\tilde{E}_\text{feedback} / \tilde{E} $")
 cBar.set_ticks(np.linspace(-N, N, 9))
 
 axes[0].text(0.85, 0.85, r"\textbf{a}", transform=axes[0].transAxes, fontsize=20)
 axes[1].text(0.85, 0.85, r"\textbf{b}", transform=axes[1].transAxes, fontsize=20)
 
 ## Showing / Saving
-#plt.show()
+plt.show()
 contourPlotRatio.set_rasterized(True)
 contourPlotRatioZoom.set_rasterized(True)
 #plt.savefig("../Bachelor_Thesis/figures/energyFeedbackRatio.pdf", dpi=300)
@@ -120,13 +120,13 @@ cBar = fig.colorbar(contourPlotZeroDiff, ax=axes, orientation='horizontal')
 axes.set_xlabel(r"$\mathfrak{R} \{ \tilde{f} \}$")
 axes.set_ylabel(r"$\mathfrak{I} \{ \tilde{f} \}$")
 
-cBar.set_label(r"$\langle \tilde{E} \rangle_\text{feedback} - \langle \tilde{E} \rangle$")
+cBar.set_label(r"$\tilde{E}_\text{feedback} - \tilde{E}$")
 cBar.set_ticks(np.linspace(-N, N, 9))
 
 ## Showing / Saving
 contourPlotZeroDiff.set_rasterized(True)
 #plt.savefig("../Bachelor_Thesis/figures/energyFeedbackDifference.pdf", dpi=300)
-plt.show()
+#plt.show()
 plt.close(fig)
 
 ## Comparing with the old Equation

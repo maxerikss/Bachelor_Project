@@ -40,19 +40,19 @@ The evolution of an open quantum system can be described by a master equation, w
 \end{equation} 
 where $\hat{L}_k$ are called Lindblad jump operators, the master equation on Lindblad form can be written as 
 \begin{equation}
-    \dt\dmatrix = -\frac{i}{\hbar}\comm{\hamiltonian}{\dmatrix} + \sum_k \gamma_k\super{\hat{L}_k}\dmatrix,
+    \dt\dmatrix = -\frac{i}{\hbar}\comm{\hamiltonian}{\dmatrix} + \sum_k \gamma_k\super{\hat{L}_k}\dmatrix, \label{eq:lindbladNoLoui}
 \end{equation}
-where $\hamiltonian$ is the Hamiltonian of the system, and $\gamma_k$ are the decay rates of the system, relating the decoherence to the environment depending on the coupling to the system \cite{Annby-Andersson:2024}. If $\gamma_k = 0$ for all $k$, and the coupling to the bath is removed, the equation reduces to the von Neumann equation for a closed quantum system. The remaining term thus describes the unitary time evolution of the system and is the analogue of the Schrödinger equation for the density matrix formalism \cite{Annby-Andersson:2024}. At this stage, one might also introduce the Liouvillian superoperator $\liouvillian$, and write the master equation more compactly as
+where $\hamiltonian$ is the Hamiltonian of the system, and $\gamma_k$ are the decay rates of the system, relating the decoherence to the environment depending on the coupling to the system \cite{Annby-Andersson:2024}. If $\gamma_k = 0$ for all $k$, and the coupling to the bath is removed, the equation reduces to the von Neumann equation for a closed quantum system. The remaining term thus describes the unitary time evolution of the system and is the analogue of the Schrödinger equation for the density matrix formalism \cite{Annby-Andersson:2024}. At this stage, one might also introduce the Liouvillian superoperator $\liouvillian$, and write the master equation \eqref{eq:lindbladNoLoui}, more compactly as
 \begin{equation}
     \dt\dmatrix = \liouvillian\dmatrix.
 \end{equation}
 This compactness will be useful when considering other types of perturbing effects on the system such as measurements and feedback \cite{Annby-Andersson:2024}.
 
-In the case considered in this thesis with a QHO coupled to a thermal reservoir we can imagine that we have two types of Lindblad jump operators, one of which tranfer particles into the system and one transfer particles out of the system \cite{Meystre:2021}. As mentioned in Sec. \ref{sec:qho} the ladder operators can be used to excite or deexcite a system. It is also reasonable to assume that the decay, or the amount of particles flowing between the systems and the environment, is proportional to the thermal occupation $\nbar$ defined by
+In the case considered in this thesis with a QHO coupled to a thermal reservoir we can imagine that we have two types of Lindblad jump operators, one of which transfer energy into the system and one transfer energy out of the system \cite{Meystre:2021}. As mentioned in Sec. \ref{sec:qho} the ladder operators can be used to excite or deexcite a system. It is also reasonable to assume that the decay, or the energy flowing between the systems and the environment, is proportional to the thermal occupation $\nbar$ defined by
 \begin{equation}
     \nbar = \frac{1}{e^{\hbar\omega/ k_\mathrm{B}T} - 1},
 \end{equation}
-where $T$ is the temperature of the bath and $k_\mathrm{B}$ is the Boltzmann constant \cite{Meystre:2021}. One can show that for a QHO coupled to a thermal bath, the Lindblad jump operators can be chosen as $\hat{L}_1 = \a$ and $\hat{L}_2 = \ad$ with coefficients $\gamma_1 = \gamma(\nbar + 1)$ and $\gamma_2 = \gamma \nbar$, wher $\gamma$ is a decay rate. We can also note that $\hat{L}_1$ and $\gamma_1$ refer to the spontaneous emission from the system to the environment while $\hat{L}_2$ refer to spontaneous absorption from the environment to the system, consistent with what we know about ladded operators from Sec. \ref{sec:qho} \cite{Meystre:2021}. Notably, for $T=0$, the thermal occupation is $\nbar = 0$ and the system will only exhibit emission and will decay.
+where $T$ is the temperature of the bath and $k_\mathrm{B}$ is the Boltzmann constant \cite{Meystre:2021}. If one starts from a microscopic point of view of a QHO coupled to a thermal bath, it is possible to show that the Lindblad jump operators become $\hat{L}_1 = \a$ and $\hat{L}_2 = \ad$ with coefficients $\gamma_1 = \gamma(\nbar + 1)$ and $\gamma_2 = \gamma \nbar$, wher $\gamma$ is a decay rate. We can also note that $\hat{L}_1$ and $\gamma_1$ refer to the spontaneous emission from the system to the environment while $\hat{L}_2$ refer to spontaneous absorption from the environment to the system, consistent with what we know about ladded operators from Sec. \ref{sec:qho} \cite{Meystre:2021}. Notably, for $T=0$, the thermal occupation is $\nbar = 0$ and the system will only exhibit emission and will decay.
 
 
 \subsection{Continuous Measurements}
@@ -84,7 +84,7 @@ where $\feedback$ is a superoperator describing the feedback on the system \cite
 \begin{equation}
     \feedback\dmatrix = - \frac{i}{\hbar} \comm{\hamiltonian_\mathrm{c}}{\dmatrix},
 \end{equation}
-where $\hamiltonian_\mathrm{c}$ is the control Hamiltonian of the system. We will consider a control Hamiltonian which is linear and has the form
+where $\hamiltonian_\mathrm{c}$ is the control Hamiltonian of the system. We consider a control Hamiltonian which is linear and has the form
 \begin{equation}
     \hamiltonian_\mathrm{c} = f^* \a + f \ad,
 \end{equation}
@@ -96,4 +96,4 @@ Thus, for a real $f$, $\im{f} = 0$, we have $\hat{H}_\text{c} \propto \hat{x}$ a
 \begin{equation}
     \dt\dmatrix = \liouvillian\dmatrix + \lambda \super{\hat{A}} \dmatrix + \frac{1}{2} \feedback \acomm{\hat{A}}{\dmatrix} + \frac{1}{8\lambda} \feedback^2 \dmatrix, \label{eq:masterFeed}
 \end{equation}
-where the square on $\feedback$ means $ \feedback^2 \dmatrix = \feedback ( \feedback \dmatrix)$. The first additional term introduces is the drive arising from the feedback on the system, while the second term is attributed to the noise and fluctuations of the feedback \cite{Annby-Andersson:2024}. We can see that as the measurement strength, $\lambda \to \infty$, the noise term vanishes. However, this would also make the measurement term diverge and leave us with a von Neumann measurement.
+where the square on $\feedback$ means $ \feedback^2 \dmatrix = \feedback ( \feedback \dmatrix)$. The first additional term introduced is the drive arising from the feedback on the system, while the second term is attributed to the noise and fluctuations of the feedback \cite{Annby-Andersson:2024}. We can see that as the measurement strength, $\lambda \to \infty$, the noise term vanishes. However, this would also make the measurement term diverge and leave us with a von Neumann measurement.
