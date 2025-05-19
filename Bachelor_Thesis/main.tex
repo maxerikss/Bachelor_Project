@@ -11,8 +11,6 @@
 \input{format/header}
 \pagestyle{plain}
 \pagenumbering{roman}
-\printglossary[type=\acronymtype, title=List of Abbreviations]
-\newpage
 \addcontentsline{toc}{section}{Acknowledgements}
 \input{paper/acknowledgement.tex}
 \newpage
@@ -21,6 +19,8 @@
 \newpage
 \addcontentsline{toc}{section}{Populärvetenskaplig sammanfattning}
 \input{paper/popscience.tex}
+\newpage
+\printglossary[type=\acronymtype, title=List of Abbreviations]
 \newpage
 
 \tableofcontents
@@ -46,9 +46,9 @@
 \end{singlespace}
 \label{page:lastMainText}
 
-\clearpage
-\pagestyle{plain}
-\pagenumbering{alph}
-\include{paper/appendix}
+%\clearpage
+%\pagestyle{plain}
+%\pagenumbering{alph}
+%\include{paper/appendix}
 
 \end{document}

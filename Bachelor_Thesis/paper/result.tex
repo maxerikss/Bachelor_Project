@@ -41,8 +41,8 @@ for the matrix
 \end{equation}
 The eigenvalues of $\mathcal{M}$ are 
 \begin{align}
-    \lambda_1 &= -\frac{\gamma}{2} - i\omega,\\
-    \lambda_2 &= -\frac{\gamma}{2} + i\omega.
+    \varepsilon_1 &= -\frac{\gamma}{2} - i\omega,\\
+    \varepsilon_2 &= -\frac{\gamma}{2} + i\omega.
 \end{align}
 Since the real part of the eigenvalues are negative the system is stable. This is because we can write the time-dependant solutions of the dynamical equations as an exponential with the eigenvalues while the coefficients are chosen by the initial condition, the value of the eigenvalues will determine the behaviour of the system. The consequence of the real part of the eigenvalue being negative is that it will make the function decay with time and is thus considered stable. If both eigenvalues are negative the system will decay no matter what the initial conditions are since both terms in the solution will decay. Positive eigenvalues on the other hand will correspond to the system growing with time and will thus be unstable. When one of the eigenvalues is positive and the other is negative the stability of the system will be determined by the initial conditions. That is, the initial condition will determine which eigenvalue will dominate the solution.
 
@@ -58,7 +58,7 @@ The choice of looking at the second moments has to do with their relation to the
     \dt\expval{\pop^2} &= -\gamma \expval{\pop^2} + m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2) + \lambda \hbar^2,\\
     \dt\expval{\acomm{\xop}{\pop}} &= -\gamma \expval{\acomm{\xop}{\pop}} + 2 m \omega^2 \expval{\xop^2} - \frac{2}{m} \expval{\pop^2}.
 \end{align}
-For more detailed calculations, see App. \ref{app:eom}. Performing a change of variable to make the equations dimensionless
+Performing a change of variable to make the equations dimensionless
 \begin{equation}
     \tilde{x} = \sqrt{\frac{m\omega}{\hbar}} x \quad \text{and} \quad \tilde{p} = \sqrt{\frac{1}{m \omega \hbar}} p ,
 \end{equation}
@@ -98,7 +98,7 @@ We now consider a feedback mechanism on the oscillator described by Eq. \eqref{e
 \end{align}
 We see that when measuring $\xop$ the feedback terms enter the equations on the position quadrature. A real $f$, $\im{f} = 0$, removes the feedback for the equation of the position, while an imaginary $f$, $\re{f} = 0$, removes the feedback for the equation of the momentum. The equations are still coupled however, since the position is dependent on the momentum and vice versa. Setting $f = 0$, yields the previous result. The steady state solutions for this system are $\expval{\xop} = \expval{\pop} = 0$.
 
-We notice that it is possible to remove $\expval{\xop}$ from the equations, so the system reduces to 
+We also notice that it is possible to remove $\expval{\xop}$ from the equations, so the system reduces to 
 \begin{align}
     \dt\expval{\xop} &= - \frac{1}{m} \expval{\pop},\\
     \dt\expval{\pop} &= -\frac{\gamma}{2} \expval{\pop},
@@ -123,20 +123,20 @@ and rewrite the equations as an eigenvalue problem with matrix
 \end{equation}
 which has eigenvalues
 \begin{equation}
-    \frac{\varepsilon\pm}{\omega} = \sqrt{\frac{\im{\tilde{f}}^2}{2} - \sqrt{2} \re{\tilde{f}} - 1 } - \frac{\im{\tilde{f}}}{ \sqrt{2}} - \frac{1}{2Q} \label{eq:eigenvalueFirstMomenta}
+    \frac{\varepsilon\pm}{\omega} =- \frac{\im{\tilde{f}}}{ \sqrt{2}} - \frac{1}{2Q} \pm\sqrt{\frac{\im{\tilde{f}}^2}{2} - \sqrt{2} \re{\tilde{f}} - 1 }  \label{eq:eigenvalueFirstMomenta}
 \end{equation}
 
 
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{figures/eigenvalueFirstMomenta.pdf}
-    \caption{\small Eq. \eqref{eq:eigenvalueFirstMomenta} plotted as a contour plot against the real and imaginary part of $f$. The parameter used is $Q = 10$. Panel \textbf{a} shows $\re{\varepsilon_-/\omega}$ and panel \textbf{b} shows $\re{\varepsilon_+\omega}$. The parabola that can be seen in both panels is the points where the first square root in Eq. \eqref{eq:eigenvalueFirstMomenta} is zero. Thus, points to the left of this parabola are real, while points to the right are complex, only the real part is plotted, however.}
+    \caption{\small Eq. \eqref{eq:eigenvalueFirstMomenta} plotted as a contour plot against the real and imaginary part of $f$. The parameter used is $Q = 10$. Panel \textbf{a} shows $\re{\varepsilon_-/\omega}$ and panel \textbf{b} shows $\re{\varepsilon_+/\omega}$. The parabola that can be seen in both panels is the points where the first square root in Eq. \eqref{eq:eigenvalueFirstMomenta} is zero. Thus, points to the left of this parabola are real, while points to the right are complex, only the real part is plotted, however.}
     \label{fig:eigenvalueFirstMomenta}
 \end{figure}
 
 Looking at Fig. \ref{fig:eigenvalueFirstMomenta} we can see that $\re{\varepsilon_- / \omega}$ is mostly negative while $\re{\varepsilon_+ / \omega§}$ is mostly positive for the parameters used in the region closest to the origin. The only part where both eigenvalues are negative is in top right region of the figures. That is, the region where $\im{\tilde{f}} > 0$ and $\re{\tilde{f}} \gtrapprox -0.7$. The reason for the approximation is that it is not an analytical result, but instead apparent from looking at panel \textbf{b}, where we can see that line where the eigenvalue is zero, and has a slant and is not vertical. 
 
-It is important to remember that we can solve the dynamics of the system as exponentials with the eigenvalues, and some coefficients determined by the initial conditions. For an equation on the form
+It is important to remember that we can solve the dynamics of the system as exponentials with the eigenvalues, and some coefficients determined by the initial conditions. For a vector equation on the form
 \begin{equation}
     \dt \vec{x}(t) = \mathcal{A}\vec{x}(t),
 \end{equation}
@@ -144,7 +144,7 @@ with a vector $\vec{x}$ and a diagonalizable matrix $\mathcal{A}$, we can write 
 \begin{equation}
     \vec{x}(t) = \sum_i c_i e^{\lambda_i t} \vec{u}_i,
 \end{equation}
-where $\lambda_i$ is the i'th eigenvalue, and $\vec{u}_i$ is the i'th eigenvector. It is apparent that in the case when $c_i \neq 0$ for all $i$, the eigenvalues $\lambda_i$, must have a negative real part for the system to be stable, as otherwise one of the terms in the sum would diverge. 
+where $\lambda_i$ is the $i$'th eigenvalue, $\vec{u}_i$ is the $i$'th eigenvector, and $c_i$ is set by the initial conditions. It is apparent that in the case when $c_i \neq 0$ for all $i$, the eigenvalues $\lambda_i$, must have a negative real part for the system to be stable, as otherwise one of the terms in the sum would diverge. If $\mathcal{A}$ has degenerate eigenvalues, the solution would be a linear combination of $e^{\lambda t} $ and $t e^{\lambda t}$, however the real part of the eigenvalue still need to be negative for stability to be present.
 
 Another thing to note is that the eigenvalues are complex to the right of the black parabola in the figure, and thus the solution will have oscillatory motion in this region.
 
@@ -190,16 +190,16 @@ To obtain the steady-state solutions we solve $X_\text{ss} = - \mathcal{A}^{-1} 
     \caption{\small The ratio between the energy with feedback and without plotted as a contour plot against $\re{\tilde{f}}$ and $\im{\tilde{f}}$. The parameters used are $k_\text{B}T = 10 \hbar\omega$, $Q = 10$, $\Lambda = 2$. Panel \textbf{a} shows a large variation of the parameters. There are divergences in the plot which almost follow a $\left(\re{\tilde{f}} + 1 \right)\im{\tilde{f}} = 1$ curve. Panel \textbf{b} is a zoomed in version of panel \textbf{a} and shows the behaviour of the system in a region where the ratio always is positive. The contour lines in panel \textbf{b} are placed at the values of the tick marks in the colourbar.}
     \label{fig:energyFeedbackRatio}
 \end{figure}
-In Fig. \ref{fig:energyFeedbackRatio} we can see the effect the feedback has on the energy of the system. Looking at panel \textbf{a} we can see areas which are negative. If the energy of the system without measurement is constant, it must be the feedback energy that becomes negative. In the way we have set up the model, a negative energy is unreasonable, since a temperature of $T=0$ would correspond to $E =\hbar\omega( 1/2 + \Lambda Q/2)$, which without measurement would mean an energy of $E = \hbar\omega/2$. A possible explantation for the negative energy is that the specific feedback that give rise to this is affecting the system in such a way that at least one of our assumptions is no longer accurate. This could, for example, be that the system no longer have a physical steady state. Another reason might be that the Markovian approximation no longer holds.
+In Fig. \ref{fig:energyFeedbackRatio} we can see the effect the feedback has on the energy of the system. Looking at panel \textbf{a}, we can see areas which are negative. If the energy of the system without measurement is constant, it must be the feedback energy that becomes negative. In the way we have set up the model, a negative energy is unreasonable, since a temperature of $T=0$ would correspond to $E =\hbar\omega( 1/2 + \Lambda Q/2)$, which without measurement would mean an energy of $E = \hbar\omega/2$. A possible explantation for the negative energy is that the specific feedback that give rise to this is affecting the system in such a way that at least one of our assumptions is no longer accurate. This could, for example, be that the system no longer have a physical steady state. Another reason might be that the Markovian approximation no longer holds.
 
-Another interesing aspect of Fig. \ref{fig:energyFeedbackRatio} is that when looking at panel \textbf{b} in conjunction with Eq. \eqref{eq:ess} is that it is possible to cool the system to a lower energy than the thermal energy. Using the same parameters in Eq. \eqref{eq:ess} as are used in the figure we find that the thermal energy is half of the total energy in the system without feedback, and looking at the figure we see that there exist a region which has a ratio of less than $0.5$.
+Another interesting aspect of Fig. \ref{fig:energyFeedbackRatio} is that when looking at panel \textbf{b} in conjunction with Eq. \eqref{eq:ess} is that it is possible to cool the system to a lower energy than the thermal energy. Using the same parameters in Eq. \eqref{eq:ess} as are used in the figure we find that the thermal energy is half of the total energy in the system without feedback, and looking at the figure we see that there exist a region which has a ratio of less than $0.5$.
 
 If one tweaks the parameters used in Fig. \ref{fig:energyFeedbackRatio} the general form of the plot remains the same, with some differences. The measurement strength $\Lambda$ does not affect the plot much, but it does however increase the energy, the contour lines in panel \textbf{b} remains almost the same. Thus, the same feedback would remove the same proportion of energy, it does however mean that a larger proportion need to be removed before cooling below the thermal equilibrium. Similarly, changing $k_\text{B}T$ does not dramatically change how the plot looks, but it does increase the energy of the system as well. However, since the thermal energy now constitute a larger part of the total energy of the system, a smaller feedback parameter is needed to cool the system below the thermal equilibrium. The quality factor $Q$ however, changes the plot quite a lot, decreasing the spacing between the contour lines and increasing the efficiency of the cooling.
 
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{figures/energyFeedbackDifference.pdf}
-    \caption{\small The difference between the energy of the system with feedback plotted and the energy without feedback plotteda against $\re{\tilde{f}}$ and $\im{\tilde{f}}$. The parameters used are $k_\text{B}T = 10 \hbar\omega$, $Q = 10$, $\Lambda = 2$. The plot is done in a small region around the origin, thus showing the effect a small feedback has on the system. The spacing between the contour lines is $2$ and the solid lines is at $0$.}
+    \caption{\small The difference between the energy of the system with feedback plotted and the energy without feedback plotted against $\re{\tilde{f}}$ and $\im{\tilde{f}}$. The parameters used are $k_\text{B}T = 10 \hbar\omega$, $Q = 10$, $\Lambda = 2$. The plot is done in a small region around the origin, thus showing the effect a small feedback has on the system. The spacing between the contour lines is $2$ and the solid lines is at $0$.}
     \label{fig:energyFeedbackDifference}
 \end{figure}
 
