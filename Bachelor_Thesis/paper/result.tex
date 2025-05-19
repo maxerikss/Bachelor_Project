@@ -1,49 +1,14 @@
 \section{Results}
 This section looks at the equations of motion and steady-state solutions of a \gls{qho}, both with and without feedback. The first subsection deals with a \gls{qho} which is measured continuously and without feedback, while the second subsection adds feedback into the scheme.
 \subsection{Measurement Without Feedback}
-Consider a \gls{qho} described by the Hamiltonian in Eq. \eqref{eq:hamiltonian} which is coupled to a thermal bath with temperature $T$. If the oscillator's position quadrature is also continuously measured, the evolution of the system can be described by the master equation in Eq. \eqref{eq:masterMeas} using the Lindblad operators mentioned in Sec. \ref{sec:mastereq}. We want to solve for the \gls{eom} when measuring for the position quadrature $\xop$, which are derived from
-\begin{align}
-    \dt\expval{\xop^2} &= \tr(\xop^2 \dt \dmatrix)\label{eq:x2}, \\
-    \dt\expval{\pop^2} &= \tr(\pop^2 \dt \dmatrix)\label{eq:p2},\\
-    \dt\expval{\acomm{\xop}{\pop}} &= \tr(\acomm{\xop}{\pop} \dt \dmatrix). \label{eq:xp}
-\end{align}
-The choice of looking at the second moments has to do with their relation to the variance and thus the fluctuations of the system. These fluctuations are then related to the energy contained in the oscillator, as the expectation value of the Hamiltonian. When looking at feedback control one application is to minimize the energy in the oscillator and, which is thus also an argument for looking at the second moments. Inserting the quantum master equation in Eq. \eqref{eq:masterMeas} and solving Eqs. \eqref{eq:x2} to \eqref{eq:xp} yields the following \gls{eom}
-\begin{align}
-    \dt\expval{\xop^2} &= - \gamma \expval{\xop^2} - \frac{1}{m}\expval{\acomm{\xop}{\pop}} + \frac{\gamma \hbar}{m\omega}(\nbar + 1/2),\\
-    \dt\expval{\pop^2} &= -\gamma \expval{\pop^2} + m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2) + \lambda \hbar^2,\\
-    \dt\expval{\acomm{\xop}{\pop}} &= -\gamma \expval{\acomm{\xop}{\pop}} + 2 m \omega^2 \expval{\xop^2} - \frac{2}{m} \expval{\pop^2}.
-\end{align}
-For more detailed calculations, see App. \ref{app:eom}. Performing a change of variable to make the equations dimensionless
-\begin{equation}
-    \tilde{x} = \sqrt{\frac{m\omega}{\hbar}} x \quad \text{and} \quad \tilde{p} = \sqrt{\frac{1}{m \omega \hbar}} p ,
-\end{equation}
-we can solve for the steady state, by setting the time derivative to zero. Introducing the quality factor $Q = \omega / \gamma$ we obtain the steady-state solutions
-\begin{align}
-    \expval{\tilde{x}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \frac{2 Q^3}{4Q^2 + 1}, \label{eq:x2ss}\\
-    \expval{\tilde{p}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \left( Q - \frac{2Q^3}{4Q^2 + 1} \right) \label{eq:p2ss},
-\end{align}
-One aspect of the steady-state solutions is that both equations have identical terms capturing the thermal aspect of the fluctuations. Without measurement, the steady states are only thermal, which is to be expected. When calculating the energy of the steady state the complicated fraction above cancels, and we are left with a purely linear term in the quality factor.
-\begin{equation}
-    E_\mathrm{ss} = \expval{\tilde{H}}_\mathrm{ss} = \frac{\hbar \omega}{2} \left( \expval{\tilde{p}^2}_\text{ss} + \expval{\tilde{x}^2}_\text{ss} \right) = \hbar\omega (\nbar + 1/2)+ \frac{\lambda \hbar^2}{2 m\omega} Q
-    \label{eq:ess}
-\end{equation}
-To simplify plotting we might perform the change of variable
-\begin{equation}
-    \tilde{E} =\frac{E}{\hbar\omega}, \quad \Lambda = \frac{\lambda \hbar}{m \omega^2}.
-\end{equation}
+Consider a \gls{qho} described by the Hamiltonian in Eq. \eqref{eq:hamiltonian} which is coupled to a thermal bath with temperature $T$. If the oscillator's position quadrature is also continuously measured, the evolution of the system can be described by the master equation in Eq. \eqref{eq:masterMeas} using the Lindblad operators mentioned in Sec. \ref{sec:mastereq}. We want to solve for the \gls{eom} for the first and second moments, when measuring for the position quadrature $\xop$. 
 
-\input{figures/steady_state_plots.tex}
-
-Looking at panels \textbf{a} and \textbf{b} in Fig. \ref{fig:steady_state} one can see that a stronger measurement correlates to the system's steady state increasing in energy, as does it for an increasing quality factor. Both also affect the system linearly. Thus, by continuously measuring the system we add energy into it, which make the steady state higher in energy than what the thermal effects from the bath would otherwise place it. That is, if we do not perform any measurement the system would be stable at around $\nbar + 1/2$ which for the parameters used here would give $E_\text{ss} \approx 10\hbar\omega$.
-
-In panels \textbf{d} and \textbf{f} we can see that there is some non-linear behaviour near $Q = 0$. However, due to the approximations made in Sec. \ref{sec:open} we cannot trust the results in the region of a low quality factor. This is because this regime has a relatively high coupling to the environment, and thus the excitations in the environment might not decay fast enough and therefore affect the oscillator. Panels \textbf{c} and \textbf{e} show the linear dependence on $\Lambda$ for the second moments.
-
-Using the same approach, inserting the master equation as above we can also solve for the first moments
+We start by looking at the first moments which are derived from
 \begin{align}
     \dt\expval{\xop} &= \tr(\xop \dt \dmatrix),\\
     \dt\expval{\pop} &= \tr(\pop \dt \dmatrix).
 \end{align}
-Solving these equations we find 
+Inserting the master equation in Eq. \eqref{eq:masterMeas} we find 
 \begin{align}
     \dt\expval{\xop} &= -\frac{\gamma}{2} \expval{\xop} - \frac{1}{m} \expval{\pop},\\
     \dt\expval{\pop} &= -\frac{\gamma}{2} \expval{\pop} + m\omega^2 \expval{x}.
@@ -81,7 +46,45 @@ The eigenvalues of $\mathcal{M}$ are
 \end{align}
 Since the real part of the eigenvalues are negative the system is stable. This is because we can write the time-dependant solutions of the dynamical equations as an exponential with the eigenvalues while the coefficients are chosen by the initial condition, the value of the eigenvalues will determine the behaviour of the system. The consequence of the real part of the eigenvalue being negative is that it will make the function decay with time and is thus considered stable. If both eigenvalues are negative the system will decay no matter what the initial conditions are since both terms in the solution will decay. Positive eigenvalues on the other hand will correspond to the system growing with time and will thus be unstable. When one of the eigenvalues is positive and the other is negative the stability of the system will be determined by the initial conditions. That is, the initial condition will determine which eigenvalue will dominate the solution.
 
-Eq. \eqref{eq:xp0} also shows that the variance of the system is only dependent on the second moments, since
+We now solve the \gls{eom} for the second moments using the same method of inserting the master equation, derived from
+\begin{align}
+    \dt\expval{\xop^2} &= \tr(\xop^2 \dt \dmatrix)\label{eq:x2}, \\
+    \dt\expval{\pop^2} &= \tr(\pop^2 \dt \dmatrix)\label{eq:p2},\\
+    \dt\expval{\acomm{\xop}{\pop}} &= \tr(\acomm{\xop}{\pop} \dt \dmatrix). \label{eq:xp}
+\end{align}
+The choice of looking at the second moments has to do with their relation to the variance and thus the fluctuations of the system. These fluctuations are then related to the energy contained in the oscillator, as the expectation value of the Hamiltonian. When looking at feedback control one application is to minimize the energy in the oscillator and, which is thus also an argument for looking at the second moments. Inserting the quantum master equation in Eq. \eqref{eq:masterMeas} and solving Eqs. \eqref{eq:x2} to \eqref{eq:xp} yields the following \gls{eom}
+\begin{align}
+    \dt\expval{\xop^2} &= - \gamma \expval{\xop^2} - \frac{1}{m}\expval{\acomm{\xop}{\pop}} + \frac{\gamma \hbar}{m\omega}(\nbar + 1/2),\\
+    \dt\expval{\pop^2} &= -\gamma \expval{\pop^2} + m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2) + \lambda \hbar^2,\\
+    \dt\expval{\acomm{\xop}{\pop}} &= -\gamma \expval{\acomm{\xop}{\pop}} + 2 m \omega^2 \expval{\xop^2} - \frac{2}{m} \expval{\pop^2}.
+\end{align}
+For more detailed calculations, see App. \ref{app:eom}. Performing a change of variable to make the equations dimensionless
+\begin{equation}
+    \tilde{x} = \sqrt{\frac{m\omega}{\hbar}} x \quad \text{and} \quad \tilde{p} = \sqrt{\frac{1}{m \omega \hbar}} p ,
+\end{equation}
+we can solve for the steady state, by setting the time derivative to zero. Introducing the quality factor $Q = \omega / \gamma$ we obtain the steady-state solutions
+\begin{align}
+    \expval{\tilde{x}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \frac{2 Q^3}{4Q^2 + 1}, \label{eq:x2ss}\\
+    \expval{\tilde{p}^2}_\mathrm{ss} &= (\nbar + 1/2) + \frac{\lambda \hbar}{m \omega^2} \left( Q - \frac{2Q^3}{4Q^2 + 1} \right) \label{eq:p2ss},
+\end{align}
+One aspect of the steady-state solutions is that both equations have identical terms capturing the thermal aspect of the fluctuations. Without measurement, the steady states are only thermal, which is to be expected. When calculating the energy of the steady state the complicated fraction above cancels, and we are left with a purely linear term in the quality factor.
+\begin{equation}
+    E_\mathrm{ss} = \expval{\tilde{H}}_\mathrm{ss} = \frac{\hbar \omega}{2} \left( \expval{\tilde{p}^2}_\text{ss} + \expval{\tilde{x}^2}_\text{ss} \right) = \hbar\omega (\nbar + 1/2)+ \frac{\lambda \hbar^2}{2 m\omega} Q
+    \label{eq:ess}
+\end{equation}
+To simplify plotting we might perform the change of variable
+\begin{equation}
+    \tilde{E} =\frac{E}{\hbar\omega}, \quad \Lambda = \frac{\lambda \hbar}{m \omega^2}.
+\end{equation}
+
+\input{figures/steady_state_plots.tex}
+
+Looking at panels \textbf{a} and \textbf{b} in Fig. \ref{fig:steady_state} one can see that a stronger measurement correlates to the system's steady state increasing in energy, as does it for an increasing quality factor. Both also affect the system linearly. Thus, by continuously measuring the system we add energy into it, which make the steady state higher in energy than what the thermal effects from the bath would otherwise place it. That is, if we do not perform any measurement the system would be stable at around $\nbar + 1/2$ which for the parameters used here would give $E_\text{ss} \approx 10\hbar\omega$.
+
+In panels \textbf{d} and \textbf{f} we can see that there is some non-linear behaviour near $Q = 0$. However, due to the approximations made in Sec. \ref{sec:open} we cannot trust the results in the region of a low quality factor. This is because this regime has a relatively high coupling to the environment, and thus the excitations in the environment might not decay fast enough and therefore affect the oscillator. Panels \textbf{c} and \textbf{e} show the linear dependence on $\Lambda$ for the second moments.
+
+
+Eq. \eqref{eq:xp0} together with Eqs. \eqref{eq:x2ss} and \eqref{eq:p2ss} also shows that the variance of the system is only dependent on the second moments, since
 \begin{equation}
     \sigma^2_{\hat{A}} = \expval{\hat{A}^2} - \expval{\hat{A}}^2
 \end{equation}
@@ -93,7 +96,7 @@ We now consider a feedback mechanism on the oscillator described by Eq. \eqref{e
     \dt\expval{\xop} &= - \left(\frac{\gamma}{2} + \frac{2 \im{f}}{\sqrt{2 m \omega \hbar}} \right)\expval{\xop} - \frac{1}{m} \expval{\pop},\\
     \dt\expval{\pop} &= -\frac{\gamma}{2}\expval{\pop} + \left(\re{f} \sqrt{\frac{2 m \omega}{\hbar}} + m \omega^2 \right) \expval{\xop}.
 \end{align}
-We see that when measuring $\xop$ the feedback terms enter the equations on the position quadrature. A real $f$, $\im{f} = 0$, removes the feedback for the equation of the position, while an imaginary $f$, $\re{f} = 0$, removes the feedback for the equation of the momentum. The equations are still coupled however, since the position is dependent on the momentum and vice versa. Setting $f = 0$, yields the previous result.
+We see that when measuring $\xop$ the feedback terms enter the equations on the position quadrature. A real $f$, $\im{f} = 0$, removes the feedback for the equation of the position, while an imaginary $f$, $\re{f} = 0$, removes the feedback for the equation of the momentum. The equations are still coupled however, since the position is dependent on the momentum and vice versa. Setting $f = 0$, yields the previous result. The steady state solutions for this system are $\expval{\xop} = \expval{\pop} = 0$.
 
 We notice that it is possible to remove $\expval{\xop}$ from the equations, so the system reduces to 
 \begin{align}
@@ -131,11 +134,9 @@ which has eigenvalues
     \label{fig:eigenvalueFirstMomenta}
 \end{figure}
 
-Looking at Fig. \ref{fig:eigenvalueFirstMomenta} we can see that $\re{\varepsilon_- / \omega}$ is mostly negative while $\re{\varepsilon_+ / \omega§}$ is mostly positive for the parameters used in the region closest to the origin. The only part where both eigenvalues are negative is in top right region of the figures. That is, the region where $\im{\tilde{f}} > 0$ and $\re{\tilde{f}} \gtrapprox -0.7$. The reason for the approximation is because it is not an anaytical result, but instead apparent from looking at panel \textbf{b}, where we can see that line where the eigenvalue is zero, and has a slant and is not vertical.
+Looking at Fig. \ref{fig:eigenvalueFirstMomenta} we can see that $\re{\varepsilon_- / \omega}$ is mostly negative while $\re{\varepsilon_+ / \omega§}$ is mostly positive for the parameters used in the region closest to the origin. The only part where both eigenvalues are negative is in top right region of the figures. That is, the region where $\im{\tilde{f}} > 0$ and $\re{\tilde{f}} \gtrapprox -0.7$. The reason for the approximation is that it is not an analytical result, but instead apparent from looking at panel \textbf{b}, where we can see that line where the eigenvalue is zero, and has a slant and is not vertical. It is important to remember that we can solve the dynamics of the system as exponentials with the eigenvalues, and some coefficients determined by the initial conditions. Thus, assuming the initial conditions are such that all coefficients are non-zero, if the real part of at least one of the eigenvalues is positive, the system will eventually diverge. That is, the system is not stable.
 
-
-
-Another thing to note is that the eigenvalues are couple to the right of the black parabola in the figure, and thus the solution will have oscillatory motion in this region.
+Another thing to note is that the eigenvalues are complex to the right of the black parabola in the figure, and thus the solution will have oscillatory motion in this region.
 
 Solving for the \gls{eom} for the second moments we obtain
 \begin{align}
@@ -194,7 +195,7 @@ If one tweaks the parameters used in Fig. \ref{fig:energyFeedbackRatio} the gene
 
 Using the parameters as in Fig. \ref{fig:energyFeedbackDifference} the energy without feedback is $\expval{\tilde{E}} \approx 20$ with the thermal part accounting for around $10$ of that. Looking at Fig. \ref{fig:energyFeedbackDifference} it is possible to see that even with a relatively low amount of feedback the system will be cooled to some degree. However, depending on how the feedback is applied it can also make the energy in the system diverge which can be seen for $\im{\tilde{f}} < 0$.
 
-The stability for the steady states of the system can be checked by rewriting Eqs. \eqref{eq:x2Feedback} to \eqref{eq:xpFeedback} and using the Lyapunov equation
+Due to the uncertainty relation and the canonical commutation relation $\xop^2$, $\pop^2$, and $\acomm{\xop}{\pop}$ are not independent \cite{Simon:1994}. This has the consequence that the stability analysis cannot be done using $\mathcal{A}$ and $\mathcal{B}$. Instead, we rewrite $X$ as a quantum variance matrix \cite{Simon:1994}, and write Eqs. \eqref{eq:x2Feedback} to \eqref{eq:xpFeedback} as a Lyapunov equation
 \begin{equation}
     \dt S = \mathcal{M} S + S \mathcal{M}^T  + \mathcal{C} = 0
 \end{equation}
@@ -212,4 +213,4 @@ where
         -\frac{\re{f} \im{f}}{4 \lambda \hbar} & \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 +\frac{m \omega \re{f}^2}{4 \lambda \hbar}
     \end{pmatrix},
 \end{align}
-and $\mathcal{M}$ is the same matrix as in Eq. \eqref{eq:matrixM}. $S$ has unique steady-state solutions if the real part of the eigenvalues of $\mathcal{M}$ are negative \cite{Purkayastha:2022}. We can therefore refer back to Eq. \eqref{eq:eigenvalueFirstMomenta} and Fig. \ref{fig:eigenvalueFirstMomenta} to see the stability of the system. In conjunction with Fig. \ref{fig:energyFeedbackRatio} and \ref{fig:energyFeedbackDifference} we can see that the system is stable in the region where we cool the system. Thus, it is not only possible to cool the system but the system is also stable. We can therefore see that this type of feedback mechanism is a valid way to cool a \gls{qho}.
+and $\mathcal{M}$ is the same matrix as in Eq. \eqref{eq:matrixM}, but using $f$ instead of $\tilde{f}$. $S$ has unique steady-state solutions if the real part of the eigenvalues of $\mathcal{M}$ are negative \cite{Purkayastha:2022}. We can therefore refer back to Eq. \eqref{eq:eigenvalueFirstMomenta} and Fig. \ref{fig:eigenvalueFirstMomenta} to see the stability of the system. In conjunction with Fig. \ref{fig:energyFeedbackRatio} and \ref{fig:energyFeedbackDifference} we can see that the system is stable in the region where we cool the system. Thus, it is not only possible to cool the system but the system is also stable. We can therefore see that this type of feedback mechanism is a valid way to cool a \gls{qho}.
