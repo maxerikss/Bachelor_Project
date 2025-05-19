@@ -134,7 +134,17 @@ which has eigenvalues
     \label{fig:eigenvalueFirstMomenta}
 \end{figure}
 
-Looking at Fig. \ref{fig:eigenvalueFirstMomenta} we can see that $\re{\varepsilon_- / \omega}$ is mostly negative while $\re{\varepsilon_+ / \omega§}$ is mostly positive for the parameters used in the region closest to the origin. The only part where both eigenvalues are negative is in top right region of the figures. That is, the region where $\im{\tilde{f}} > 0$ and $\re{\tilde{f}} \gtrapprox -0.7$. The reason for the approximation is that it is not an analytical result, but instead apparent from looking at panel \textbf{b}, where we can see that line where the eigenvalue is zero, and has a slant and is not vertical. It is important to remember that we can solve the dynamics of the system as exponentials with the eigenvalues, and some coefficients determined by the initial conditions. Thus, assuming the initial conditions are such that all coefficients are non-zero, if the real part of at least one of the eigenvalues is positive, the system will eventually diverge. That is, the system is not stable.
+Looking at Fig. \ref{fig:eigenvalueFirstMomenta} we can see that $\re{\varepsilon_- / \omega}$ is mostly negative while $\re{\varepsilon_+ / \omega§}$ is mostly positive for the parameters used in the region closest to the origin. The only part where both eigenvalues are negative is in top right region of the figures. That is, the region where $\im{\tilde{f}} > 0$ and $\re{\tilde{f}} \gtrapprox -0.7$. The reason for the approximation is that it is not an analytical result, but instead apparent from looking at panel \textbf{b}, where we can see that line where the eigenvalue is zero, and has a slant and is not vertical. 
+
+It is important to remember that we can solve the dynamics of the system as exponentials with the eigenvalues, and some coefficients determined by the initial conditions. For an equation on the form
+\begin{equation}
+    \dt \vec{x}(t) = \mathcal{A}\vec{x}(t),
+\end{equation}
+with a vector $\vec{x}$ and a diagonalizable matrix $\mathcal{A}$, we can write the solution as
+\begin{equation}
+    \vec{x}(t) = \sum_i c_i e^{\lambda_i t} \vec{u}_i,
+\end{equation}
+where $\lambda_i$ is the i'th eigenvalue, and $\vec{u}_i$ is the i'th eigenvector. It is apparent that in the case when $c_i \neq 0$ for all $i$, the eigenvalues $\lambda_i$, must have a negative real part for the system to be stable, as otherwise one of the terms in the sum would diverge. 
 
 Another thing to note is that the eigenvalues are complex to the right of the black parabola in the figure, and thus the solution will have oscillatory motion in this region.
 
@@ -195,7 +205,7 @@ If one tweaks the parameters used in Fig. \ref{fig:energyFeedbackRatio} the gene
 
 Using the parameters as in Fig. \ref{fig:energyFeedbackDifference} the energy without feedback is $\expval{\tilde{E}} \approx 20$ with the thermal part accounting for around $10$ of that. Looking at Fig. \ref{fig:energyFeedbackDifference} it is possible to see that even with a relatively low amount of feedback the system will be cooled to some degree. However, depending on how the feedback is applied it can also make the energy in the system diverge which can be seen for $\im{\tilde{f}} < 0$.
 
-Due to the uncertainty relation and the canonical commutation relation $\xop^2$, $\pop^2$, and $\acomm{\xop}{\pop}$ are not independent \cite{Simon:1994}. This has the consequence that the stability analysis cannot be done using $\mathcal{A}$ and $\mathcal{B}$. Instead, we rewrite $X$ as a quantum variance matrix \cite{Simon:1994}, and write Eqs. \eqref{eq:x2Feedback} to \eqref{eq:xpFeedback} as a Lyapunov equation
+Due to the uncertainty relation and the canonical commutation relation $\xop^2$, $\pop^2$, and $\acomm{\xop}{\pop}$ are not independent \cite{Simon:1994}. This has the consequence that the stability analysis cannot be performed with $\mathcal{A}$ and $\mathcal{B}$. Instead, we rewrite $X$ as a quantum variance matrix \cite{Simon:1994}, and write Eqs. \eqref{eq:x2Feedback} to \eqref{eq:xpFeedback} as a Lyapunov equation
 \begin{equation}
     \dt S = \mathcal{M} S + S \mathcal{M}^T  + \mathcal{C} = 0
 \end{equation}
@@ -213,4 +223,4 @@ where
         -\frac{\re{f} \im{f}}{4 \lambda \hbar} & \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 +\frac{m \omega \re{f}^2}{4 \lambda \hbar}
     \end{pmatrix},
 \end{align}
-and $\mathcal{M}$ is the same matrix as in Eq. \eqref{eq:matrixM}, but using $f$ instead of $\tilde{f}$. $S$ has unique steady-state solutions if the real part of the eigenvalues of $\mathcal{M}$ are negative \cite{Purkayastha:2022}. We can therefore refer back to Eq. \eqref{eq:eigenvalueFirstMomenta} and Fig. \ref{fig:eigenvalueFirstMomenta} to see the stability of the system. In conjunction with Fig. \ref{fig:energyFeedbackRatio} and \ref{fig:energyFeedbackDifference} we can see that the system is stable in the region where we cool the system. Thus, it is not only possible to cool the system but the system is also stable. We can therefore see that this type of feedback mechanism is a valid way to cool a \gls{qho}.
+and $\mathcal{M}$ is the same matrix as in Eq. \eqref{eq:matrixM}, but using $f$ instead of $\tilde{f}$. $S$ has unique steady-state solutions if the real part of the eigenvalues of $\mathcal{M}$ are negative \cite{Purkayastha:2022}. We can therefore refer back to Eq. \eqref{eq:eigenvalueFirstMomenta} and Fig. \ref{fig:eigenvalueFirstMomenta} to see the stability of the system. In conjunction with Fig. \ref{fig:energyFeedbackRatio} and \ref{fig:energyFeedbackDifference} we can see that the system is stable in the region where we cool the system. Thus, it is not only possible to cool the system, but the system is also stable. We can therefore see that this type of feedback mechanism is a valid way to cool a \gls{qho}.
