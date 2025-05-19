@@ -8,20 +8,20 @@ plt.rc('text.latex', preamble=r'\usepackage{amssymb}')
 plt.rcParams['text.usetex'] = True
 
 ## defining functions
-def eigenvaluePos(ref, imf, gamma):
+def eigenvaluePos(ref, imf, Q):
     root = np.emath.sqrt(imf**2 - 2*np.sqrt(2) * ref - 2)
-    return (1 / np.sqrt(2)) * (root - imf - gamma/np.sqrt(2))
+    return (1 / np.sqrt(2)) * (root - imf - 1/(Q*np.sqrt(2)))
 
-def eigenvalueNeg(ref, imf, gamma):
+def eigenvalueNeg(ref, imf, Q):
     root = np.emath.sqrt(imf**2 - 2*np.sqrt(2) * ref - 2)
-    return (1 / np.sqrt(2)) * (-root - imf - gamma/np.sqrt(2))
+    return (1 / np.sqrt(2)) * (-root - imf - 1/(Q*np.sqrt(2)))
 
 def parabolaRef(imf):
     quadratic = imf**2 /(2 * np.sqrt(2))
     return quadratic - 1 / np.sqrt(2)
 
 ## defiining constants
-gamma = 0.2
+Q = 10
 
 ## Plotting
 
@@ -31,11 +31,10 @@ fig.set_size_inches(7.27, 4)
 ref = np.linspace(-2, 2, 300)
 imf = np.linspace(-2, 2, 300)
 X, Y = np.meshgrid(ref, imf)
-ZNeg = np.real(eigenvalueNeg(X, Y, gamma))
-ZPos = np.real(eigenvaluePos(X, Y, gamma))
+ZNeg = np.real(eigenvalueNeg(X, Y, Q))
+ZPos = np.real(eigenvaluePos(X, Y, Q))
 parabola = parabolaRef(imf)
 
-slope = -gamma / 2 * imf - gamma**2 / (4* np.sqrt(2)) - 1/np.sqrt(2)
 
 N = 3
 levels = np.linspace(-N, N, 301)
@@ -52,13 +51,13 @@ cPos = axes[1].contourf(X, Y, ZPos, levels=levels, cmap='seismic', extend='both'
 cBar = fig.colorbar(cNeg, ax=axes, orientation='horizontal')
 
 ## setting labels
-axes[0].set_xlabel(r"$\mathfrak{R} \{ f \}$")
-axes[0].set_ylabel(r"$\mathfrak{I} \{ f \}$")
+axes[0].set_xlabel(r"$\mathfrak{R} \{ \tilde{f} \}$")
+axes[0].set_ylabel(r"$\mathfrak{I} \{ \tilde{f} \}$")
 
-axes[1].set_xlabel(r"$\mathfrak{R} \{ f \}$")
-axes[1].set_ylabel(r"$\mathfrak{I} \{ f \}$")
+axes[1].set_xlabel(r"$\mathfrak{R} \{ \tilde{f} \}$")
+axes[1].set_ylabel(r"$\mathfrak{I} \{ \tilde{f} \}$")
 
-cBar.set_label(r"$\mathfrak{R} \{\varepsilon_\pm \}$")
+cBar.set_label(r"$\mathfrak{R} \{\varepsilon_\pm / \omega \}$")
 cBar.set_ticks(np.linspace(-N, N, 9))
 
 axes[0].text(1.5, -1.5, r"\textbf{a}", fontsize=20)

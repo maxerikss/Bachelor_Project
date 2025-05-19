@@ -1,7 +1,7 @@
 \section{Theoretical Framework}
 In this section the theoretical framework needed is introduced. The Markovian master equations discussed are of interest and explain what types of approximations and assumptions are made about the model used in this thesis. 
 \subsection{Quantum Harmonic Oscillator} \label{sec:qho}
-The \gls{qho} is a quantum mechanical system useful for many applications. This stems from the fact that many systems can be approximated as harmonic, that is quadratic close to their equilibrium position, and since the QHO is a simple system, which is possible to solve analytically it is a good starting approximation. Let us start by assuming that a particle with mass $m$ is confined in a harmonic potential, then the system has the Hamiltonian
+The \gls{qho} is a quantum mechanical system useful for many applications. This stems from the fact that many systems can be approximated as harmonic, that is quadratic close to their equilibrium position, and since the \gls{qho} is a simple system, which is possible to solve analytically it is a good starting approximation. Let us start by assuming that a particle with mass $m$ is confined in a harmonic potential, then the system has the Hamiltonian
 \begin{equation}
     \hamiltonian = \frac{\pop^2}{2m} + \frac{1}{2}m\omega^2\xop^2 = \hbar\omega\left(\ad\a + \frac{1}{2}\right), \label{eq:hamiltonian}
 \end{equation}
@@ -14,7 +14,7 @@ These operators can be used to define the number operator $\hat{n} = \ad\a$ whic
     \a \ket{n} = \sqrt{n} \ket{n-1},\\
     \ad \ket{n} = \sqrt{n+1} \ket{n+1},
 \end{align}
-which means that they change the excitation level of the QHO \cite{Meystre:2021}.
+which means that they change the excitation level of the \gls{qho} \cite{Meystre:2021}.
 
 \subsection{Open Quantum Systems} \label{sec:open}
 Before introducing open quantum systems, we shortly introduce the language of density matrices. A density matrix describes an ensemble of states defined as 
@@ -48,17 +48,17 @@ where $\hamiltonian$ is the Hamiltonian of the system, and $\gamma_k$ are the de
 \end{equation}
 This compactness will be useful when considering other types of perturbing effects on the system such as measurements and feedback \cite{Annby-Andersson:2024}.
 
-In the case considered in this thesis with a QHO coupled to a thermal reservoir we can imagine that we have two types of Lindblad jump operators, one of which transfer energy into the system and one transfer energy out of the system \cite{Meystre:2021}. As mentioned in Sec. \ref{sec:qho} the ladder operators can be used to excite or deexcite a system. It is also reasonable to assume that the decay, or the energy flowing between the systems and the environment, is proportional to the thermal occupation $\nbar$ defined by
+In the case considered in this thesis with a \gls{qho} coupled to a thermal reservoir we can imagine that we have two types of Lindblad jump operators, one of which transfer energy into the system and one transfer energy out of the system \cite{Meystre:2021}. As mentioned in Sec. \ref{sec:qho} the ladder operators can be used to excite or deexcite a system. It is also reasonable to assume that the decay, or the energy flowing between the systems and the environment, is proportional to the thermal occupation $\nbar$ defined by
 \begin{equation}
     \nbar = \frac{1}{e^{\hbar\omega/ k_\mathrm{B}T} - 1},
 \end{equation}
-where $T$ is the temperature of the bath and $k_\mathrm{B}$ is the Boltzmann constant \cite{Meystre:2021}. If one starts from a microscopic point of view of a QHO coupled to a thermal bath, it is possible to show that the Lindblad jump operators become $\hat{L}_1 = \a$ and $\hat{L}_2 = \ad$ with coefficients $\gamma_1 = \gamma(\nbar + 1)$ and $\gamma_2 = \gamma \nbar$, wher $\gamma$ is a decay rate. We can also note that $\hat{L}_1$ and $\gamma_1$ refer to the spontaneous emission from the system to the environment while $\hat{L}_2$ refer to spontaneous absorption from the environment to the system, consistent with what we know about ladded operators from Sec. \ref{sec:qho} \cite{Meystre:2021}. Notably, for $T=0$, the thermal occupation is $\nbar = 0$ and the system will only exhibit emission and will decay.
+where $T$ is the temperature of the bath and $k_\mathrm{B}$ is the Boltzmann constant \cite{Meystre:2021}. If one starts from a microscopic point of view of a \gls{qho} coupled to a thermal bath, it is possible to show that the Lindblad jump operators become $\hat{L}_1 = \a$ and $\hat{L}_2 = \ad$ with coefficients $\gamma_1 = \gamma(\nbar + 1)$ and $\gamma_2 = \gamma \nbar$, wher $\gamma$ is a decay rate. We can also note that $\hat{L}_1$ and $\gamma_1$ refer to the spontaneous emission from the system to the environment while $\hat{L}_2$ refer to spontaneous absorption from the environment to the system, consistent with what we know about ladded operators from Sec. \ref{sec:qho} \cite{Meystre:2021}. Notably, for $T=0$, the thermal occupation is $\nbar = 0$ and the system will only exhibit emission and will decay.
 
 
 \subsection{Continuous Measurements}
-Measurement is a process which allow us to know the state of the system and has the consequence of introduces decoherence, and it is therefore interesting to look at its effects \cite{Jordan:2024}. The simplest view on measurements takes the form of von Neumann measurements. This type of measurement is described by a set of measurement operators which projects the system onto the eigenstates of the observable \cite{Annby-Andersson:2024}. This essentially means that all quantum information in the system is lost and full decoherence has happened. By generalizing the measurement theory one can derive what is called \gls{povm} \cite{Annby-Andersson:2024}.
+Measurement is a process which allow us to know the state of the system and has the consequence of introducing decoherence, and it is therefore interesting to look at its effects \cite{Jordan:2024}. The simplest view on measurements takes the form of von Neumann measurements. This type of measurement is described by a set of measurement operators which projects the system onto the eigenstates of the observable \cite{Annby-Andersson:2024}. This essentially means that all quantum information in the system is lost and full decoherence has happened. By generalizing the measurement theory one can derive what is called \gls{povm} \cite{Annby-Andersson:2024}.
 
-Since the POVM is not necessarily a projective von Neumann measurement all coherence need not be lost after the measurement. Thus, this opens up for the possibility of performing time-continuous weak measurement \cite{Annby-Andersson:2024}. To describe this type of POVM, we first consider a Gaussian measurement operator
+Since the \gls{povm} is not necessarily a projective von Neumann measurement all coherence need not be lost after the measurement. Thus, this opens up for the possibility of performing time-continuous weak measurement \cite{Annby-Andersson:2024}. To describe this type of \gls{povm}, we first consider a Gaussian measurement operator
 \begin{equation}
     \hat{K}(z) = \left(\frac{2 \bar{\lambda}}{\pi}\right)^{1/4} e^{-\bar{\lambda}(z - \hat{A})^2},
 \end{equation}
@@ -72,6 +72,7 @@ Then by discretizing the time interval to segments of $\dd t$ and defining $\bar
 \begin{equation}
     \dt\dmatrix = \liouvillian\dmatrix + \lambda \super{\hat{A}} \dmatrix. \label{eq:masterMeas}
 \end{equation}
+That is, we do not use the actual measurement outcome, but instead consider the system as affected when averaging over the measurement outcomes.
 
 \subsection{Feedback Control} \label{sec:feedback}
 Until this point we have only considered measurements where we omit the information about the measurement outcome. That is, we interact with the system and look at how it evolves due to this interaction on average, instead of looking at the specific outcome of any given measurement \cite{Annby-Andersson:2024}. However, now we want to consider feedback control of the system, and thus we will need to include the information about the measurement outcome \cite{Annby-Andersson:2024}. By feedback control we mean a process by which we manipulate the evolution of a system using a measurement outcome \cite{Wiseman:2009}. Since we are dealing specifically with quantum systems, we can further talk about quantum feedback control, where quantum mechanical effects play a role in the modelling of the feedback mechanism's effect on the system \cite{Wiseman:2009}. However, it is worth noting that the physical realization of the feedback mechanism does not necessarily need to be entirely quantum mechanical, but at least part of the mechanism need to incorporate quantum mechanics in its description \cite{Wiseman:2009}. An example of this could be a cavity where the feedback is moving one of the ends of the cavity, which is a mechanical process, the effect on the field inside the cavity however, need to be treated quantum mechanically.
@@ -96,4 +97,4 @@ Thus, for a real $f$, $\im{f} = 0$, we have $\hat{H}_\text{c} \propto \hat{x}$ a
 \begin{equation}
     \dt\dmatrix = \liouvillian\dmatrix + \lambda \super{\hat{A}} \dmatrix + \frac{1}{2} \feedback \acomm{\hat{A}}{\dmatrix} + \frac{1}{8\lambda} \feedback^2 \dmatrix, \label{eq:masterFeed}
 \end{equation}
-where the square on $\feedback$ means $ \feedback^2 \dmatrix = \feedback ( \feedback \dmatrix)$. The first additional term introduced is the drive arising from the feedback on the system, while the second term is attributed to the noise and fluctuations of the feedback \cite{Annby-Andersson:2024}. We can see that as the measurement strength, $\lambda \to \infty$, the noise term vanishes. However, this would also make the measurement term diverge and leave us with a von Neumann measurement.
+where the square on $\feedback$ means $ \feedback^2 \dmatrix = \feedback ( \feedback \dmatrix)$. This result is also not dependent on the measurement outcome but describes the system as one averages over all measurement outcomes. The first additional term introduced is the drive arising from the feedback on the system, while the second term is attributed to the noise and fluctuations of the feedback \cite{Annby-Andersson:2024}. We can see that as the measurement strength, $\lambda \to \infty$, the noise term vanishes. However, this would also make the measurement term diverge and leave us with a von Neumann measurement.
