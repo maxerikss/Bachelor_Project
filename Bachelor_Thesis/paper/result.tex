@@ -134,7 +134,7 @@ which has eigenvalues
     \label{fig:eigenvalueFirstMomenta}
 \end{figure}
 
-Looking at Fig. \ref{fig:eigenvalueFirstMomenta} we can see that $\re{\varepsilon_- / \omega}$ is mostly negative while $\re{\varepsilon_+ / \omega§}$ is mostly positive for the parameters used in the region closest to the origin. The only part where both eigenvalues are negative is in top right region of the figures. That is, the region where $\im{\tilde{f}} > 0$ and $\re{\tilde{f}} \gtrapprox -0.7$. The reason for the approximation is that it is not an analytical result, but instead apparent from looking at panel \textbf{b}, where we can see that line where the eigenvalue is zero, and has a slant and is not vertical. 
+Looking at Fig. \ref{fig:eigenvalueFirstMomenta} we can see that $\re{\varepsilon_- / \omega}$ is mostly negative while $\re{\varepsilon_+ / \omega§}$ is mostly positive for the parameters used in the region closest to the origin. The only part where both eigenvalues are negative is in top right region of the figures. That is, the region where $\im{\tilde{f}} > 0$ and $\re{\tilde{f}} \gtrapprox -0.7$. The reason for the approximation is that it is not an analytical result, but instead apparent from looking at panel \textbf{b}, where we can see that line where the eigenvalue is zero, and has a slant and is not vertical. Another thing to note is that the eigenvalues are complex to the right of the black parabola in the Fig. \ref{fig:eigenvalueFirstMomenta}, and thus the solution will have oscillatory motion in this region.
 
 It is important to remember that we can solve the dynamics of the system as exponentials with the eigenvalues, and some coefficients determined by the initial conditions. For a vector equation on the form
 \begin{equation}
@@ -146,7 +146,7 @@ with a vector $\vec{x}$ and a diagonalizable matrix $\mathcal{A}$, we can write 
 \end{equation}
 where $\lambda_i$ is the $i$'th eigenvalue, $\vec{u}_i$ is the $i$'th eigenvector, and $c_i$ is set by the initial conditions. It is apparent that in the case when $c_i \neq 0$ for all $i$, the eigenvalues $\lambda_i$, must have a negative real part for the system to be stable, as otherwise one of the terms in the sum would diverge. If $\mathcal{A}$ has degenerate eigenvalues, the solution would be a linear combination of $e^{\lambda t} $ and $t e^{\lambda t}$, however the real part of the eigenvalue still need to be negative for stability to be present.
 
-Another thing to note is that the eigenvalues are complex to the right of the black parabola in the figure, and thus the solution will have oscillatory motion in this region.
+
 
 Solving for the \gls{eom} for the second moments we obtain
 \begin{align}
