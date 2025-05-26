@@ -1,3 +1,5 @@
 .DS_Store
 output
 *.synctex.gz
+Presentation/*.svg
+Presentation/*.pdf

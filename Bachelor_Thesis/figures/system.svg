@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.92285814"
-     inkscape:cx="188.54469"
-     inkscape:cy="574.84458"
+     inkscape:zoom="1.0554146"
+     inkscape:cx="346.78315"
+     inkscape:cy="354.83686"
      inkscape:window-width="1440"
      inkscape:window-height="786"
      inkscape:window-x="0"
@@ -52,6 +52,12 @@
   </sodipodi:namedview>
   <defs
      id="defs1">
+    <rect
+       x="619.6617"
+       y="461.43004"
+       width="427.32023"
+       height="213.18637"
+       id="rect1" />
     <linearGradient
        id="swatch61"
        inkscape:swatch="solid">
@@ -392,7 +398,7 @@
        d="M 70.000002,115 H 85.000001 V 99.999997 H 70.000002 Z"
        id="path44"
        sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="system.pdf"
+       inkscape:export-filename="../../Presentation/system.svg"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96" />
     <path
@@ -519,15 +525,15 @@
          y="95" /></text>
     <text
        xml:space="preserve"
-       style="font-size:4.23333px;font-family:'Adobe Garamond Pro';-inkscape-font-specification:'Adobe Garamond Pro';text-align:center;text-anchor:middle;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+       style="font-size:4.23333px;font-family:'Adobe Garamond Pro';-inkscape-font-specification:'Adobe Garamond Pro Italic';text-align:center;text-anchor:middle;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke;font-weight:normal;font-style:italic;font-stretch:normal;font-variant:normal"
        x="80.36544"
        y="103.26154"
        id="text74"><tspan
          sodipodi:role="line"
          id="tspan74"
-         style="stroke-width:0.15"
+         style="stroke-width:0.15;-inkscape-font-specification:'Adobe Garamond Pro Italic';font-family:'Adobe Garamond Pro';font-weight:normal;font-style:italic;font-stretch:normal;font-variant:normal"
          x="80.36544"
-         y="103.26154">$z$</tspan></text>
+         y="103.26154">z</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.23333px;font-family:'Adobe Garamond Pro';-inkscape-font-specification:'Adobe Garamond Pro';text-align:center;text-anchor:middle;opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.15;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:0;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
@@ -550,5 +556,10 @@
          style="stroke-width:0.15"
          x="106.66448"
          y="101.77683">Feedback System</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text1"
+       style="-inkscape-font-specification:'Adobe Garamond Pro Italic';font-family:'Adobe Garamond Pro';font-size:18.66666667px;paint-order:fill markers stroke;fill:#000000;stroke-width:0.56692913;stroke-miterlimit:0;stroke-linejoin:round;text-align:justify;font-style:italic;font-weight:normal;font-stretch:normal;font-variant:normal;white-space:pre;shape-inside:url(#rect1)" />
   </g>
 </svg>
