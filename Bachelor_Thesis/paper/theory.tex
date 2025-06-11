@@ -36,9 +36,9 @@ where $\otimes$ is the tensor product, and derive a Markovian master equation. F
 \subsubsection{Master Equation}\label{sec:mastereq}
 The evolution of an open quantum system can be described by a master equation, which is a differential equation and generalization of the Schrödinger equation to involve open quantum systems instead of pure states \cite{Annby-Andersson:2024}. By introducing the superoperator
 \begin{equation}
-    \super{\hat{L}_k}\dmatrix = \hat{L}_k\dmatrix\hat{L}_k^{\dagger} - \frac{1}{2} \acomm{\hat{L}_k^\dagger \hat{L}_k}{\dmatrix},
+    \super{\hat{L}}\dmatrix = \hat{L}\dmatrix\hat{L}^{\dagger} - \frac{1}{2} \acomm{\hat{L}^\dagger \hat{L}}{\dmatrix},
 \end{equation} 
-where $\hat{L}_k$ are called Lindblad jump operators, the master equation on Lindblad form can be written as 
+where $\hat{L}$ is called a Lindblad jump operator, the master equation on Lindblad form can be written as 
 \begin{equation}
     \dt\dmatrix = -\frac{i}{\hbar}\comm{\hamiltonian}{\dmatrix} + \sum_k \gamma_k\super{\hat{L}_k}\dmatrix, \label{eq:lindbladNoLoui}
 \end{equation}
@@ -48,7 +48,7 @@ where $\hamiltonian$ is the Hamiltonian of the system, and $\gamma_k$ are the de
 \end{equation}
 This compactness will be useful when considering other types of perturbing effects on the system such as measurements and feedback \cite{Annby-Andersson:2024}.
 
-In the case considered in this thesis with a \gls{qho} coupled to a thermal reservoir we can imagine that we have two types of Lindblad jump operators, one of which transfer energy into the system and one transfer energy out of the system \cite{Meystre:2021}. As mentioned in Sec. \ref{sec:qho} the ladder operators can be used to excite or deexcite a system. It is also reasonable to assume that the decay, or the energy flowing between the systems and the environment, is proportional to the thermal occupation $\nbar$ defined by
+In the case considered in this thesis with a \gls{qho} coupled to a thermal reservoir we can imagine that we have two types of Lindblad jump operators, one of which transfers energy into the system and one transfers energy out of the system \cite{Meystre:2021}. As mentioned in Sec. \ref{sec:qho} the ladder operators can be used to excite or deexcite a system. Since an increased temperature indicates larger fluctuations, it is also reasonable to assume that the decay, or the energy flowing between the systems and the environment, is proportional to the thermal occupation $\nbar$,  defined by
 \begin{equation}
     \nbar = \frac{1}{e^{\hbar\omega/ k_\mathrm{B}T} - 1},
 \end{equation}
@@ -75,7 +75,7 @@ Then by discretizing the time interval to segments of $\dd t$ and defining $\bar
 That is, we do not use the actual measurement outcome, but instead consider the system as affected when averaging over the measurement outcomes.
 
 \subsection{Feedback Control} \label{sec:feedback}
-Until this point we have only considered measurements where we omit the information about the measurement outcome. That is, we interact with the system and look at how it evolves due to this interaction on average, instead of looking at the specific outcome of any given measurement \cite{Annby-Andersson:2024}. However, now we want to consider feedback control of the system, and thus we will need to include the information about the measurement outcome \cite{Annby-Andersson:2024}. By feedback control we mean a process by which we manipulate the evolution of a system using a measurement outcome \cite{Wiseman:2009}. Since we are dealing specifically with quantum systems, we can further talk about quantum feedback control, where quantum mechanical effects play a role in the modelling of the feedback mechanism's effect on the system \cite{Wiseman:2009}. However, it is worth noting that the physical realization of the feedback mechanism does not necessarily need to be entirely quantum mechanical, but at least part of the mechanism need to incorporate quantum mechanics in its description \cite{Wiseman:2009}. An example of this could be a cavity where the feedback is moving one of the ends of the cavity, which is a mechanical process, the effect on the field inside the cavity however, need to be treated quantum mechanically.
+Until this point we have only considered measurements where we omit the information about the measurement outcome. That is, we interact with the system and look at how it evolves due to this interaction on average, instead of looking at the specific outcome of any given measurement \cite{Annby-Andersson:2024}. However, now we want to consider feedback control of the system, and thus we will need to include the information about the measurement outcome \cite{Annby-Andersson:2024}. By feedback control we mean a process by which we manipulate the evolution of a system using a measurement outcome \cite{Wiseman:2009}. Since we are dealing specifically with quantum systems, we can further talk about quantum feedback control, where quantum mechanical effects play a role in the modelling of the feedback mechanism's effect on the system \cite{Wiseman:2009}. However, it is worth noting that the physical realization of the feedback mechanism does not necessarily need to be entirely quantum mechanical, but at least part of the mechanism needs to incorporate quantum mechanics in its description \cite{Wiseman:2009}. An example of this could be a cavity where the feedback is moving one of the ends of the cavity, which is a mechanical process, the effect on the field inside the cavity however, need to be treated quantum mechanically.
 
 In this thesis, for a measurement outcome $z$ we will consider a linear feedback modification of $\liouvillian$ such that 
 \begin{equation}

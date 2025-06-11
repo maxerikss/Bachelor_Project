@@ -44,7 +44,7 @@ The eigenvalues of $\mathcal{M}$ are
     \varepsilon_1 &= -\frac{\gamma}{2} - i\omega,\\
     \varepsilon_2 &= -\frac{\gamma}{2} + i\omega.
 \end{align}
-Since the real part of the eigenvalues are negative the system is stable. This is because we can write the time-dependant solutions of the dynamical equations as an exponential with the eigenvalues while the coefficients are chosen by the initial condition, the value of the eigenvalues will determine the behaviour of the system. The consequence of the real part of the eigenvalue being negative is that it will make the function decay with time and is thus considered stable. If both eigenvalues are negative the system will decay no matter what the initial conditions are since both terms in the solution will decay. Positive eigenvalues on the other hand will correspond to the system growing with time and will thus be unstable. When one of the eigenvalues is positive and the other is negative the stability of the system will be determined by the initial conditions. That is, the initial condition will determine which eigenvalue will dominate the solution.
+Since the real part of the eigenvalues are negative the system is stable. This is because we can write the time-dependent solutions of the dynamical equations as an exponential with the eigenvalues while the coefficients are chosen by the initial condition, the value of the eigenvalues will determine the behaviour of the system. The consequence of the real part of the eigenvalue being negative is that it will make the function decay with time and is thus considered stable. If both eigenvalues are negative the system will decay no matter what the initial conditions are since both terms in the solution will decay. Positive eigenvalues on the other hand will correspond to the system growing with time and will thus be unstable. When one of the eigenvalues is positive and the other is negative the stability of the system will be determined by the initial conditions. That is, the initial condition will determine which eigenvalue will dominate the solution.
 
 We now solve the \gls{eom} for the second moments using the same method of inserting the master equation, derived from
 \begin{align}
@@ -52,7 +52,7 @@ We now solve the \gls{eom} for the second moments using the same method of inser
     \dt\expval{\pop^2} &= \tr(\pop^2 \dt \dmatrix)\label{eq:p2},\\
     \dt\expval{\acomm{\xop}{\pop}} &= \tr(\acomm{\xop}{\pop} \dt \dmatrix). \label{eq:xp}
 \end{align}
-The choice of looking at the second moments has to do with their relation to the variance and thus the fluctuations of the system. These fluctuations are then related to the energy contained in the oscillator, as the expectation value of the Hamiltonian. When looking at feedback control one application is to minimize the energy in the oscillator and, which is thus also an argument for looking at the second moments. Inserting the quantum master equation in Eq. \eqref{eq:masterMeas} and solving Eqs. \eqref{eq:x2} to \eqref{eq:xp} yields the following \gls{eom}
+The choice of looking at the second moments has to do with their relation to the variance and thus the fluctuations of the system. These fluctuations are then related to the energy contained in the oscillator, as the expectation value of the Hamiltonian. When looking at feedback control one application is to minimize the energy in the oscillator which is thus also an argument for looking at the second moments. Inserting the quantum master equation in Eq. \eqref{eq:masterMeas} and solving Eqs. \eqref{eq:x2} to \eqref{eq:xp} yields the following \gls{eom}
 \begin{align}
     \dt\expval{\xop^2} &= - \gamma \expval{\xop^2} - \frac{1}{m}\expval{\acomm{\xop}{\pop}} + \frac{\gamma \hbar}{m\omega}(\nbar + 1/2),\\
     \dt\expval{\pop^2} &= -\gamma \expval{\pop^2} + m\omega^2 \expval{\acomm{\xop}{\pop}} + \gamma m \omega\hbar (\nbar + 1/2) + \lambda \hbar^2,\\
@@ -79,7 +79,7 @@ To simplify plotting we might perform the change of variable
 
 \input{figures/steady_state_plots.tex}
 
-Looking at panels \textbf{a} and \textbf{b} in Fig. \ref{fig:steady_state} one can see that a stronger measurement correlates to the system's steady state increasing in energy, as does it for an increasing quality factor. Both also affect the system linearly. Thus, by continuously measuring the system we add energy into it, which make the steady state higher in energy than what the thermal effects from the bath would otherwise place it. That is, if we do not perform any measurement the system would be stable at around $\nbar + 1/2$ which for the parameters used here would give $E_\text{ss} \approx 10\hbar\omega$.
+Looking at panels \textbf{a} and \textbf{b} in Fig. \ref{fig:steady_state} one can see that a stronger measurement correlates to the system's steady state increasing in energy, as does it for an increasing quality factor. Both also affect the system linearly. Thus, by continuously measuring the system we add energy into it, which makes the steady state higher in energy than what the thermal effects from the bath would otherwise place it. That is, if we do not perform any measurement the system would be stable at around $\nbar + 1/2$ which for the parameters used here would give $E_\text{ss} \approx 10\hbar\omega$.
 
 In panels \textbf{d} and \textbf{f} we can see that there is some non-linear behaviour near $Q = 0$. However, due to the approximations made in Sec. \ref{sec:open} we cannot trust the results in the region of a low quality factor. This is because this regime has a relatively high coupling to the environment, and thus the excitations in the environment might not decay fast enough and therefore affect the oscillator. Panels \textbf{c} and \textbf{e} show the linear dependence on $\Lambda$ for the second moments.
 
@@ -107,7 +107,7 @@ by choosing $f$ such that
 \begin{equation}
     \re{f} = - \sqrt{\frac{m \omega^3 \hbar}{2}} \quad \text{and} \quad \im{f} = -\frac{\gamma\sqrt{m\omega\hbar}}{2\sqrt{2}} \label{eq:reFimF_toZero},
 \end{equation}
-which has a steady-state solution for $\expval{\pop} = 0$ and any $\expval{\xop}$. We find the eigenvalues for this choice of $f$ to be $\varepsilon_- = -\gamma /2$ and $\varepsilon_+ = 0$. This choice of $f$ removes all the oscillatory behaviour from the system, which can be seen by the eigenvalues being real. This puts it in the region of being overdamped by the choice of $f$. Since one of the eigenvalues are zero, the system is also  one dimensional, which is reasonable as the choice of $f$ is such that the first moments' dynamics are independent of the position average.
+which has a steady-state solution for $\expval{\pop} = 0$ and any $\expval{\xop}$. We find the eigenvalues for this choice of $f$ to be $\varepsilon_- = -\gamma /2$ and $\varepsilon_+ = 0$. This choice of $f$ removes all the oscillatory behaviour from the system, which can be seen by the eigenvalues being real. This puts it in the region of being overdamped by the choice of $f$. Since one of the eigenvalues is zero, the system is also one dimensional, which is reasonable as the choice of $f$ is such that the first moments' dynamics are independent of the position average.
 
 To check for stability of the first moments, we first perform the change of variable
 \begin{equation}
@@ -150,11 +150,11 @@ where $\lambda_i$ is the $i$'th eigenvalue, $\vec{u}_i$ is the $i$'th eigenvecto
 
 Solving for the \gls{eom} for the second moments we obtain
 \begin{align}
-    \dt \expval{x^2} &= -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) \expval{x^2} - \frac{1}{m} \expval{\acomm{x}{p}} + \frac{\gamma \hbar}{m \omega} (\nbar + 1/2) \nonumber\label{eq:x2Feedback} \\
+    \dt \expval{\xop^2} &= -\left(\gamma + \frac{4\im{f}}{\sqrt{2 m \omega \hbar}}\right) \expval{\xop^2} - \frac{1}{m} \expval{\acomm{\xop}{\pop}} + \frac{\gamma \hbar}{m \omega} (\nbar + 1/2) \nonumber\label{eq:x2Feedback} \\
     &\qquad - \frac{1}{4\lambda m \omega \hbar} \re{f}^2,\\
-    \dt \expval{p^2} &=  -\gamma \expval{p^2} + \left( m\omega^2 + \re{f} \sqrt{\frac{2m \omega}{\hbar}} \right)\expval{\acomm{x}{p}} + \gamma m \omega \hbar (\nbar + 1/2) \nonumber \\
+    \dt \expval{\pop^2} &=  -\gamma \expval{\pop^2} + \left( m\omega^2 + \re{f} \sqrt{\frac{2m \omega}{\hbar}} \right)\expval{\acomm{\xop}{\pop}} + \gamma m \omega \hbar (\nbar + 1/2) \nonumber \\
     &\qquad+ \lambda \hbar^2 + \frac{m \omega}{4 \lambda \hbar}\re{f}^2,\label{eq:p2Feedback} \\
-    \dt \expval{\acomm{x}{p}} &= -\left(\gamma + \frac{2\im{f}}{\sqrt{2m \omega \hbar}}  \right)\expval{\acomm{x}{p}} + \left(2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} \right) \expval{x^2} - \frac{2}{m} \expval{p^2}\nonumber\\ 
+    \dt \expval{\acomm{\xop}{p}} &= -\left(\gamma + \frac{2\im{f}}{\sqrt{2m \omega \hbar}}  \right)\expval{\acomm{\xop}{\pop}} + \left(2 m \omega^2 + 2 \sqrt{\frac{2 m \omega}{\hbar}}\re{f} \right) \expval{\xop^2} - \frac{2}{m} \expval{\pop^2}\nonumber\\ 
     &\qquad - \frac{\re{f} \im{f}}{2 \lambda \hbar}.\label{eq:xpFeedback}
 \end{align}
 We can solve for the steady state by first rewriting the system of equations to a matrix equation $\dt X = \mathcal{A} X + \mathcal{B}$ where
@@ -223,4 +223,4 @@ where
         -\frac{\re{f} \im{f}}{4 \lambda \hbar} & \gamma m \omega \hbar (\nbar + 1/2) + \lambda \hbar^2 +\frac{m \omega \re{f}^2}{4 \lambda \hbar}
     \end{pmatrix},
 \end{align}
-and $\mathcal{M}$ is the same matrix as in Eq. \eqref{eq:matrixM}, but using $f$ instead of $\tilde{f}$. $S$ has unique steady-state solutions if the real part of the eigenvalues of $\mathcal{M}$ are negative \cite{Purkayastha:2022}. We can therefore refer back to Eq. \eqref{eq:eigenvalueFirstMomenta} and Fig. \ref{fig:eigenvalueFirstMomenta} to see the stability of the system. In conjunction with Fig. \ref{fig:energyFeedbackRatio} and \ref{fig:energyFeedbackDifference} we can see that the system is stable in the region where we cool the system. Thus, it is not only possible to cool the system, but the system is also stable. We can therefore see that this type of feedback mechanism is a valid way to cool a \gls{qho}.
+and $\mathcal{M}$ is the same matrix as in Eq. \eqref{eq:matrixM}, but using $f$ instead of $\tilde{f}$. $S$ has a unique steady-state solution if the real part of the eigenvalues of $\mathcal{M}$ are negative \cite{Purkayastha:2022}. We can therefore refer back to Eq. \eqref{eq:eigenvalueFirstMomenta} and Fig. \ref{fig:eigenvalueFirstMomenta} to see the stability of the system. In conjunction with Fig. \ref{fig:energyFeedbackRatio} and \ref{fig:energyFeedbackDifference} we can see that the system is stable in the region where we cool the system. Thus, it is not only possible to cool the system, but the system is also stable. We can therefore see that this type of feedback mechanism is a valid way to cool a \gls{qho}.
